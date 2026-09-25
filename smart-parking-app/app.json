@@ -34,9 +34,6 @@
         "android.permission.ACCESS_FINE_LOCATION"
       ],
       "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyDummyKeyToPreventCrash1234567890"
-        }
       }
     },
     "web": {
