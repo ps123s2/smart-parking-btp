@@ -6,6 +6,7 @@
  * via props to all screens. This prevents duplicate Firebase listeners
  * and GPS watchers from being created on every tab switch.
  */
+import 'react-native-gesture-handler';
 import React, { useState, useEffect, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
