@@ -9,7 +9,7 @@
 
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
-import MapView, { Marker, Polyline, Polygon, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { Marker, Polyline, Polygon, PROVIDER_DEFAULT, UrlTile } from 'react-native-maps';
 import Svg, { Circle } from 'react-native-svg';
 import { Ionicons } from '@expo/vector-icons';
 import { SlotInfo, ParkingData, buildRouteToSlot } from '../../types/parking';
@@ -116,6 +116,11 @@ export function ParkingMap({
         showsBuildings={true}
         mapType="standard"
       >
+        <UrlTile
+          urlTemplate="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          maximumZ={19}
+          flipY={false}
+        />
         {/* ═══════ DXF MAP OVERLAY — Buildings ═══════ */}
         {overlay?.buildings.map((bldg, i) => (
           <Polygon
