@@ -32,7 +32,12 @@
         "ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
-      ]
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDummyKeyToPreventCrash1234567890"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
