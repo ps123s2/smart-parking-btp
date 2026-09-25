@@ -114,12 +114,13 @@ export function ParkingMap({
         showsMyLocationButton={true}
         showsCompass={true}
         showsBuildings={true}
-        mapType="standard"
+        mapType="none"
       >
         <UrlTile
-          urlTemplate="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          urlTemplate="https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
           maximumZ={19}
           flipY={false}
+          zIndex={-1}
         />
         {/* ═══════ DXF MAP OVERLAY — Buildings ═══════ */}
         {overlay?.buildings.map((bldg, i) => (
