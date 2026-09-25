@@ -8,7 +8,7 @@ import { UserInfo } from '../types/parking';
 // For Expo Go development on iOS simulator or Android emulator, you can use your computer's IP.
 // For standalone production deployments (APK/IPA), you MUST replace this with your hosted Python server URL (e.g. Render, Heroku).
 // Example: const API_BASE = 'https://smart-parking-backend.onrender.com';
-const API_BASE = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5000';
+const API_BASE = process.env.EXPO_PUBLIC_API_URL || 'https://smart-parking-btp.onrender.com';
 
 async function request<T>(
   endpoint: string,
