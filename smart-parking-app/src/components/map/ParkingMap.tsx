@@ -114,13 +114,19 @@ export function ParkingMap({
         showsMyLocationButton={true}
         showsCompass={true}
         showsBuildings={true}
-        mapType="none"
+        mapType="standard"
       >
-        <UrlTile
-          urlTemplate="https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
-          maximumZ={19}
-          flipY={false}
-          zIndex={-1}
+        {/* Giant dark background polygon to act as the map base since Google Tiles fail without billing */}
+        <Polygon
+          coordinates={[
+            { latitude: entry.latitude + 0.1, longitude: entry.longitude - 0.1 },
+            { latitude: entry.latitude + 0.1, longitude: entry.longitude + 0.1 },
+            { latitude: entry.latitude - 0.1, longitude: entry.longitude + 0.1 },
+            { latitude: entry.latitude - 0.1, longitude: entry.longitude - 0.1 },
+          ]}
+          fillColor="#0f172a"
+          strokeWidth={0}
+          zIndex={-10}
         />
         {/* ═══════ DXF MAP OVERLAY — Buildings ═══════ */}
         {overlay?.buildings.map((bldg, i) => (
