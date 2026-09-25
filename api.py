@@ -262,7 +262,7 @@ def add_co2_saved():
 
 @app.route("/api/parking/update", methods=["POST"])
 def update_sensor_data():
-    """Receive real-time sensor data from Arduino/ESP32 and update Firebase"""
+    """Receive real-time sensor data from Arduino/ESP32"""
     try:
         data = request.get_json()
         slot_id = data.get("slot_id", "slot1")
@@ -276,23 +276,8 @@ def update_sensor_data():
         # Log sensor update
         print(f"📡 Sensor Update - {slot_id}: {distance:.1f}cm → {'🚗 OCCUPIED' if occupied else '✓ AVAILABLE'}")
         
-        # Write to Firebase: update the states array
-        try:
-            slot_index = int(slot_id.replace("slot", "")) - 1
-            states = get_parking_states(FIREBASE_URL)
-            if states and 0 <= slot_index < len(states):
-                states[slot_index] = 1 if occupied else 0
-                # Write updated states back to Firebase
-                import requests as req
-                base_url = FIREBASE_URL.replace("/data.json", "")
-                req.patch(
-                    f"{base_url}/data.json",
-                    json={"states": states},
-                    timeout=5,
-                )
-                print(f"   ✅ Firebase updated: states = {states}")
-        except Exception as fb_err:
-            print(f"   ⚠️ Firebase write failed: {fb_err}")
+        # You can add Firebase write here if needed
+        # firebase_service.update_slot_status(FIREBASE_URL, slot_id, occupied, distance)
         
         return jsonify({
             "success": True,

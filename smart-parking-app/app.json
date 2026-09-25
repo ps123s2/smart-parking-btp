@@ -32,18 +32,14 @@
         "ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
-      ],
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyDummyKeyToPreventCrash1234567890"
-        }
-      }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font",
+      "expo-router",
       [
         "expo-location",
         {
@@ -62,9 +58,13 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "6b60db1d-e4cc-46b3-9a7e-e906a2a6aaea"
+        "projectId": "d2416692-2741-43c3-b8bf-a1ef798bdf46"
       }
-    },
-    "owner": "peter_02"
+    }
   }
+}
+}
+},
+"owner": "peter_02"
+}
 }
