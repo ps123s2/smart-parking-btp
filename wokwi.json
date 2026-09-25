@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "author": "Smart Parking Team",
+  "title": "Smart Parking - Ultrasonic Sensor Simulator",
+  "description": "ESP32 with ultrasonic sensor reading distance and updating Firebase Realtime DB",
+  "diagram": {
+    "v": 2,
+    "head": {
+      "meta": [
+        {
+          "name": "viewport",
+          "content": "width=device-width, initial-scale=1"
+        }
+      ],
+      "title": "Smart Parking Sensor Simulator",
+      "description": "Ultrasonic sensor connected to ESP32"
+    },
+    "cells": [
+      {
+        "type": "wokwi-esp32-devkit-v1",
+        "id": "esp",
+        "title": "ESP32 DevKit",
+        "x": 0,
+        "y": 0,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-hc-sr04",
+        "id": "ultrasonic",
+        "title": "HC-SR04 Ultrasonic Sensor",
+        "x": 200,
+        "y": 0,
+        "attrs": {}
+      }
+    ],
+    "connectors": [
+      {
+        "from": {
+          "id": "esp",
+          "pin": "D5"
+        },
+        "to": {
+          "id": "ultrasonic",
+          "pin": "TRIG"
+        }
+      },
+      {
+        "from": {
+          "id": "esp",
+          "pin": "D18"
+        },
+        "to": {
+          "id": "ultrasonic",
+          "pin": "ECHO"
+        }
+      },
+      {
+        "from": {
+          "id": "esp",
+          "pin": "GND"
+        },
+        "to": {
+          "id": "ultrasonic",
+          "pin": "GND"
+        }
+      },
+      {
+        "from": {
+          "id": "esp",
+          "pin": "3V3"
+        },
+        "to": {
+          "id": "ultrasonic",
+          "pin": "VCC"
+        }
+      }
+    ]
+  }
+}

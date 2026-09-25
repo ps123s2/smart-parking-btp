@@ -1,0 +1,55 @@
+# Dependency directories
+node_modules/
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+share/
+
+# Python caching & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Local databases & test credentials
+users.json
+test_parking_data.json
+
+# Expo / React Native
+smart-parking-app/.expo/
+smart-parking-app/dist/
+smart-parking-app/web-build/
+smart-parking-app/expo-env.d.ts
+smart-parking-app/.kotlin/
+smart-parking-app/*.orig.*
+smart-parking-app/*.jks
+smart-parking-app/*.p8
+smart-parking-app/*.p12
+smart-parking-app/*.key
+smart-parking-app/*.mobileprovision
+smart-parking-app/.metro-health-check*
+smart-parking-app/ios/
+smart-parking-app/android/
+
+# Secrets & Environment variables
+.env
+.env*.local
+*.pem
+jwt_secret*
+firebase_credentials.json
+firebase_key.json
+serviceAccountKey.json
+
+# Build & OS files
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+npm-debug.*
+yarn-debug.*
+yarn-error.*
