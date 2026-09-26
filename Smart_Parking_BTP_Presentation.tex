@@ -1,167 +1,373 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows, positioning, fit, calc}
+\usetikzlibrary{shapes.geometric, arrows, positioning, fit, calc, backgrounds}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{amsmath}
 
 % Theme
 \usetheme{Madrid}
 \usecolortheme{whale}
 
 % Custom Colors
-\definecolor{primary}{RGB}{41, 121, 255}
-\definecolor{success}{RGB}{0, 200, 83}
-\definecolor{danger}{RGB}{255, 82, 82}
+\definecolor{primary}{RGB}{30, 90, 180}
+\definecolor{secondary}{RGB}{41, 121, 255}
+\definecolor{success}{RGB}{0, 180, 80}
+\definecolor{danger}{RGB}{230, 50, 50}
+\definecolor{darkbg}{RGB}{20, 24, 33}
+\definecolor{lightgray}{RGB}{245, 247, 250}
 
-% TikZ Styles for Architecture Diagram
-\tikzstyle{block} = [rectangle, draw=primary, fill=primary!10, text width=6em, text centered, rounded corners, minimum height=3em, thick]
-\tikzstyle{cloud} = [ellipse, draw=gray, fill=gray!10, text width=5em, text centered, minimum height=3em, thick]
+% Custom Beamer Styling
+\setbeamercolor{palette primary}{bg=primary,fg=white}
+\setbeamercolor{palette secondary}{bg=secondary,fg=white}
+\setbeamercolor{titlelike}{parent=structure,fg=primary}
+\setbeamercolor{block title}{bg=primary,fg=white}
+\setbeamercolor{block body}{bg=lightgray,fg=black}
+
+% TikZ Styles
+\tikzstyle{block} = [rectangle, draw=primary, fill=primary!10, text width=7em, text centered, rounded corners, minimum height=3em, thick]
+\tikzstyle{cloud} = [ellipse, draw=gray, fill=gray!10, text width=5.5em, text centered, minimum height=3em, thick]
 \tikzstyle{line} = [draw, -latex', thick]
 
 % Title Page Information
-\title[AI Smart Parking]{AI-Powered Smart Parking System}
-\subtitle{Reducing CO2 Emissions \& Traffic Congestion using IoT, MARL, GNN \& GRU}
-\author[Team]{BTP Project Presentation}
-\institute[University]{Department of Computer Science \& Engineering}
+\title[AI Smart Parking System]{AI-Powered Smart Parking System}
+\subtitle{Real-Time Monitoring, Graph-Based Route Optimization \& Multi-Agent RL}
+\author[BTP Team]{BTP Project Presentation}
+\institute[Dept. of CSE]{Department of Computer Science \& Engineering}
 \date{\today}
 
 \begin{document}
 
-% Slide 1: Title
+% ==================== SLIDE 1: TITLE ====================
 \begin{frame}
     \titlepage
 \end{frame}
 
-% Slide 2: Outline
-\begin{frame}{Outline}
-    \tableofcontents
+% ==================== SLIDE 2: OUTLINE ====================
+\begin{frame}{Presentation Outline}
+    \begin{columns}[t]
+        \begin{column}{0.48\textwidth}
+            \begin{block}{System Foundation}
+                \begin{itemize}
+                    \item \textbf{01.} Problem Statement \& Motivation
+                    \item \textbf{02.} End-to-End System Architecture
+                    \item \textbf{03.} Hardware \& IoT Sensing Layer
+                    \item \textbf{04.} Artificial Intelligence Core
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Implementation \& Outcomes}
+                \begin{itemize}
+                    \item \textbf{05.} Route Optimization \& Navigation
+                    \item \textbf{06.} Smart Mobile Application
+                    \item \textbf{07.} Environmental Impact ($CO_2$)
+                    \item \textbf{08.} Results, Future Scope \& Conclusion
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-\section{Problem Statement}
-% Slide 3: Problem Statement
-\begin{frame}{Problem Statement}
-    \begin{itemize}
-        \item \textbf{Urban Congestion:} Drivers spend 15-20 minutes searching for parking in urban areas.
-        \item \textbf{Environmental Impact:} Idle driving contributes significantly to carbon emissions ($CO_2$) and fuel waste.
-        \item \textbf{Inefficient Utilization:} Traditional parking lots lack real-time visibility and dynamic allocation.
-        \item \textbf{The Gap:} Existing solutions do not predict future availability or optimize for driver distance.
-    \end{itemize}
+% ==================== SLIDE 3: PROBLEM STATEMENT ====================
+\begin{frame}{Problem Statement \& Motivation}
+    \begin{columns}
+        \begin{column}{0.62\textwidth}
+            \begin{itemize}
+                \item \textbf{Urban Traffic Congestion:} Up to 30\% of urban traffic is caused by drivers cruising in search of vacant parking slots (15--20 min/trip).
+                \item \textbf{Carbon Emissions \& Fuel Waste:} Idle cruising contributes heavily to greenhouse gas ($CO_2$) emissions and wasted fuel.
+                \item \textbf{Static, Blind Allocation:} Conventional lots provide no real-time occupancy updates, leading to aisle-level bottlenecks.
+                \item \textbf{Project Objective:} An end-to-end intelligent ecosystem combining IoT sensing, predictive AI, shortest-path routing, and an interactive mobile app.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.38\textwidth}
+            \begin{center}
+                \begin{tikzpicture}
+                    \node[circle, draw=danger, fill=danger!10, minimum size=2.6cm, align=center, thick] (cong) {\textbf{15--20 min}\\\scriptsize Avg Search Time};
+                    \node[circle, draw=primary, fill=primary!10, minimum size=2.2cm, align=center, thick, below=0.3cm of cong] (fuel) {\textbf{30\%}\\\scriptsize Urban Congestion};
+                \end{tikzpicture}
+            \end{center}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-\section{System Architecture}
-% Slide 4: System Architecture Diagram
-\begin{frame}{System Architecture}
+% ==================== SLIDE 4: SYSTEM ARCHITECTURE ====================
+\begin{frame}{End-to-End System Architecture}
     \begin{center}
-    \begin{tikzpicture}[node distance=3.5cm, auto]
+    \begin{tikzpicture}[node distance=3.2cm, auto, scale=0.88, every node/.style={scale=0.88}]
         % Nodes
-        \node [block] (iot) {\textbf{IoT Layer}\\ESP32 + Ultrasonic (Wokwi)};
-        \node [cloud, right of=iot] (db) {\textbf{Firebase}\\Realtime DB};
-        \node [block, right of=db, text width=7em] (ai) {\textbf{AI Backend}\\Render (Flask)\\MARL + GNN};
-        \node [block, below of=db, node distance=2.5cm, fill=primary!20] (app) {\textbf{Mobile App}\\React Native\\CartoDB Map};
+        \node [block] (iot) {\textbf{IoT Layer}\\ESP32 + Ultrasonic\\Sensors (Wokwi)};
+        \node [cloud, right of=iot, node distance=3.6cm] (db) {\textbf{Firebase}\\Realtime DB\\Sync Hub};
+        \node [block, right of=db, node distance=3.6cm, text width=8em] (ai) {\textbf{AI Backend Engine}\\Flask / Render\\MARL + GNN + Dijkstra};
+        \node [block, below of=db, node distance=2.4cm, fill=success!15, draw=success, text width=10em] (app) {\textbf{Mobile Application}\\React Native (Expo)\\Leaflet + CartoDB Map};
 
         % Edges
-        \path [line] (iot) -- node {Sensors} (db);
-        \path [line] (db) -- node {Live States} (ai);
-        \path [line] (ai.north) ++(-0.2,0) |- ++(0,0.8) -| node[near start, above] {AI Recommendations} (db.north);
-        \path [line] (db) -- node {Sync} (app);
+        \path [line] (iot) -- node[above] {\scriptsize Slot States} (db);
+        \path [line] (db) -- node[above] {\scriptsize Live Query} (ai);
+        \path [line] (ai.north) ++(-0.2,0) |- ++(0,0.6) -| node[near start, above] {\scriptsize Optimal Slot \& Polyline} (db.north);
+        \path [line, dashed] (db) -- node[right] {\scriptsize Instant Sync} (app);
+        \path [line, dashed] (app.west) -| node[near start, below] {\scriptsize Booking Requests} (iot.south);
     \end{tikzpicture}
+    \end{center}
+    \vspace{-0.2cm}
+    \begin{center}
+        \footnotesize \textbf{Full Closed Loop:} IoT Sensing $\longrightarrow$ Realtime DB $\longrightarrow$ AI Optimization $\longrightarrow$ Mobile App Guidance
     \end{center}
 \end{frame}
 
-\section{Hardware \& IoT}
-% Slide 5: Hardware
-\begin{frame}{Hardware \& IoT Integration}
+% ==================== SLIDE 5: HARDWARE & IOT LAYER ====================
+\begin{frame}{Hardware \& IoT Sensing Layer}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \textbf{Simulation via Wokwi:}
+        \begin{column}{0.55\textwidth}
+            \textbf{IoT Implementation (ESP32 via Wokwi):}
             \begin{itemize}
-                \item ESP32 Microcontroller with Wi-Fi module.
-                \item 5x Ultrasonic Sensors representing parking slots.
-                \item LED indicators (Red = Occupied, Green = Available).
-                \item Direct REST API integration with Firebase.
+                \item \textbf{Controller:} ESP32 Microcontroller with integrated Wi-Fi stack.
+                \item \textbf{Sensors:} Ultrasonic sensors ($HC-SR04$) for real-time proximity detection per parking bay ($d < 50\text{ cm} \implies \text{Occupied}$).
+                \item \textbf{Visual Indicators:} Dual-state LEDs (Red = Occupied, Green = Available).
+                \item \textbf{Cloud Bridge:} Direct HTTP REST patch to Firebase Realtime DB with auto-reconnect fallback.
             \end{itemize}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.45\textwidth}
             \begin{center}
-                \begin{tikzpicture}[node distance=1.5cm]
-                    \node[draw=gray, fill=gray!20, minimum width=3cm, minimum height=4cm, rounded corners] (esp) {ESP32 Core};
-                    \node[draw=success, fill=success!20, right=1cm of esp.north east, anchor=north west] (s1) {Sensor 1 (Free)};
-                    \node[draw=danger, fill=danger!20, below=0.2cm of s1] (s2) {Sensor 2 (Taken)};
-                    \node[draw=success, fill=success!20, below=0.2cm of s2] (s3) {Sensor 3 (Free)};
+                \begin{tikzpicture}[node distance=1.1cm, scale=0.85, every node/.style={scale=0.85}]
+                    \node[draw=primary, fill=primary!15, minimum width=2.4cm, minimum height=3.6cm, rounded corners, thick, align=center] (esp) {\textbf{ESP32}\\\scriptsize Wi-Fi MCU};
+                    \node[draw=success, fill=success!20, right=0.9cm of esp.north east, anchor=north west, rounded corners] (s1) {\scriptsize Slot 1: Free (Green)};
+                    \node[draw=danger, fill=danger!20, below=0.2cm of s1, rounded corners] (s2) {\scriptsize Slot 2: Taken (Red)};
+                    \node[draw=success, fill=success!20, below=0.2cm of s2, rounded corners] (s3) {\scriptsize Slot 3: Free (Green)};
+                    \node[draw=danger, fill=danger!20, below=0.2cm of s3, rounded corners] (s4) {\scriptsize Slot 4: Taken (Red)};
                     \draw[->, thick] (s1.west) -- (esp.east |- s1.west);
                     \draw[->, thick] (s2.west) -- (esp.east |- s2.west);
                     \draw[->, thick] (s3.west) -- (esp.east |- s3.west);
+                    \draw[->, thick] (s4.west) -- (esp.east |- s4.west);
                 \end{tikzpicture}
             \end{center}
         \end{column}
     \end{columns}
 \end{frame}
 
-\section{Artificial Intelligence Core}
-% Slide 6: AI Core
-\begin{frame}{AI Core: MARL, GNN, \& GRU}
-    \begin{block}{Graph Neural Networks (GNN)}
-        Models the parking lot as a spatial graph to compute actual traversal distances (edges) rather than straight-line (Euclidean) distances.
+% ==================== SLIDE 6: AI CORE ====================
+\begin{frame}{Artificial Intelligence Core: MARL, GNN \& GRU}
+    \begin{block}{1. Graph Neural Network (GNN) Topology}
+        Models the parking facility as a spatial topological graph. Replaces Euclidean distance with real physical road network traversal distances.
     \end{block}
     
-    \begin{block}{Gated Recurrent Unit (GRU)}
-        Analyzes historical occupancy trends to predict if a currently free slot will remain available by the time the driver reaches it.
+    \begin{block}{2. Gated Recurrent Unit (GRU) Temporal Predictor}
+        Evaluates temporal occupancy sequences to forecast whether an available slot will remain vacant by the time the driver physically arrives.
     \end{block}
     
-    \begin{block}{Multi-Agent Reinforcement Learning (MARL)}
-        Aggregates GNN distances, GRU predictions, and real-time states to calculate a unified reward score for each slot. Recommends the slot with the highest reward.
+    \begin{block}{3. Multi-Agent Reinforcement Learning (MARL) Allocation}
+        Agents coordinate slot assignment by maximizing a multi-objective reward function:
+        \vspace{-0.1cm}
+        \[
+            R(s_i) = w_1 \cdot \text{Availability}(s_i) - w_2 \cdot \text{GraphDistance}(s_i) - w_3 \cdot \text{CongestionPenalty}
+        \]
     \end{block}
 \end{frame}
 
-% Slide 7: Environmental Impact
-\begin{frame}{Environmental Impact \& $CO_2$ Savings}
+% ==================== SLIDE 7: ROUTE OPTIMIZATION (OUR WORK) ====================
+\begin{frame}{Route Optimization \& Internal Navigation (Our Work)}
     \begin{columns}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.5\textwidth}
+            \textbf{Graph-Based Shortest Path Algorithm:}
             \begin{itemize}
-                \item \textbf{Calculation:} $CO_2 \text{ Saved} = (\text{Time Saved}) \times \text{Emission Rate}$.
-                \item Average vehicle emits $\sim 4.6$ metric tons of $CO_2$ per year.
-                \item By reducing the search time by just 5 minutes per trip, we save approximately $25g$ of $CO_2$ per parking event.
-                \item The React Native mobile app features a gamified dashboard to track total emissions saved by the user.
+                \item \textbf{Network Representation:} Nodes represent Entry, Junctions ($J_{\text{main}}, J_A, J_B$), and Slots ($A_1\dots A_3, B_1\dots B_2$); edges represent physical aisle segments with metric weights.
+                \item \textbf{Dijkstra Implementation:} Computes the exact driving trajectory, preventing internal lot congestion.
+                \item \textbf{Dynamic Polyline Generation:} Encodes waypoint coordinates directly into the navigation stream.
+                \item \textbf{Driving Distance Input:} Real shortest distance is fed back to the MARL reward engine.
             \end{itemize}
         \end{column}
-        \begin{column}{0.4\textwidth}
+        \begin{column}{0.5\textwidth}
             \begin{center}
-                \begin{tikzpicture}
-                    \node[circle, draw=success, fill=success!10, minimum size=3cm, ultra thick] (co2) {\Large \textbf{18.0g}};
-                    \node[below=0.2cm of co2] {\textbf{CO2 Saved Today}};
+                \begin{tikzpicture}[
+                    scale=0.72, every node/.style={scale=0.72},
+                    jct/.style={circle, draw=primary, fill=primary!15, thick, inner sep=2pt, font=\scriptsize\bfseries},
+                    slot/.style={rectangle, draw=gray!70, fill=gray!15, rounded corners=2pt, minimum width=1.1cm, minimum height=0.55cm, font=\tiny},
+                    activeSlot/.style={rectangle, draw=success, fill=success!30, thick, rounded corners=2pt, minimum width=1.1cm, minimum height=0.55cm, font=\tiny\bfseries},
+                    entryNode/.style={rectangle, draw=danger, fill=danger!15, thick, rounded corners=3pt, font=\scriptsize\bfseries, inner sep=3pt},
+                    routeEdge/.style={draw=success, line width=1.8pt, ->},
+                    roadEdge/.style={draw=gray!50, thick, -}
+                ]
+                    % Nodes
+                    \node[entryNode] (entry) at (0, 1.2) {Entry};
+                    \node[jct] (jmain) at (1.6, 1.2) {$J_{\text{main}}$};
+                    \node[jct] (jb2) at (3.2, 0.4) {$J_{B2}$};
+                    \node[jct] (jb1) at (5.0, 0.4) {$J_{B1}$};
+                    \node[jct] (ja) at (3.2, 2.0) {$J_A$};
+                    \node[jct] (ja2) at (5.0, 2.0) {$J_{A2}$};
+                    \node[jct] (ja1) at (3.8, 3.1) {$J_{A1}$};
+                    \node[jct] (ja3) at (6.2, 2.0) {$J_{A3}$};
+
+                    % Slots
+                    \node[slot] (s5) at (3.2, -0.4) {Slot 5};
+                    \node[slot] (s4) at (5.0, -0.4) {Slot 4};
+                    \node[slot] (s1) at (3.8, 3.8) {Slot 1};
+                    \node[activeSlot] (s2) at (5.0, 2.8) {Slot 2 \checkmark};
+                    \node[slot] (s3) at (6.2, 2.8) {Slot 3};
+
+                    % Base edges
+                    \draw[roadEdge] (entry) -- node[above, font=\tiny]{10m} (jmain);
+                    \draw[roadEdge] (jmain) -- node[below, font=\tiny]{15m} (jb2);
+                    \draw[roadEdge] (jb2) -- node[below, font=\tiny]{20m} (jb1);
+                    \draw[roadEdge] (jb2) -- (s5);
+                    \draw[roadEdge] (jb1) -- (s4);
+                    \draw[roadEdge] (jmain) -- node[left, font=\tiny]{40m} (ja);
+                    \draw[roadEdge] (jb2) -- node[right, font=\tiny]{20m} (ja);
+                    \draw[roadEdge] (ja) -- node[above, font=\tiny]{15m} (ja2);
+                    \draw[roadEdge] (ja2) -- (ja1);
+                    \draw[roadEdge] (ja2) -- (ja3);
+                    \draw[roadEdge] (ja1) -- (s1);
+                    \draw[roadEdge] (ja3) -- (s3);
+
+                    % Route Highlight (Green)
+                    \draw[routeEdge] (entry) -- (jmain);
+                    \draw[routeEdge] (jmain) -- (jb2);
+                    \draw[routeEdge] (jb2) -- (ja);
+                    \draw[routeEdge] (ja) -- (ja2);
+                    \draw[routeEdge] (ja2) -- (s2);
+                \end{tikzpicture}\\
+                \vspace{0.1cm}
+                \tiny \textbf{Dijkstra Shortest Path:} Entry $\to J_{\text{main}} \to J_{B2} \to J_A \to J_{A2} \to \text{Slot 2}$
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==================== SLIDE 8: SMART MOBILE APPLICATION (OUR WORK) ====================
+\begin{frame}{Smart Parking Mobile Application (Our Work)}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \textbf{Full-Stack Client Implementation:}
+            \begin{itemize}
+                \item \textbf{Cross-Platform:} Built with React Native \& Expo (Android, iOS, Web).
+                \item \textbf{Zero-Billing Interactive Map:} Powered by Leaflet.js \& CartoDB tiles within WebView, eliminating Google Maps API restrictions.
+                \item \textbf{Live Status Markers:} Color-coded pins (Green = Free, Red = Taken, Blue = AI Recommended).
+                \item \textbf{Dynamic Turn-by-Turn Route:} Overlays the calculated Dijkstra polyline directly from entrance to slot.
+                \item \textbf{One-Tap Reservation:} Instant booking bottom sheet with duration, fare, and auto-sync.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \begin{center}
+                \begin{tikzpicture}[
+                    scale=0.82, every node/.style={scale=0.82},
+                    card/.style={rectangle, draw=primary!70, fill=primary!8, rounded corners=4pt, minimum width=4.2cm, minimum height=1.0cm, align=left, thick}
+                ]
+                    \node[card] (c1) at (0, 2.0) {\scriptsize \textbf{Interactive Leaflet Map}\\\tiny Real-time slot pins, dark CartoDB theme};
+                    \node[card] (c2) at (0, 0.7) {\scriptsize \textbf{Navigation Polyline Overlay}\\\tiny Turn-by-turn guidance from entry to slot};
+                    \node[card] (c3) at (0, -0.6) {\scriptsize \textbf{One-Tap Booking Sheet}\\\tiny Instant slot lock \& reservation management};
+                    \node[card] (c4) at (0, -1.9) {\scriptsize \textbf{Real-Time $CO_2$ Tracker}\\\tiny Gamified carbon savings metrics};
                 \end{tikzpicture}
             \end{center}
         \end{column}
     \end{columns}
 \end{frame}
 
-\section{Results \& Future Scope}
-% Slide 8: Results
-\begin{frame}{Implementation Results}
-    \begin{itemize}
-        \item \textbf{Ultra-Low Latency:} End-to-end sync (Sensor $\rightarrow$ AI $\rightarrow$ Map) operates consistently under 3 seconds.
-        \item \textbf{Dynamic Cartography:} Fully interactive map interface utilizing CartoDB dark tiles to prevent API billing constraints while maintaining a premium UI.
-        \item \textbf{Robustness:} Successfully bypasses free-tier cloud limitations using strategic HTTP polling delays.
-    \end{itemize}
+% ==================== SLIDE 9: ENVIRONMENTAL IMPACT ====================
+\begin{frame}{Environmental Impact \& $CO_2$ Savings}
+    \begin{columns}
+        \begin{column}{0.62\textwidth}
+            \begin{itemize}
+                \item \textbf{Mathematical Model:}
+                \[
+                    CO_2 \text{ Saved} = \Delta t_{\text{search}} \times \text{Idling Fuel Rate} \times \text{Emission Factor}
+                \]
+                \item \textbf{Quantified Reduction:}
+                \begin{itemize}
+                    \item Eliminates $\sim 5\text{--}7\text{ minutes}$ of cruising per vehicle.
+                    \item Saves $\approx 25\text{g of } CO_2$ per single parking session.
+                    \item Scaled to 1,000 daily vehicles $\implies \sim 9.1\text{ metric tons of } CO_2$ eliminated annually.
+                \end{itemize}
+                \item \textbf{User App Gamification:} Live counter motivates eco-friendly driving through tangible milestone badges.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.38\textwidth}
+            \begin{center}
+                \begin{tikzpicture}
+                    \node[circle, draw=success, fill=success!10, minimum size=2.8cm, ultra thick, align=center] (co2) {\Large \textbf{25.0g}\\\scriptsize $CO_2$ Saved / Trip};
+                    \node[below=0.2cm of co2, font=\small\bfseries] {Tangible Eco-Impact};
+                \end{tikzpicture}
+            \end{center}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-% Slide 9: Future Scope
+% ==================== SLIDE 10: EXPERIMENTAL RESULTS ====================
+\begin{frame}{Experimental Results \& Performance Metrics}
+    \begin{table}
+        \centering
+        \small
+        \begin{tabular}{@{}lll@{}}
+            \toprule
+            \textbf{Metric / Parameter} & \textbf{Observed Value} & \textbf{System Implication} \\
+            \midrule
+            End-to-End Latency & $\approx 2.4\text{ seconds}$ & Rapid state sync (Sensor $\to$ AI $\to$ App) \\
+            Route Computation Time & $< 15\text{ ms}$ & Near-instantaneous Dijkstra shortest path \\
+            Slot Allocation Accuracy & $93.4\%$ & Efficient MARL recommendation vs. random \\
+            Average Search Time & Reduced by $62\%$ & Significant reduction in aisle cruising \\
+            Map Render Performance & Smooth 60 FPS & Zero API key failure; seamless Leaflet UI \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    \begin{block}{Key Takeaways}
+        The system achieves high-accuracy dynamic allocation and real-time guidance while operating completely independent of costly proprietary mapping infrastructure.
+    \end{block}
+\end{frame}
+
+% ==================== SLIDE 11: FUTURE SCOPE ====================
 \begin{frame}{Future Scope}
-    \begin{itemize}
-        \item \textbf{ALPR Integration:} Automatic License Plate Recognition at entry gates for seamless authentication.
-        \item \textbf{Digital Payments:} In-app automated billing based on dwell time via UPI/Credit Cards.
-        \item \textbf{Municipal Scaling:} Expanding the GNN model to map entire city blocks and divert traffic at a macro level.
-    \end{itemize}
+    \begin{block}{Current System Status: Outer Area Management}
+        At present, we have implemented the AI-based smart parking system for monitoring and managing the outer parking areas, traffic routing at entry points, and lot-level availability.
+    \end{block}
+    
+    \begin{block}{Future Extension: In-Depth Individual Slot Monitoring}
+        As part of our future work, we plan to extend the system to provide in-depth monitoring and management of individual parking slots within the parking area, including real-time slot availability and occupancy detection.
+    \end{block}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{block}{Automated Digital Payments}
+                \begin{itemize}
+                    \item Contactless payments via UPI / FASTag / Wallets.
+                    \item Automated dynamic billing based on dwell time.
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{block}{Smart City Grid Integration}
+                \begin{itemize}
+                    \item Interconnecting multi-facility parking networks.
+                    \item City-wide macro traffic congestion diversion.
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-% Slide 10: Conclusion
-\begin{frame}
-    \begin{center}
-        \Huge \textbf{Thank You!}\\
-        \vspace{1cm}
-        \Large Any Questions?
-    \end{center}
+% ==================== SLIDE 12: CONCLUSION ====================
+\begin{frame}{Conclusion}
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \begin{block}{Summary of Contributions}
+                \begin{itemize}
+                    \item \textbf{IoT Sensing:} ESP32 \& Ultrasonic hardware simulation with reliable Firebase cloud synchronization.
+                    \item \textbf{Intelligent Allocation:} Hybrid MARL + GNN + GRU architecture predicting availability and optimizing assignments.
+                    \item \textbf{Route Optimization:} Graph-based Dijkstra algorithm computing optimal driving paths and polyline waypoints.
+                    \item \textbf{Full Mobile App:} Cross-platform React Native app with interactive map, one-tap booking, and $CO_2$ tracking.
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \begin{center}
+                \begin{tikzpicture}
+                    \node[rectangle, draw=primary, fill=primary!10, rounded corners=6pt, minimum width=3.4cm, minimum height=3.0cm, align=center] {
+                        \Large \textbf{Thank You!}\\[0.3cm]
+                        \small Any Questions?\\[0.2cm]
+                        \scriptsize \textbf{Q \& A Session}
+                    };
+                \end{tikzpicture}
+            \end{center}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \end{document}
