@@ -3,12 +3,10 @@
  */
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { UserInfo } from '../types/parking';
 import { useFirebaseParking } from '../hooks/useFirebaseParking';
 import { colors, borderRadius, spacing, fontSize, fontWeight, shadows } from '../config/theme';
-import { GlassCard } from '../components/ui/GlassCard';
 
 interface ProfileScreenProps {
   user: UserInfo | null;
@@ -20,59 +18,59 @@ export function ProfileScreen({ user, onLogout }: ProfileScreenProps) {
 
   return (
     <ScrollView style={s.container} contentContainerStyle={s.content} showsVerticalScrollIndicator={false}>
-      <Text style={s.title}>Profile</Text>
+      <Text style={s.title}>My Profile</Text>
 
-      {/* Avatar + name */}
+      {/* Avatar + user details */}
       <View style={s.avatarSection}>
-        <LinearGradient colors={[colors.gradient.accentStart, colors.gradient.accentEnd]} style={s.avatarGrad}>
+        <View style={s.avatarWrap}>
           <Text style={s.avatarText}>{(user?.name || 'G').charAt(0).toUpperCase()}</Text>
-        </LinearGradient>
-        <Text style={s.userName}>{user?.name || 'Guest'}</Text>
+        </View>
+        <Text style={s.userName}>{user?.name || 'Guest User'}</Text>
         <Text style={s.userEmail}>{user?.email || 'guest@demo.com'}</Text>
         <View style={s.roleBadge}>
-          <Text style={s.roleText}>{user?.role?.toUpperCase() || 'CUSTOMER'}</Text>
+          <Text style={s.roleText}>{user?.role?.toUpperCase() || 'REGISTERED DRIVER'}</Text>
         </View>
       </View>
 
-      {/* Quick stats */}
+      {/* Stats Row */}
       <View style={s.statsRow}>
-        <GlassCard style={s.statCard}>
-          <Ionicons name="leaf" size={20} color={colors.status.available} />
+        <View style={s.statCard}>
+          <Ionicons name="leaf" size={22} color={colors.status.available} />
           <Text style={s.statValue}>{data?.co2?.saved?.toFixed(1) || '0.0'}</Text>
           <Text style={s.statLabel}>CO₂ Saved (g)</Text>
-        </GlassCard>
-        <GlassCard style={s.statCard}>
-          <Ionicons name="car" size={20} color={colors.accent.blue} />
+        </View>
+        <View style={s.statCard}>
+          <Ionicons name="car" size={22} color={colors.accent.orange} />
           <Text style={s.statValue}>{stats.total}</Text>
           <Text style={s.statLabel}>Total Slots</Text>
-        </GlassCard>
-        <GlassCard style={s.statCard}>
-          <Ionicons name="checkmark-circle" size={20} color={colors.status.available} />
+        </View>
+        <View style={s.statCard}>
+          <Ionicons name="checkmark-circle" size={22} color={colors.status.available} />
           <Text style={s.statValue}>{stats.available}</Text>
           <Text style={s.statLabel}>Available</Text>
-        </GlassCard>
+        </View>
       </View>
 
-      {/* System info */}
-      <GlassCard style={s.infoCard}>
-        <Text style={s.infoTitle}>System Info</Text>
+      {/* System info Card */}
+      <View style={s.infoCard}>
+        <Text style={s.infoTitle}>System & AI Engines</Text>
         {[
-          ['🔥', 'Firebase', 'Connected (Real-time)'],
-          ['🤖', 'AI Models', 'MARL + GNN + GRU'],
-          ['📡', 'Update Rate', 'Every 2 seconds'],
-          ['🗺️', 'Location', 'Singapore'],
+          ['🔥', 'Firebase Realtime DB', 'Connected (Live)'],
+          ['🤖', 'AI Model Suite', 'MARL + GNN + GRU'],
+          ['📡', 'Telemetry Stream', '2000 ms Interval'],
+          ['🗺️', 'GIS Engine', 'Mapbox GL JS (DXF Vector)'],
         ].map(([icon, label, value]) => (
           <View key={label as string} style={s.infoRow}>
-            <Text>{icon}</Text>
+            <Text style={s.infoIcon}>{icon}</Text>
             <Text style={s.infoLabel}>{label}</Text>
             <Text style={s.infoValue}>{value}</Text>
           </View>
         ))}
-      </GlassCard>
+      </View>
 
-      {/* Logout */}
+      {/* Logout button */}
       <TouchableOpacity style={s.logoutBtn} onPress={onLogout} activeOpacity={0.85}>
-        <Ionicons name="log-out-outline" size={18} color={colors.status.occupied} />
+        <Ionicons name="log-out-outline" size={18} color="#EF4444" />
         <Text style={s.logoutText}>Sign Out</Text>
       </TouchableOpacity>
 
@@ -82,25 +80,163 @@ export function ProfileScreen({ user, onLogout }: ProfileScreenProps) {
 }
 
 const s = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg.primary },
-  content: { paddingTop: spacing.xl, paddingHorizontal: spacing.lg },
-  title: { color: colors.text.primary, fontSize: fontSize.xxl, fontWeight: fontWeight.bold, marginBottom: spacing.xxl },
-  avatarSection: { alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xxl },
-  avatarGrad: { width: 80, height: 80, borderRadius: 40, alignItems: 'center', justifyContent: 'center', ...shadows.glow(colors.accent.blue) },
-  avatarText: { color: '#fff', fontSize: fontSize.xxxl, fontWeight: fontWeight.bold },
-  userName: { color: colors.text.primary, fontSize: fontSize.xl, fontWeight: fontWeight.bold },
-  userEmail: { color: colors.text.muted, fontSize: fontSize.md },
-  roleBadge: { backgroundColor: colors.accent.blueSoft, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: borderRadius.pill },
-  roleText: { color: colors.accent.blue, fontSize: fontSize.xs, fontWeight: fontWeight.bold, letterSpacing: 1 },
-  statsRow: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.xl },
-  statCard: { flex: 1, alignItems: 'center', gap: spacing.xs, padding: spacing.md },
-  statValue: { color: colors.text.primary, fontSize: fontSize.xl, fontWeight: fontWeight.extrabold },
-  statLabel: { color: colors.text.muted, fontSize: fontSize.xs, textAlign: 'center' },
-  infoCard: { marginBottom: spacing.xl },
-  infoTitle: { color: colors.text.primary, fontSize: fontSize.lg, fontWeight: fontWeight.bold, marginBottom: spacing.md },
-  infoRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, paddingVertical: spacing.sm, borderBottomWidth: 1, borderBottomColor: colors.border.subtle },
-  infoLabel: { color: colors.text.secondary, fontSize: fontSize.md, flex: 1 },
-  infoValue: { color: colors.text.primary, fontSize: fontSize.sm, fontWeight: fontWeight.semibold },
-  logoutBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm, backgroundColor: colors.status.occupiedGlow, paddingVertical: spacing.lg, borderRadius: borderRadius.lg, borderWidth: 1, borderColor: colors.status.occupiedBorder },
-  logoutText: { color: colors.status.occupied, fontSize: fontSize.md, fontWeight: fontWeight.bold },
+  container: {
+    flex: 1,
+    backgroundColor: colors.bg.primary,
+  },
+  content: {
+    paddingTop: spacing.xl,
+    paddingHorizontal: spacing.lg,
+  },
+  title: {
+    color: '#111827',
+    fontSize: 26,
+    fontWeight: '800',
+    marginBottom: spacing.xl,
+  },
+  avatarSection: {
+    alignItems: 'center',
+    marginBottom: spacing.xl,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.lg,
+    shadowColor: '#94A3B8',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 14,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.04)',
+  },
+  avatarWrap: {
+    width: 76,
+    height: 76,
+    borderRadius: 38,
+    backgroundColor: colors.accent.orange,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.sm,
+    shadowColor: colors.accent.orange,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  avatarText: {
+    color: '#FFFFFF',
+    fontSize: 30,
+    fontWeight: '800',
+  },
+  userName: {
+    color: '#111827',
+    fontSize: 20,
+    fontWeight: '800',
+    marginTop: 2,
+  },
+  userEmail: {
+    color: '#6B7280',
+    fontSize: 14,
+    marginTop: 2,
+  },
+  roleBadge: {
+    backgroundColor: 'rgba(255, 91, 0, 0.1)',
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 100,
+    marginTop: 10,
+  },
+  roleText: {
+    color: colors.accent.orange,
+    fontSize: 11,
+    fontWeight: '800',
+    letterSpacing: 0.8,
+  },
+  statsRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: spacing.xl,
+  },
+  statCard: {
+    flex: 1,
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: '#FFFFFF',
+    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.sm,
+    borderRadius: 18,
+    shadowColor: '#94A3B8',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 2,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.04)',
+  },
+  statValue: {
+    color: '#111827',
+    fontSize: 20,
+    fontWeight: '800',
+  },
+  statLabel: {
+    color: '#6B7280',
+    fontSize: 11,
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  infoCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    padding: spacing.lg,
+    marginBottom: spacing.xl,
+    shadowColor: '#94A3B8',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 2,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.04)',
+  },
+  infoTitle: {
+    color: '#111827',
+    fontSize: 16,
+    fontWeight: '800',
+    marginBottom: spacing.md,
+  },
+  infoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+  },
+  infoIcon: {
+    fontSize: 16,
+    marginRight: 10,
+  },
+  infoLabel: {
+    color: '#4B5563',
+    fontSize: 14,
+    flex: 1,
+    fontWeight: '500',
+  },
+  infoValue: {
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  logoutBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    backgroundColor: '#FEE2E2',
+    paddingVertical: spacing.lg,
+    borderRadius: 16,
+  },
+  logoutText: {
+    color: '#EF4444',
+    fontSize: 15,
+    fontWeight: '700',
+  },
 });

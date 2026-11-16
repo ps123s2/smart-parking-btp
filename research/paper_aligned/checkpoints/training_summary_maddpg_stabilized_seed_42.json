@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "stabilized": true,
+  "use_sequence_replay": true,
+  "total_episodes": 30,
+  "total_steps": 3600,
+  "best_eval_return": 968.6427333636341,
+  "final_train_reward": 996.9825373250549,
+  "final_critic_loss": 24.429137570659318,
+  "final_q_mean": 13.7074343363444,
+  "elapsed_seconds": 80.60438394546509,
+  "best_checkpoint": "research/paper_aligned/checkpoints/best_maddpg_stabilized_seed_42.pt",
+  "final_checkpoint": "research/paper_aligned/checkpoints/final_maddpg_stabilized_seed_42.pt",
+  "log_file": "research/paper_aligned/logs/training_log_maddpg_stabilized_seed_42.csv"
+}

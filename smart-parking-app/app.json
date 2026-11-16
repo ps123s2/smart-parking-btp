@@ -33,8 +33,7 @@
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
       ],
-      "config": {
-      }
+      "config": {}
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -54,10 +53,13 @@
             "usesCleartextTraffic": true
           }
         }
-      ]
+      ],
+      "expo-status-bar"
     ],
+    "updates": {
+      "enabled": false
+    },
     "extra": {
-      "router": {},
       "eas": {
         "projectId": "6b60db1d-e4cc-46b3-9a7e-e906a2a6aaea"
       }

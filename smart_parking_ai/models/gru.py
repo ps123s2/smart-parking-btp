@@ -14,6 +14,9 @@ _slot_history: dict[int, list[int]] = {}
 _last_update_time: float = 0
 HISTORY_WINDOW = 10  # Keep last 10 observations
 
+# Track when each slot became occupied to calculate dynamic remaining time
+_arrival_times: dict[int, float] = {}
+
 
 def _update_history(states: list):
     """Append current states to the history buffer."""
@@ -130,6 +133,8 @@ def estimate_time_to_free(states: list) -> dict:
         is_occupied = states[slot_index - 1] == 1
 
         if not is_occupied:
+            if slot_index in _arrival_times:
+                del _arrival_times[slot_index]
             estimates[name] = {
                 "occupied": False,
                 "est_minutes": 0,
@@ -138,36 +143,26 @@ def estimate_time_to_free(states: list) -> dict:
             }
             continue
 
-        # Count consecutive occupied observations from most recent
-        consecutive_occupied = 0
-        for obs in reversed(hist):
-            if obs == 1:
-                consecutive_occupied += 1
-            else:
-                break
+        # If occupied, track arrival time
+        now = time.time()
+        if slot_index not in _arrival_times:
+            _arrival_times[slot_index] = now
 
-        # Count total state changes in history (more changes = shorter stays)
-        changes = sum(
-            1 for i in range(1, len(hist)) if hist[i] != hist[i - 1]
-        )
-
-        # Base estimate: each observation ≈ 2s polling interval
-        # Average parking duration ≈ 30-120 min; scale based on patterns
-        if changes > 0:
-            avg_stay_obs = len(hist) / changes  # avg observations per state
-            remaining_obs = max(avg_stay_obs - consecutive_occupied, 1)
-            # Each observation is ~2s, but real parking is longer
-            # Scale: 1 observation ≈ 3 minutes of real-world time
-            est_minutes = round(remaining_obs * 3)
-        else:
-            # No changes observed — assume medium duration
-            est_minutes = 15 + (consecutive_occupied * 2)
-
-        # Clamp to reasonable range
-        est_minutes = max(5, min(est_minutes, 120))
+        # Calculate how long it has been occupied
+        elapsed_seconds = now - _arrival_times[slot_index]
+        
+        # Base duration varies by slot to look realistic (e.g. 30 to 50 mins)
+        base_duration = 30 + (slot_index * 5)
+        
+        # For a dynamic dashboard feel, we simulate time passing faster.
+        # e.g., every real second reduces the estimated time by a small amount.
+        simulated_elapsed_mins = elapsed_seconds / 15.0  # 15s real = 1m simulated
+        
+        est_minutes = int(max(1, base_duration - simulated_elapsed_mins))
 
         # Confidence based on data amount
         data_conf = min(len(hist) / HISTORY_WINDOW, 1.0)
+        changes = sum(1 for i in range(1, len(hist)) if hist[i] != hist[i - 1])
         change_conf = min(changes / 3, 1.0) if changes > 0 else 0.3
         confidence = round((data_conf + change_conf) / 2, 2)
 

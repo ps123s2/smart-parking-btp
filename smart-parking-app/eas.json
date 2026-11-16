@@ -1,6 +1,7 @@
 {
   "cli": {
-    "version": ">= 10.0.0"
+    "version": ">= 10.0.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -12,6 +13,11 @@
     },
     "preview": {
       "distribution": "internal",
+      "env": {
+        "NODE_OPTIONS": "--max-old-space-size=8192",
+        "EXPO_ROUTER_DISABLE_RN_NAVIGATION_CHECK": "1",
+        "EXPO_PUBLIC_API_URL": "https://smart-parking-btp.onrender.com"
+      },
       "android": {
         "buildType": "apk"
       }

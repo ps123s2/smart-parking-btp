@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "eval_episodes": 5,
+    "requests_per_episode": 100,
+    "topology": "Melbourne 9-District Network (541 bays)",
+    "seed_base": 2026,
+    "timestamp": "2026-11-16T10:05:45Z"
+  },
+  "raw_episodes": {
+    "MARL-GCN (MADDPG Paper-Aligned)": [
+      {
+        "episode": 1,
+        "seed": 2026,
+        "service_volume": 100,
+        "occupancy_rate": 16.690988098712587,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 786.1753013515901,
+        "mean_cruising_time_min": 4.2764939729682
+      },
+      {
+        "episode": 2,
+        "seed": 2126,
+        "service_volume": 100,
+        "occupancy_rate": 15.95706674536728,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 786.7846253976885,
+        "mean_cruising_time_min": 4.2643074920462345
+      },
+      {
+        "episode": 3,
+        "seed": 2226,
+        "service_volume": 100,
+        "occupancy_rate": 18.41864321868468,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 746.1210598244872,
+        "mean_cruising_time_min": 5.077578803510252
+      },
+      {
+        "episode": 4,
+        "seed": 2326,
+        "service_volume": 100,
+        "occupancy_rate": 16.650452378636054,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 753.9546260778881,
+        "mean_cruising_time_min": 4.920907478442243
+      },
+      {
+        "episode": 5,
+        "seed": 2426,
+        "service_volume": 100,
+        "occupancy_rate": 17.007225676356917,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 779.0476041102743,
+        "mean_cruising_time_min": 4.419047917794505
+      }
+    ],
+    "FIFO": [
+      {
+        "episode": 1,
+        "seed": 2026,
+        "service_volume": 100,
+        "occupancy_rate": 16.690988098712587,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 855.4769713205989,
+        "mean_cruising_time_min": 2.8904605735880256
+      },
+      {
+        "episode": 2,
+        "seed": 2126,
+        "service_volume": 100,
+        "occupancy_rate": 15.95706674536728,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 863.5343210157478,
+        "mean_cruising_time_min": 2.729313579685046
+      },
+      {
+        "episode": 3,
+        "seed": 2226,
+        "service_volume": 100,
+        "occupancy_rate": 18.41864321868468,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 843.9694640417567,
+        "mean_cruising_time_min": 3.1206107191648598
+      },
+      {
+        "episode": 4,
+        "seed": 2326,
+        "service_volume": 100,
+        "occupancy_rate": 16.650452378636054,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 855.9013307284118,
+        "mean_cruising_time_min": 2.8819733854317575
+      },
+      {
+        "episode": 5,
+        "seed": 2426,
+        "service_volume": 100,
+        "occupancy_rate": 17.007225676356917,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 858.2878612175111,
+        "mean_cruising_time_min": 2.8342427756497766
+      }
+    ],
+    "SIRO": [
+      {
+        "episode": 1,
+        "seed": 2026,
+        "service_volume": 100,
+        "occupancy_rate": 16.690988098712587,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 835.2997849579926,
+        "mean_cruising_time_min": 3.294004300840138
+      },
+      {
+        "episode": 2,
+        "seed": 2126,
+        "service_volume": 100,
+        "occupancy_rate": 15.95706674536728,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 836.798020763697,
+        "mean_cruising_time_min": 3.264039584726055
+      },
+      {
+        "episode": 3,
+        "seed": 2226,
+        "service_volume": 100,
+        "occupancy_rate": 18.41864321868468,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 839.8452775145453,
+        "mean_cruising_time_min": 3.2030944497090887
+      },
+      {
+        "episode": 4,
+        "seed": 2326,
+        "service_volume": 100,
+        "occupancy_rate": 16.650452378636054,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 825.5043576609766,
+        "mean_cruising_time_min": 3.4899128467804625
+      },
+      {
+        "episode": 5,
+        "seed": 2426,
+        "service_volume": 100,
+        "occupancy_rate": 17.007225676356917,
+        "allocation_rate": 100.0,
+        "cumulative_reward": 825.1001256304995,
+        "mean_cruising_time_min": 3.4979974873900015
+      }
+    ]
+  },
+  "summary": {
+    "MARL-GCN (MADDPG Paper-Aligned)": {
+      "mean_service_volume": 100.0,
+      "std_service_volume": 0.0,
+      "mean_occupancy_rate": 16.944875223551502,
+      "std_occupancy_rate": 0.8127470400787208,
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 4.591667132952287,
+      "std_cruising_time_min": 0.34082406176587976,
+      "mean_cumulative_reward": 770.4166433523856,
+      "std_cumulative_reward": 17.041203088293997,
+      "mean_latency_ms": 0.20650969710901168,
+      "p95_latency_ms": 0.21139809250598773
+    },
+    "FIFO": {
+      "mean_service_volume": 100.0,
+      "std_service_volume": 0.0,
+      "mean_occupancy_rate": 16.944875223551502,
+      "std_occupancy_rate": 0.8127470400787208,
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 2.8913202067038934,
+      "std_cruising_time_min": 0.12819221620313856,
+      "mean_cumulative_reward": 855.4339896648053,
+      "std_cumulative_reward": 6.409610810157036,
+      "mean_latency_ms": 0.0028713012972007776,
+      "p95_latency_ms": 0.003165987436659634
+    },
+    "SIRO": {
+      "mean_service_volume": 100.0,
+      "std_service_volume": 0.0,
+      "mean_occupancy_rate": 16.944875223551502,
+      "std_occupancy_rate": 0.8127470400787208,
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 3.349809733889149,
+      "std_cruising_time_min": 0.12131333973372298,
+      "mean_cumulative_reward": 832.5095133055422,
+      "std_cumulative_reward": 6.06566698668617,
+      "mean_latency_ms": 0.0021938618077691776,
+      "p95_latency_ms": 0.0024170003598555923
+    }
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "metadata": {
+    "num_seeds": 5,
+    "seeds": [
+      1000,
+      1053,
+      1106,
+      1159,
+      1212
+    ],
+    "requests_per_episode": 250,
+    "timestamp": "2026-11-16T10:33:59Z"
+  },
+  "variants": {
+    "Full MARL-GCN": {
+      "raw_runs": [
+        {
+          "seed": 1000,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.476097610608967,
+          "mean_cruising_time_min": 5.322068522560319,
+          "cumulative_reward": 1896.9914346799599
+        },
+        {
+          "seed": 1053,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 24.573928674388238,
+          "mean_cruising_time_min": 3.590438293283507,
+          "cumulative_reward": 2051.195213339562
+        },
+        {
+          "seed": 1106,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.971273041767706,
+          "mean_cruising_time_min": 4.938162825672818,
+          "cumulative_reward": 1935.979646790898
+        },
+        {
+          "seed": 1159,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.528667605012807,
+          "mean_cruising_time_min": 3.8722724312344226,
+          "cumulative_reward": 2015.965946095698
+        },
+        {
+          "seed": 1212,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 26.637724906306705,
+          "mean_cruising_time_min": 5.463228788164901,
+          "cumulative_reward": 1861.8464014793872
+        }
+      ],
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 4.637234172183193,
+      "std_cruising_time_min": 0.7645614853986629,
+      "mean_cumulative_reward": 1952.395728477101,
+      "std_cumulative_reward": 71.19103160650278
+    },
+    "No-GAT": {
+      "raw_runs": [
+        {
+          "seed": 1000,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.476097610608967,
+          "mean_cruising_time_min": 3.5074756510778213,
+          "cumulative_reward": 2061.5655436152715
+        },
+        {
+          "seed": 1053,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 24.573928674388238,
+          "mean_cruising_time_min": 3.221556827774344,
+          "cumulative_reward": 2097.3053965282065
+        },
+        {
+          "seed": 1106,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.971273041767706,
+          "mean_cruising_time_min": 3.681441446974185,
+          "cumulative_reward": 2039.819819128226
+        },
+        {
+          "seed": 1159,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.528667605012807,
+          "mean_cruising_time_min": 3.454430612603444,
+          "cumulative_reward": 2068.196173424569
+        },
+        {
+          "seed": 1212,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 26.637724906306705,
+          "mean_cruising_time_min": 3.991413840740223,
+          "cumulative_reward": 2001.0732699074722
+        }
+      ],
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 3.571263675834003,
+      "std_cruising_time_min": 0.25638996028319627,
+      "mean_cumulative_reward": 2053.5920405207494,
+      "std_cumulative_reward": 32.04874503539938
+    },
+    "No-GCL": {
+      "raw_runs": [
+        {
+          "seed": 1000,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.476097610608967,
+          "mean_cruising_time_min": 4.576548141746567,
+          "cumulative_reward": 1948.1814822816782
+        },
+        {
+          "seed": 1053,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 24.573928674388238,
+          "mean_cruising_time_min": 3.822754395890301,
+          "cumulative_reward": 2022.1557005137126
+        },
+        {
+          "seed": 1106,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.971273041767706,
+          "mean_cruising_time_min": 4.156842260765905,
+          "cumulative_reward": 1980.3947174042614
+        },
+        {
+          "seed": 1159,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.528667605012807,
+          "mean_cruising_time_min": 4.50457172116468,
+          "cumulative_reward": 1957.1785348544147
+        },
+        {
+          "seed": 1212,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 26.637724906306705,
+          "mean_cruising_time_min": 4.861695207365698,
+          "cumulative_reward": 1912.5380990792867
+        }
+      ],
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 4.384482345386631,
+      "std_cruising_time_min": 0.3595555982920785,
+      "mean_cumulative_reward": 1964.0897068266706,
+      "std_cumulative_reward": 36.32056486439352
+    },
+    "No-GRU": {
+      "raw_runs": [
+        {
+          "seed": 1000,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.476097610608967,
+          "mean_cruising_time_min": 32.371329227650094,
+          "cumulative_reward": 614.5401957500868
+        },
+        {
+          "seed": 1053,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 24.573928674388238,
+          "mean_cruising_time_min": 27.097028676453395,
+          "cumulative_reward": 798.4185384591968
+        },
+        {
+          "seed": 1106,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.971273041767706,
+          "mean_cruising_time_min": 31.57432667392634,
+          "cumulative_reward": 701.3619435369845
+        },
+        {
+          "seed": 1159,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.528667605012807,
+          "mean_cruising_time_min": 28.837611504160225,
+          "cumulative_reward": 796.83378023394
+        },
+        {
+          "seed": 1212,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 26.637724906306705,
+          "mean_cruising_time_min": 29.7891052046654,
+          "cumulative_reward": 741.408972432699
+        }
+      ],
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 29.93388025737109,
+      "std_cruising_time_min": 1.8922322170183448,
+      "mean_cumulative_reward": 730.5126860825815,
+      "std_cumulative_reward": 68.45115875941333
+    },
+    "No-Hypernetwork": {
+      "raw_runs": [
+        {
+          "seed": 1000,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.476097610608967,
+          "mean_cruising_time_min": 4.053224163581218,
+          "cumulative_reward": 1993.3469795523472
+        },
+        {
+          "seed": 1053,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 24.573928674388238,
+          "mean_cruising_time_min": 5.3247691983118175,
+          "cumulative_reward": 1931.9038502110234
+        },
+        {
+          "seed": 1106,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.971273041767706,
+          "mean_cruising_time_min": 6.8386126499586855,
+          "cumulative_reward": 1843.923418755164
+        },
+        {
+          "seed": 1159,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.528667605012807,
+          "mean_cruising_time_min": 4.213879679917752,
+          "cumulative_reward": 1977.0150400102807
+        },
+        {
+          "seed": 1212,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 26.637724906306705,
+          "mean_cruising_time_min": 4.438775012693875,
+          "cumulative_reward": 1945.1531234132663
+        }
+      ],
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 4.97385214089267,
+      "std_cruising_time_min": 1.0307178163328872,
+      "mean_cumulative_reward": 1938.2684823884163,
+      "std_cumulative_reward": 52.007373389046634
+    },
+    "No-CTDE": {
+      "raw_runs": [
+        {
+          "seed": 1000,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.476097610608967,
+          "mean_cruising_time_min": 3.865630741000056,
+          "cumulative_reward": 2016.7961573749928
+        },
+        {
+          "seed": 1053,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 24.573928674388238,
+          "mean_cruising_time_min": 4.162966788101682,
+          "cumulative_reward": 1979.6291514872905
+        },
+        {
+          "seed": 1106,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.971273041767706,
+          "mean_cruising_time_min": 3.877893919613453,
+          "cumulative_reward": 2015.2632600483184
+        },
+        {
+          "seed": 1159,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 25.528667605012807,
+          "mean_cruising_time_min": 5.098687692062004,
+          "cumulative_reward": 1900.41403849225
+        },
+        {
+          "seed": 1212,
+          "service_volume": 250,
+          "allocation_rate": 100.0,
+          "occupancy_rate": 26.637724906306705,
+          "mean_cruising_time_min": 4.426266222399598,
+          "cumulative_reward": 1983.4667222000498
+        }
+      ],
+      "mean_allocation_rate": 100.0,
+      "std_allocation_rate": 0.0,
+      "mean_cruising_time_min": 4.286289072635358,
+      "std_cruising_time_min": 0.45574851357980906,
+      "mean_cumulative_reward": 1979.1138659205803,
+      "std_cumulative_reward": 42.28382551120885
+    }
+  },
+  "effect_sizes": {
+    "Full MARL-GCN": {
+      "cruising_delta_min": 0.0,
+      "reward_delta": 0.0,
+      "cruising_pct_change": 0.0
+    },
+    "No-GAT": {
+      "cruising_delta_min": -1.0659704963491903,
+      "reward_delta": 101.19631204364828,
+      "cruising_pct_change": -22.987204371594956
+    },
+    "No-GCL": {
+      "cruising_delta_min": -0.2527518267965627,
+      "reward_delta": 11.693978349569534,
+      "cruising_pct_change": -5.450486592044759
+    },
+    "No-GRU": {
+      "cruising_delta_min": 25.296646085187895,
+      "reward_delta": -1221.8830423945196,
+      "cruising_pct_change": 545.5115084964175
+    },
+    "No-Hypernetwork": {
+      "cruising_delta_min": 0.3366179687094766,
+      "reward_delta": -14.127246088684842,
+      "cruising_pct_change": 7.2590245868691605
+    },
+    "No-CTDE": {
+      "cruising_delta_min": -0.35094509954783515,
+      "reward_delta": 26.718137443479236,
+      "cruising_pct_change": -7.567983123496466
+    }
+  }
+}

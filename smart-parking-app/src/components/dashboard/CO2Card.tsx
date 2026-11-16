@@ -24,7 +24,7 @@ export function CO2Card({ saved, unit, distanceM }: CO2CardProps) {
       style={styles.gradient}
     >
       <View style={styles.iconCircle}>
-        <Ionicons name="leaf" size={24} color={colors.accent.blueLight} />
+        <Ionicons name="leaf" size={24} color="#10B981" />
       </View>
       <View style={styles.content}>
         <Text style={styles.label}>CO₂ Saved</Text>
@@ -52,16 +52,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.lg,
-    borderRadius: borderRadius.xl,
+    borderRadius: 22,
     gap: spacing.lg,
     borderWidth: 1,
-    borderColor: colors.accent.blueBorder,
+    borderColor: 'rgba(16, 185, 129, 0.2)',
+    shadowColor: '#94A3B8',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 3,
   },
   iconCircle: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: colors.accent.blueSoft,
+    backgroundColor: 'rgba(16, 185, 129, 0.15)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -69,8 +74,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   label: {
-    color: 'rgba(100, 181, 246, 0.7)',
+    color: '#059669',
     fontSize: fontSize.sm,
+    fontWeight: '700',
   },
   valueRow: {
     flexDirection: 'row',
@@ -82,13 +88,14 @@ const styles = StyleSheet.create({
     fontSize: fontSize.lg,
   },
   value: {
-    color: colors.text.primary,
+    color: '#064E3B',
     fontSize: fontSize.xl,
-    fontWeight: fontWeight.bold,
+    fontWeight: '800',
   },
   subtitle: {
-    color: 'rgba(100, 181, 246, 0.5)',
+    color: '#047857',
     fontSize: fontSize.xs,
     marginTop: 2,
+    fontWeight: '500',
   },
 });

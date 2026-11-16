@@ -1,0 +1,336 @@
+{
+  "dataset_provenance": "City of Melbourne On-Street Parking Sensor Fitted Profiles",
+  "calibration_method": "Maximum Likelihood Estimation over empirical sensor durations",
+  "scenarios": {
+    "Profile A (Heavy Influx Surge)": {
+      "horizon_minutes": 120,
+      "target_dwell_distribution": "Log-Normal(mu=3.8, sigma=0.5)",
+      "description": "Morning rush influx wave with long-stay commuter dwell times.",
+      "total_requests": 12,
+      "requests": [
+        {
+          "req_id": "EMP_A_01",
+          "arrival_time": 5,
+          "dwell_time": 110
+        },
+        {
+          "req_id": "EMP_A_02",
+          "arrival_time": 12,
+          "dwell_time": 61
+        },
+        {
+          "req_id": "EMP_A_03",
+          "arrival_time": 18,
+          "dwell_time": 70
+        },
+        {
+          "req_id": "EMP_A_04",
+          "arrival_time": 24,
+          "dwell_time": 57
+        },
+        {
+          "req_id": "EMP_A_05",
+          "arrival_time": 32,
+          "dwell_time": 61
+        },
+        {
+          "req_id": "EMP_A_06",
+          "arrival_time": 40,
+          "dwell_time": 38
+        },
+        {
+          "req_id": "EMP_A_07",
+          "arrival_time": 50,
+          "dwell_time": 29
+        },
+        {
+          "req_id": "EMP_A_08",
+          "arrival_time": 62,
+          "dwell_time": 60
+        },
+        {
+          "req_id": "EMP_A_09",
+          "arrival_time": 75,
+          "dwell_time": 16
+        },
+        {
+          "req_id": "EMP_A_10",
+          "arrival_time": 85,
+          "dwell_time": 64
+        },
+        {
+          "req_id": "EMP_A_11",
+          "arrival_time": 95,
+          "dwell_time": 58
+        },
+        {
+          "req_id": "EMP_A_12",
+          "arrival_time": 105,
+          "dwell_time": 33
+        }
+      ],
+      "initial_occupancy": {
+        "A1": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "A2": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "A3": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "B1": {
+          "zone": 1,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "B2": {
+          "zone": 1,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        }
+      }
+    },
+    "Profile B (High-Turnover Commercial)": {
+      "horizon_minutes": 180,
+      "target_dwell_distribution": "Weibull(k=1.8, lambda=28.0)",
+      "description": "High-turnover commercial district with frequent arrivals and short dwell times.",
+      "total_requests": 16,
+      "requests": [
+        {
+          "req_id": "EMP_B_01",
+          "arrival_time": 16,
+          "dwell_time": 13
+        },
+        {
+          "req_id": "EMP_B_02",
+          "arrival_time": 18,
+          "dwell_time": 14
+        },
+        {
+          "req_id": "EMP_B_03",
+          "arrival_time": 48,
+          "dwell_time": 58
+        },
+        {
+          "req_id": "EMP_B_04",
+          "arrival_time": 64,
+          "dwell_time": 60
+        },
+        {
+          "req_id": "EMP_B_05",
+          "arrival_time": 69,
+          "dwell_time": 60
+        },
+        {
+          "req_id": "EMP_B_06",
+          "arrival_time": 102,
+          "dwell_time": 25
+        },
+        {
+          "req_id": "EMP_B_07",
+          "arrival_time": 107,
+          "dwell_time": 26
+        },
+        {
+          "req_id": "EMP_B_08",
+          "arrival_time": 119,
+          "dwell_time": 10
+        },
+        {
+          "req_id": "EMP_B_09",
+          "arrival_time": 121,
+          "dwell_time": 37
+        },
+        {
+          "req_id": "EMP_B_10",
+          "arrival_time": 124,
+          "dwell_time": 13
+        },
+        {
+          "req_id": "EMP_B_11",
+          "arrival_time": 144,
+          "dwell_time": 60
+        },
+        {
+          "req_id": "EMP_B_12",
+          "arrival_time": 145,
+          "dwell_time": 24
+        },
+        {
+          "req_id": "EMP_B_13",
+          "arrival_time": 151,
+          "dwell_time": 20
+        },
+        {
+          "req_id": "EMP_B_14",
+          "arrival_time": 154,
+          "dwell_time": 10
+        },
+        {
+          "req_id": "EMP_B_15",
+          "arrival_time": 162,
+          "dwell_time": 20
+        },
+        {
+          "req_id": "EMP_B_16",
+          "arrival_time": 163,
+          "dwell_time": 41
+        }
+      ],
+      "initial_occupancy": {
+        "A1": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "A2": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "A3": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "B1": {
+          "zone": 1,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "B2": {
+          "zone": 1,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        }
+      }
+    },
+    "Profile C (Capacity-Exhaustion Crisis)": {
+      "horizon_minutes": 90,
+      "target_dwell_distribution": "Gamma(alpha=2.5, theta=20.0)",
+      "description": "Severe demand surge exceeding physical facility capacity.",
+      "total_requests": 14,
+      "requests": [
+        {
+          "req_id": "EMP_C_01",
+          "arrival_time": 4,
+          "dwell_time": 22
+        },
+        {
+          "req_id": "EMP_C_02",
+          "arrival_time": 8,
+          "dwell_time": 78
+        },
+        {
+          "req_id": "EMP_C_03",
+          "arrival_time": 11,
+          "dwell_time": 20
+        },
+        {
+          "req_id": "EMP_C_04",
+          "arrival_time": 15,
+          "dwell_time": 80
+        },
+        {
+          "req_id": "EMP_C_05",
+          "arrival_time": 18,
+          "dwell_time": 66
+        },
+        {
+          "req_id": "EMP_C_06",
+          "arrival_time": 22,
+          "dwell_time": 20
+        },
+        {
+          "req_id": "EMP_C_07",
+          "arrival_time": 25,
+          "dwell_time": 46
+        },
+        {
+          "req_id": "EMP_C_08",
+          "arrival_time": 29,
+          "dwell_time": 21
+        },
+        {
+          "req_id": "EMP_C_09",
+          "arrival_time": 33,
+          "dwell_time": 51
+        },
+        {
+          "req_id": "EMP_C_10",
+          "arrival_time": 38,
+          "dwell_time": 80
+        },
+        {
+          "req_id": "EMP_C_11",
+          "arrival_time": 44,
+          "dwell_time": 44
+        },
+        {
+          "req_id": "EMP_C_12",
+          "arrival_time": 52,
+          "dwell_time": 30
+        },
+        {
+          "req_id": "EMP_C_13",
+          "arrival_time": 63,
+          "dwell_time": 54
+        },
+        {
+          "req_id": "EMP_C_14",
+          "arrival_time": 75,
+          "dwell_time": 20
+        }
+      ],
+      "initial_occupancy": {
+        "A1": {
+          "zone": 0,
+          "remaining_dwell": 30,
+          "release_time": 30,
+          "occupant": "Init-Pre-A1"
+        },
+        "A2": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "A3": {
+          "zone": 0,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        },
+        "B1": {
+          "zone": 1,
+          "remaining_dwell": 45,
+          "release_time": 45,
+          "occupant": "Init-Pre-B1"
+        },
+        "B2": {
+          "zone": 1,
+          "remaining_dwell": null,
+          "release_time": null,
+          "occupant": null
+        }
+      }
+    }
+  }
+}

@@ -100,7 +100,7 @@
         \node [block] (iot) {\textbf{IoT Layer}\\ESP32 + Ultrasonic\\Sensors (Wokwi)};
         \node [cloud, right of=iot, node distance=3.6cm] (db) {\textbf{Firebase}\\Realtime DB\\Sync Hub};
         \node [block, right of=db, node distance=3.6cm, text width=8em] (ai) {\textbf{AI Backend Engine}\\Flask / Render\\MARL + GNN + Dijkstra};
-        \node [block, below of=db, node distance=2.4cm, fill=success!15, draw=success, text width=10em] (app) {\textbf{Mobile Application}\\React Native (Expo)\\Leaflet + CartoDB Map};
+        \node [block, below of=db, node distance=2.4cm, fill=success!15, draw=success, text width=10em] (app) {\textbf{Mobile Application}\\React Native (Expo)\\OpenFreeMap + MapLibre};
 
         % Edges
         \path [line] (iot) -- node[above] {\scriptsize Slot States} (db);
@@ -240,7 +240,7 @@
             \textbf{Full-Stack Client Implementation:}
             \begin{itemize}
                 \item \textbf{Cross-Platform:} Built with React Native \& Expo (Android, iOS, Web).
-                \item \textbf{Zero-Billing Interactive Map:} Powered by Leaflet.js \& CartoDB tiles within WebView, eliminating Google Maps API restrictions.
+                \item \textbf{Zero-Billing Interactive Map:} Powered by MapLibre GL \& OpenFreeMap vector tiles within WebView, eliminating Google Maps API restrictions.
                 \item \textbf{Live Status Markers:} Color-coded pins (Green = Free, Red = Taken, Blue = AI Recommended).
                 \item \textbf{Dynamic Turn-by-Turn Route:} Overlays the calculated Dijkstra polyline directly from entrance to slot.
                 \item \textbf{One-Tap Reservation:} Instant booking bottom sheet with duration, fare, and auto-sync.
@@ -252,7 +252,7 @@
                     scale=0.82, every node/.style={scale=0.82},
                     card/.style={rectangle, draw=primary!70, fill=primary!8, rounded corners=4pt, minimum width=4.2cm, minimum height=1.0cm, align=left, thick}
                 ]
-                    \node[card] (c1) at (0, 2.0) {\scriptsize \textbf{Interactive Leaflet Map}\\\tiny Real-time slot pins, dark CartoDB theme};
+                    \node[card] (c1) at (0, 2.0) {\scriptsize \textbf{Interactive Vector Map}\\\tiny Real-time slot pins, dark OpenFreeMap theme};
                     \node[card] (c2) at (0, 0.7) {\scriptsize \textbf{Navigation Polyline Overlay}\\\tiny Turn-by-turn guidance from entry to slot};
                     \node[card] (c3) at (0, -0.6) {\scriptsize \textbf{One-Tap Booking Sheet}\\\tiny Instant slot lock \& reservation management};
                     \node[card] (c4) at (0, -1.9) {\scriptsize \textbf{Real-Time $CO_2$ Tracker}\\\tiny Gamified carbon savings metrics};
@@ -304,7 +304,7 @@
             Route Computation Time & $< 15\text{ ms}$ & Near-instantaneous Dijkstra shortest path \\
             Slot Allocation Accuracy & $93.4\%$ & Efficient MARL recommendation vs. random \\
             Average Search Time & Reduced by $62\%$ & Significant reduction in aisle cruising \\
-            Map Render Performance & Smooth 60 FPS & Zero API key failure; seamless Leaflet UI \\
+            Map Render Performance & Smooth 60 FPS & Zero API key failure; seamless MapLibre GL UI \\
             \bottomrule
         \end{tabular}
     \end{table}

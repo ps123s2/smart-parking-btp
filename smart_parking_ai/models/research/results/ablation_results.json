@@ -1,0 +1,140 @@
+{
+  "n_episodes_per_variant": 25,
+  "statistical_significance": {
+    "Ablation 1 (MLP vs GRU-64)": {
+      "reward_stats": {
+        "baseline_mean": 12.216000000000001,
+        "baseline_std": 4.515314680802066,
+        "ablation_mean": 7.568,
+        "ablation_std": 1.8743265457224894,
+        "diff_mean": 4.6480000000000015,
+        "ci_lower_95": 2.7315582777797127,
+        "ci_upper_95": 6.56444172222029,
+        "t_statistic": 4.753643115975132,
+        "p_value_welch": 4.052193008382468e-05,
+        "u_statistic": 423.0,
+        "p_value_mwu": 0.026522815787287685,
+        "cohens_d": 1.3445333091693565,
+        "p_value_mwu_holm": 0.05304563157457537
+      },
+      "service_volume_stats": {
+        "baseline_mean": 2.64,
+        "baseline_std": 0.8103497187428812,
+        "ablation_mean": 1.76,
+        "ablation_std": 0.43588989435406733,
+        "diff_mean": 0.8800000000000001,
+        "ci_lower_95": 0.5193031928798557,
+        "ci_upper_95": 1.2406968071201445,
+        "t_statistic": 4.781855469614642,
+        "p_value_welch": 2.7903224985088523e-05,
+        "u_statistic": 505.0,
+        "p_value_mwu": 4.093396159074373e-05,
+        "cohens_d": 1.3525129508999971
+      },
+      "cruising_time_stats": {
+        "baseline_mean": 240.59999999999994,
+        "baseline_std": 24.55096739438182,
+        "ablation_mean": 240.0,
+        "ablation_std": 0.0,
+        "diff_mean": 0.5999999999999375,
+        "ci_lower_95": -9.023979218597736,
+        "ci_upper_95": 10.223979218597611,
+        "t_statistic": 0.12219477757467918,
+        "p_value_welch": 0.9037622029537514,
+        "u_statistic": 250.0,
+        "p_value_mwu": 0.1928190095405231,
+        "cohens_d": 0.03456190231954625
+      }
+    },
+    "Ablation 2 (Hidden Dim 32 vs 64)": {
+      "reward_stats": {
+        "baseline_mean": 12.216000000000001,
+        "baseline_std": 4.515314680802066,
+        "ablation_mean": 12.852,
+        "ablation_std": 4.1238250852010365,
+        "diff_mean": -0.6359999999999992,
+        "ci_lower_95": -3.0331048404273013,
+        "ci_upper_95": 1.7611048404273029,
+        "t_statistic": -0.520027317527668,
+        "p_value_welch": 0.6054542584528129,
+        "u_statistic": 203.0,
+        "p_value_mwu": 0.02931519184555593,
+        "cohens_d": -0.14708593671026407,
+        "p_value_mwu_holm": 0.02931519184555593
+      },
+      "service_volume_stats": {
+        "baseline_mean": 2.64,
+        "baseline_std": 0.8103497187428812,
+        "ablation_mean": 2.52,
+        "ablation_std": 0.7702813338860894,
+        "diff_mean": 0.1200000000000001,
+        "ci_lower_95": -0.3182693235899586,
+        "ci_upper_95": 0.5582693235899587,
+        "t_statistic": 0.53665631459995,
+        "p_value_welch": 0.5939901620408283,
+        "u_statistic": 325.0,
+        "p_value_mwu": 0.7932809372945131,
+        "cohens_d": 0.15178932576808238
+      },
+      "cruising_time_stats": {
+        "baseline_mean": 240.59999999999994,
+        "baseline_std": 24.55096739438182,
+        "ablation_mean": 207.8,
+        "ablation_std": 15.717559182858725,
+        "diff_mean": 32.799999999999926,
+        "ci_lower_95": 21.372734943711674,
+        "ci_upper_95": 44.227265056288175,
+        "t_statistic": 5.625843076478141,
+        "p_value_welch": 1.4886590360044847e-06,
+        "u_statistic": 565.0,
+        "p_value_mwu": 4.45275680796765e-07,
+        "cohens_d": 1.5912287149356787
+      }
+    },
+    "Ablation 3 (Hidden Dim 128 vs 64)": {
+      "reward_stats": {
+        "baseline_mean": 12.216000000000001,
+        "baseline_std": 4.515314680802066,
+        "ablation_mean": 7.680000000000002,
+        "ablation_std": 1.107549848389077,
+        "diff_mean": 4.535999999999999,
+        "ci_lower_95": 2.7135273985781465,
+        "ci_upper_95": 6.358472601421851,
+        "t_statistic": 4.87829556014383,
+        "p_value_welch": 4.271134415631478e-05,
+        "u_statistic": 485.0,
+        "p_value_mwu": 0.00011328556492800865,
+        "cohens_d": 1.3797903442868347,
+        "p_value_mwu_holm": 0.000339856694784026
+      },
+      "service_volume_stats": {
+        "baseline_mean": 2.64,
+        "baseline_std": 0.8103497187428812,
+        "ablation_mean": 1.92,
+        "ablation_std": 0.2768874620972691,
+        "diff_mean": 0.7200000000000002,
+        "ci_lower_95": 0.38431125527755156,
+        "ci_upper_95": 1.0556887447224488,
+        "t_statistic": 4.203894298472225,
+        "p_value_welch": 0.0002229083218315655,
+        "u_statistic": 485.0,
+        "p_value_mwu": 0.00011328556492800865,
+        "cohens_d": 1.1890408467001066
+      },
+      "cruising_time_stats": {
+        "baseline_mean": 240.59999999999994,
+        "baseline_std": 24.55096739438182,
+        "ablation_mean": 269.99999999999994,
+        "ablation_std": 0.0,
+        "diff_mean": -29.400000000000006,
+        "ci_lower_95": -39.02397921859768,
+        "ci_upper_95": -19.77602078140233,
+        "t_statistic": -5.987544101159905,
+        "p_value_welch": 3.5133122122317128e-06,
+        "u_statistic": 125.0,
+        "p_value_mwu": 6.066474499236886e-06,
+        "cohens_d": -1.693533213657943
+      }
+    }
+  }
+}

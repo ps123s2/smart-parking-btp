@@ -1,68 +1,79 @@
 /**
  * Design system theme constants for the Smart Parking app.
- * Dark glassmorphic aesthetic matching the mockup designs.
+ * Light neumorphic aesthetic with vibrant orange accents matching the mockup design.
  */
 
 export const colors = {
   // Backgrounds (depth layers)
   bg: {
-    deep: '#060810',
-    primary: '#0A0D14',
-    card: '#131720',
-    elevated: '#1A1F2E',
-    input: '#0F1219',
+    deep: '#ECEEF2',
+    primary: '#F5F6F9',
+    card: '#FFFFFF',
+    elevated: '#FFFFFF',
+    input: '#EDF0F4',
+    pill: '#FFFFFF',
+    orangeCard: '#FF5B00',
+    orangeCardEnd: '#FF6D1A',
   },
 
-  // Accent colors
+  // Accent colors — Vibrant signature orange
   accent: {
-    blue: '#2979FF',
-    blueDark: '#0D47A1',
-    blueLight: '#64B5F6',
-    blueGlow: 'rgba(41, 121, 255, 0.25)',
-    blueSoft: 'rgba(41, 121, 255, 0.12)',
-    blueBorder: 'rgba(41, 121, 255, 0.35)',
+    orange: '#FF5B00',
+    orangeDark: '#E04F00',
+    orangeLight: '#FF7A29',
+    orangeGlow: 'rgba(255, 91, 0, 0.25)',
+    orangeSoft: 'rgba(255, 91, 0, 0.12)',
+    orangeBorder: 'rgba(255, 91, 0, 0.35)',
+    // Map blue alias to orange for seamless harmony across all components
+    blue: '#FF5B00',
+    blueDark: '#E04F00',
+    blueLight: '#FF7A29',
+    blueGlow: 'rgba(255, 91, 0, 0.25)',
+    blueSoft: 'rgba(255, 91, 0, 0.12)',
+    blueBorder: 'rgba(255, 91, 0, 0.35)',
   },
 
   // Status colors
   status: {
-    available: '#4CAF50',
-    availableGlow: 'rgba(76, 175, 80, 0.15)',
-    availableBorder: 'rgba(76, 175, 80, 0.3)',
-    occupied: '#F44336',
-    occupiedGlow: 'rgba(244, 67, 54, 0.15)',
-    occupiedBorder: 'rgba(244, 67, 54, 0.3)',
+    available: '#10B981',
+    availableGlow: 'rgba(16, 185, 129, 0.12)',
+    availableBorder: 'rgba(16, 185, 129, 0.25)',
+    occupied: '#EF4444',
+    occupiedGlow: 'rgba(239, 68, 68, 0.12)',
+    occupiedBorder: 'rgba(239, 68, 68, 0.25)',
   },
 
   // Text
   text: {
-    primary: '#FFFFFF',
-    secondary: '#94A3B8',
-    muted: '#475569',
-    accent: '#2979FF',
+    primary: '#111827',
+    secondary: '#4B5563',
+    muted: '#9CA3AF',
+    accent: '#FF5B00',
+    light: '#FFFFFF',
   },
 
   // Borders & surfaces
   border: {
-    subtle: 'rgba(255, 255, 255, 0.06)',
-    medium: 'rgba(255, 255, 255, 0.1)',
-    active: 'rgba(41, 121, 255, 0.35)',
+    subtle: 'rgba(0, 0, 0, 0.06)',
+    medium: 'rgba(0, 0, 0, 0.12)',
+    active: 'rgba(255, 91, 0, 0.4)',
   },
 
   // Gradients
   gradient: {
-    co2Start: '#0D2137',
-    co2End: '#133052',
-    accentStart: '#2979FF',
-    accentEnd: '#0D47A1',
+    co2Start: '#F0FDF4',
+    co2End: '#DCFCE7',
+    accentStart: '#FF5B00',
+    accentEnd: '#FF7A29',
   },
 
   // Chart colors
   chart: {
-    blue: '#2979FF',
-    green: '#4CAF50',
+    blue: '#FF5B00',
+    green: '#10B981',
     orange: '#FF9800',
-    red: '#F44336',
-    purple: '#9C27B0',
+    red: '#EF4444',
+    purple: '#8B5CF6',
   },
 };
 
@@ -106,24 +117,31 @@ export const fontWeight = {
 
 export const shadows = {
   card: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.3,
-    shadowRadius: 16,
-    elevation: 8,
+    shadowColor: '#94A3B8',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.18,
+    shadowRadius: 18,
+    elevation: 4,
+  },
+  pill: {
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 3,
   },
   glow: (color: string) => ({
     shadowColor: color,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 16,
-    elevation: 12,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.28,
+    shadowRadius: 14,
+    elevation: 6,
   }),
   button: {
-    shadowColor: '#2979FF',
-    shadowOffset: { width: 0, height: 8 },
+    shadowColor: '#FF5B00',
+    shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.35,
-    shadowRadius: 24,
-    elevation: 10,
+    shadowRadius: 16,
+    elevation: 6,
   },
 };

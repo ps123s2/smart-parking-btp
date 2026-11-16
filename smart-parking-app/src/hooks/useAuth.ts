@@ -36,19 +36,25 @@ export function useAuth(): UseAuthResult {
       const storedToken = await AsyncStorage.getItem(TOKEN_STORAGE_KEY);
 
       if (storedUser && storedToken) {
-        const userData = JSON.parse(storedUser) as UserInfo;
-        // Try to verify the token with the backend
         try {
-          const result = await verifyToken(storedToken);
-          if (result.success && result.user) {
-            setUser({ ...result.user, token: storedToken } as UserInfo);
-          } else {
-            // Token invalid, use stored data as fallback
-            setUser(userData);
-          }
+          const userData = JSON.parse(storedUser) as UserInfo;
+          // Restore user immediately from storage so the screen renders instantly
+          setUser({ ...userData, token: storedToken });
+          setLoading(false);
+
+          // Verify token asynchronously in the background without blocking the UI
+          verifyToken(storedToken)
+            .then((result) => {
+              if (result && result.success && result.user) {
+                setUser({ ...result.user, token: storedToken });
+              }
+            })
+            .catch(() => {
+              // Maintain offline cached session
+            });
+          return;
         } catch {
-          // API not reachable, use stored data
-          setUser(userData);
+          // JSON parsing failure
         }
       }
     } catch {

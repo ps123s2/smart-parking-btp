@@ -4,8 +4,24 @@ Authentication and parking data endpoints
 Integrates real parking data from firebase_dashboard.py
 """
 
+import socket
+
+# Fast fail-safe DNS fallback for regional Firebase Realtime Database
+_FIREBASE_HOST = "smartparking-87cee-default-rtdb.asia-southeast1.firebasedatabase.app"
+_FIREBASE_FALLBACK_IP = "35.186.236.207"
+
+_orig_getaddrinfo = socket.getaddrinfo
+
+def _fast_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    if host == _FIREBASE_HOST:
+        return _orig_getaddrinfo(_FIREBASE_FALLBACK_IP, port, family, type, proto, flags)
+    return _orig_getaddrinfo(host, port, family, type, proto, flags)
+
+socket.getaddrinfo = _fast_getaddrinfo
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
 from smart_parking_ai.auth import (
     register_user,
     login_user,
@@ -16,12 +32,43 @@ from smart_parking_ai.auth import (
 from smart_parking_ai.firebase_config import FIREBASE_URL
 from smart_parking_ai.services.firebase_service import (
     get_parking_states,
+    get_booked_slots,
 )
 from smart_parking_ai.models.marl import select_best_slots, compute_scores
 from smart_parking_ai.models.gru import predict_availability
 from smart_parking_ai.models.gnn import get_route_to_slot
 from smart_parking_ai.services.co2_service import calculate_co2
 from smart_parking_ai.utils.distance import get_slot_distances
+
+try:
+    from smart_parking_ai.campus_adapter import CAMPUS_SLOT_LABELS
+    from smart_parking_ai.neural_inference_service import NeuralInferenceService
+except Exception as _adapter_err:
+    CAMPUS_SLOT_LABELS = {
+        "slot1": "A1",
+        "slot2": "A2",
+        "slot3": "A3",
+        "slot4": "B1",
+        "slot5": "B2",
+    }
+    NeuralInferenceService = None
+
+import threading
+
+# Feature Flag for Stage 8 Paper-Aligned MARL-GCN Allocation
+ENABLE_AI_ALLOCATION = os.getenv("ENABLE_AI_ALLOCATION", "false").lower() == "true"
+
+# Module-level Booking Mutex for Concurrency Protection (SEC-01 Remediation)
+_booking_lock = threading.Lock()
+
+# Pre-warm MARL-GCN Neural Inference Service on startup (PERF-01 Remediation)
+if NeuralInferenceService:
+    try:
+        _neural_service = NeuralInferenceService.get_instance()
+        _neural_service.prewarm()
+        print(f"🔥 MARL-GCN Neural Inference Service pre-warmed ({_neural_service.prewarm_latency_ms:.2f} ms)")
+    except Exception as _prewarm_err:
+        print(f"⚠️ MARL-GCN pre-warm warning: {_prewarm_err}")
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for Flutter web
@@ -238,6 +285,157 @@ def get_parking_recommendations():
         return jsonify({"success": False, "message": str(e)}), 500
 
 
+# ============ Stage 8 AI Allocation Endpoints ============
+
+@app.route("/api/ai/allocate-slot", methods=["POST"])
+def allocate_ai_slot():
+    """
+    Stage 8: AI-driven parking stall allocation using paper-aligned MARL-GCN.
+    Gated by feature flag ENABLE_AI_ALLOCATION (defaults to false).
+    Seamlessly falls back to heuristic allocator if disabled, unavailable, or invalid.
+    """
+    import time
+    start_time = time.perf_counter()
+    try:
+        # 1. Parse optional payload
+        data = request.get_json(silent=True) or {}
+        user_id = data.get("user_id")
+        preferred_slot = data.get("preferred_slot")
+
+        # 2. Read live stall occupancy & active bookings
+        try:
+            states = get_parking_states(FIREBASE_URL, timeout=1.5)
+            booked_slots = get_booked_slots(FIREBASE_URL, timeout=1.5)
+        except Exception:
+            # Defensive fallback in offline mode
+            states = [0, 0, 0, 0, 0]
+            booked_slots = {}
+
+        if not states:
+            states = [0, 0, 0, 0, 0]
+
+        # 3. Check Feature Flag dynamically (OPS-01 Remediation)
+        is_ai_enabled = os.getenv("ENABLE_AI_ALLOCATION", "false").lower() == "true" or ENABLE_AI_ALLOCATION
+        if not is_ai_enabled:
+            ranked_slots, best_slot, top3_slots = select_best_slots(states)
+            latency_ms = (time.perf_counter() - start_time) * 1000.0
+            return jsonify({
+                "success": True,
+                "status": "success" if best_slot else "no_available_stalls",
+                "allocated_stall": best_slot,
+                "allocated_label": CAMPUS_SLOT_LABELS.get(best_slot, best_slot) if best_slot else None,
+                "is_fallback": True,
+                "fallback_reason": "AI allocation disabled by feature flag (ENABLE_AI_ALLOCATION=false)",
+                "model_confidence": None,
+                "latency_ms": round(latency_ms, 3),
+                "top3_slots": top3_slots,
+                "model_version": "heuristic-campus-baseline",
+                "allocation_source": "heuristic_fallback"
+            }), 200
+
+        # 4. Neural Model Inference (when ENABLE_AI_ALLOCATION is True)
+        inference_service = NeuralInferenceService.get_instance() if NeuralInferenceService else None
+        if not inference_service or not getattr(inference_service, "is_loaded", False) or not getattr(inference_service, "is_prewarmed", False):
+            ranked_slots, best_slot, top3_slots = select_best_slots(states)
+            latency_ms = (time.perf_counter() - start_time) * 1000.0
+            return jsonify({
+                "success": True,
+                "status": "success" if best_slot else "no_available_stalls",
+                "allocated_stall": best_slot,
+                "allocated_label": CAMPUS_SLOT_LABELS.get(best_slot, best_slot) if best_slot else None,
+                "is_fallback": True,
+                "fallback_reason": "Neural model not loaded or pre-warmed; heuristic fallback applied",
+                "model_confidence": None,
+                "latency_ms": round(latency_ms, 3),
+                "top3_slots": top3_slots,
+                "model_version": getattr(inference_service, "model_version", "maddpg-stabilized-twin-critic-v1"),
+                "allocation_source": "heuristic_fallback"
+            }), 200
+
+        ai_result = inference_service.allocate_slot(states=states, booked_slots=booked_slots)
+
+        # If neural inference failed or timed out, fallback to heuristic
+        if ai_result.get("is_fallback") or not ai_result.get("success"):
+            ranked_slots, best_slot, top3_slots = select_best_slots(states)
+            latency_ms = (time.perf_counter() - start_time) * 1000.0
+            return jsonify({
+                "success": True,
+                "status": "success" if best_slot else "no_available_stalls",
+                "allocated_stall": best_slot,
+                "allocated_label": CAMPUS_SLOT_LABELS.get(best_slot, best_slot) if best_slot else None,
+                "is_fallback": True,
+                "fallback_reason": ai_result.get("fallback_reason") or "Neural inference fallback",
+                "model_confidence": None,
+                "latency_ms": round(latency_ms, 3),
+                "top3_slots": top3_slots,
+                "model_version": ai_result.get("model_version", "maddpg-stabilized-twin-critic-v1"),
+                "allocation_source": "heuristic_fallback"
+            }), 200
+
+        # Defensive sanity check: verify allocated stall is actually vacant
+        allocated_stall = ai_result.get("allocated_stall")
+        if allocated_stall:
+            try:
+                slot_idx = int(allocated_stall.replace("slot", "")) - 1
+                is_occupied = (slot_idx < len(states) and states[slot_idx] == 1)
+                is_booked = booked_slots.get(allocated_stall, {}).get("status") == "active"
+                if is_occupied or is_booked:
+                    ranked_slots, best_slot, top3_slots = select_best_slots(states)
+                    latency_ms = (time.perf_counter() - start_time) * 1000.0
+                    return jsonify({
+                        "success": True,
+                        "status": "success" if best_slot else "no_available_stalls",
+                        "allocated_stall": best_slot,
+                        "allocated_label": CAMPUS_SLOT_LABELS.get(best_slot, best_slot) if best_slot else None,
+                        "is_fallback": True,
+                        "fallback_reason": "Neural allocation suggested occupied stall; defensive fallback applied",
+                        "model_confidence": None,
+                        "latency_ms": round(latency_ms, 3),
+                        "top3_slots": top3_slots,
+                        "model_version": ai_result.get("model_version", "maddpg-stabilized-twin-critic-v1"),
+                        "allocation_source": "heuristic_fallback"
+                    }), 200
+            except Exception:
+                pass
+
+        latency_ms = (time.perf_counter() - start_time) * 1000.0
+        return jsonify({
+            "success": True,
+            "status": ai_result["status"],
+            "allocated_stall": ai_result["allocated_stall"],
+            "allocated_label": ai_result["allocated_label"],
+            "is_fallback": False,
+            "fallback_reason": None,
+            "model_confidence": ai_result["model_confidence"],
+            "latency_ms": round(latency_ms, 3),
+            "top3_slots": ai_result["top3_slots"],
+            "ranked_slots": ai_result.get("ranked_slots", []),
+            "model_version": ai_result["model_version"],
+            "allocation_source": "marl_gcn_neural_policy"
+        }), 200
+
+    except Exception as e:
+        latency_ms = (time.perf_counter() - start_time) * 1000.0
+        try:
+            states = [0, 0, 0, 0, 0]
+            ranked_slots, best_slot, top3_slots = select_best_slots(states)
+            return jsonify({
+                "success": True,
+                "status": "success" if best_slot else "no_available_stalls",
+                "allocated_stall": best_slot,
+                "allocated_label": CAMPUS_SLOT_LABELS.get(best_slot, best_slot) if best_slot else None,
+                "is_fallback": True,
+                "fallback_reason": f"Exception caught in AI allocation: {str(e)}",
+                "model_confidence": None,
+                "latency_ms": round(latency_ms, 3),
+                "top3_slots": top3_slots,
+                "model_version": "heuristic-campus-baseline",
+                "allocation_source": "heuristic_fallback"
+            }), 200
+        except Exception:
+            return jsonify({"success": False, "message": "Allocation service unavailable"}), 500
+
+
 @app.route("/api/parking/co2", methods=["POST"])
 def add_co2_saved():
     """Record CO2 saved for a user"""
@@ -342,6 +540,7 @@ def get_sensor_status(slot_id):
 def book_parking_slot():
     """Book a parking slot — supports fractional hours (e.g. 1.5 = 1h 30m).
     Also writes to Firebase so all connected phones see the booking in real-time.
+    Remediated in Stage 8.10 with mutex serialization (SEC-01) and write verification (SEC-02).
     """
     try:
         from datetime import datetime, timedelta
@@ -363,11 +562,11 @@ def book_parking_slot():
             duration_hours = 4.0
         if duration_hours < 0.25:
             duration_hours = 0.25
-        
-        booking_id = f"bk_{int(datetime.now().timestamp())}_{slot_id}"
+
         now = datetime.now()
         expires_at = now + timedelta(hours=duration_hours)
-        
+        booking_id = f"bk_{int(now.timestamp())}_{slot_id}"
+
         # Format duration for display
         total_min = int(round(duration_hours * 60))
         h, m = divmod(total_min, 60)
@@ -377,13 +576,51 @@ def book_parking_slot():
             dur_label = f"{h}h"
         else:
             dur_label = f"{m}m"
-        
-        # Write booking to Firebase /data/booked_slots/{slotId} for real-time multi-device sync
-        # This path is inside /data/ which both phones already listen to via onValue('data')
-        try:
+
+        # Concurrency Protection (SEC-01 Remediation)
+        with _booking_lock:
+            # 1. Availability Validation: Prevent reserving occupied or already-booked slots
+            try:
+                states = get_parking_states(FIREBASE_URL)
+                booked = get_booked_slots(FIREBASE_URL)
+            except Exception as check_err:
+                print(f"Pre-booking database read failed: {check_err}")
+                return jsonify({
+                    "success": False,
+                    "message": "Database unavailable: cannot verify stall availability."
+                }), 503
+
+            slot_idx = int(slot_id.replace("slot", "")) - 1
+            if slot_idx < len(states) and states[slot_idx] == 1:
+                return jsonify({"success": False, "message": f"Stall {slot_id} is currently occupied."}), 409
+
+            active_booking = booked.get(slot_id, {})
+            if isinstance(active_booking, dict) and active_booking.get("status") == "active":
+                existing_email = active_booking.get("userEmail", "").strip().lower()
+                if existing_email and existing_email != user_email.lower():
+                    return jsonify({"success": False, "message": f"Stall {slot_id} is already reserved by another driver."}), 409
+                elif existing_email and existing_email == user_email.lower():
+                    # Duplicate/idempotent booking request for the same driver
+                    print(f"ℹ️ Duplicate booking detected for {user_email} on {slot_id} — returning existing reservation")
+                    return jsonify({
+                        "success": True,
+                        "message": f"Slot {slot_id} is already reserved by you.",
+                        "booking_id": active_booking.get("bookingId", booking_id),
+                        "slot_id": slot_id,
+                        "user_email": user_email,
+                        "booking_time": booking_time,
+                        "duration_hours": active_booking.get("duration", duration_hours),
+                        "duration_label": dur_label,
+                        "booked_at": active_booking.get("bookedAt", str(now)),
+                        "expires_at": active_booking.get("expiresAt", expires_at.isoformat()),
+                        "is_duplicate": True,
+                    }), 200
+
+            # 2. Write booking to Firebase /data/booked_slots/{slotId} with conditional ETag check
             fb_base = FIREBASE_URL.replace("/data.json", "")
             fb_booking_url = f"{fb_base}/data/booked_slots/{slot_id}.json"
             fb_payload = {
+                "bookingId": booking_id,
                 "slotLabel": slot_id.replace("slot", "S"),
                 "duration": duration_hours,
                 "bookedAt": now.isoformat(),
@@ -391,18 +628,61 @@ def book_parking_slot():
                 "status": "active",
                 "userEmail": user_email,
             }
-            http_requests.put(fb_booking_url, json=fb_payload, timeout=3)
-            print(f"🔥 Firebase sync OK → /data/booked_slots/{slot_id}")
-        except Exception as fb_err:
-            print(f"⚠️ Firebase booking sync failed: {fb_err}")
-        
+
+            try:
+                # Step 2a: Query ETag directly from slot path — strictly fail-closed (SEC-01)
+                get_res = http_requests.get(fb_booking_url, timeout=3)
+                if get_res.status_code != 200:
+                    return jsonify({
+                        "success": False,
+                        "message": f"Failed to retrieve database concurrency token (HTTP {get_res.status_code})."
+                    }), 502
+
+                etag = get_res.headers.get("ETag") if hasattr(get_res, "headers") else None
+                if not etag or (isinstance(etag, str) and not etag.strip()):
+                    return jsonify({
+                        "success": False,
+                        "message": "Database response missing required ETag for conditional write."
+                    }), 502
+
+                # Step 2b: Conditional PUT — strictly requires If-Match header
+                etag_val = str(etag).strip()
+                headers = {"if-match": etag_val}
+
+                put_res = http_requests.put(fb_booking_url, json=fb_payload, headers=headers, timeout=3)
+
+                if put_res.status_code == 412:
+                    # Precondition failed: another process updated the slot concurrently
+                    return jsonify({
+                        "success": False,
+                        "message": "Reservation conflict: stall state changed concurrently. Please retry."
+                    }), 409
+                elif put_res.status_code != 200:
+                    # Write failure (SEC-02 Remediation): Never return 200 OK on write failure!
+                    return jsonify({
+                        "success": False,
+                        "message": f"Database synchronization failed (HTTP {put_res.status_code})."
+                    }), 502
+
+                print(f"🔥 Firebase sync OK → /data/booked_slots/{slot_id}")
+            except http_requests.exceptions.Timeout:
+                return jsonify({
+                    "success": False,
+                    "message": "Database write timed out. Reservation could not be confirmed."
+                }), 504
+            except http_requests.exceptions.RequestException as fb_err:
+                return jsonify({
+                    "success": False,
+                    "message": f"Database connection error: {str(fb_err)}"
+                }), 503
+
         # Log the booking
         print(f"✅ Booking confirmed - {slot_id} for {user_email}")
         print(f"   Booking ID: {booking_id}")
         print(f"   Time: {booking_time}")
         print(f"   Duration: {dur_label} ({duration_hours}h)")
         print(f"   Expires: {expires_at.isoformat()}")
-        
+
         return jsonify({
             "success": True,
             "message": f"Slot {slot_id} booked for {dur_label}",
@@ -423,8 +703,33 @@ def book_parking_slot():
 
 @app.route("/api/health", methods=["GET"])
 def health_check():
-    """Health check endpoint"""
-    return jsonify({"status": "ok", "service": "Smart Parking AI"}), 200
+    """Health check endpoint with verified AI readiness telemetry."""
+    ai_loaded = False
+    ai_prewarmed = False
+    ai_status = "uninitialized"
+    try:
+        service = NeuralInferenceService.get_instance() if NeuralInferenceService else None
+        ai_loaded = bool(getattr(service, "is_loaded", False)) if service else False
+        ai_prewarmed = bool(getattr(service, "is_prewarmed", False)) if service else False
+        if ai_loaded and ai_prewarmed:
+            ai_status = "ready"
+        elif ai_loaded:
+            ai_status = "loaded_not_warmed"
+        elif not NeuralInferenceService:
+            ai_status = "fallback_heuristic_ready"
+        else:
+            ai_status = f"load_failed: {getattr(service, 'load_error', 'unknown')}"
+    except Exception as e:
+        ai_status = f"error: {str(e)}"
+
+    return jsonify({
+        "status": "ok",
+        "service": "Smart Parking AI",
+        "ai_allocation_enabled": os.getenv("ENABLE_AI_ALLOCATION", "false").lower() == "true",
+        "ai_model_loaded": ai_loaded,
+        "ai_model_prewarmed": ai_prewarmed,
+        "ai_status": ai_status,
+    }), 200
 
 
 @app.route("/api/init/test-data", methods=["POST"])

@@ -1,0 +1,22 @@
+{
+  "dataset_name": "City of Melbourne On-Street Parking Bay Sensors",
+  "source_url": "https://data.melbourne.vic.gov.au/explore/dataset/on-street-parking-bay-sensors/",
+  "publisher": "City of Melbourne Open Data Portal",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "attribution": "Source: City of Melbourne, On-street Parking Bay Sensors (2024-2025)",
+  "data_schema": {
+    "kerbsideid": "Integer - unique physical bay identifier",
+    "zone_number": "Integer - parking management precinct/zone",
+    "status_description": "String - 'Present' (occupied) or 'Unoccupied' (vacant)",
+    "status_timestamp": "ISO8601 Timestamp - recorded state change",
+    "location": "Object containing lon (float) and lat (float) in WGS84",
+    "lastupdated": "ISO8601 Timestamp - sensor ingestion timestamp"
+  },
+  "curation_date": "2026-11-16T14:44:49.476152",
+  "sensor_type": "In-ground geomagnetic and infrared vehicle presence sensors",
+  "known_limitations": [
+    "Snapshot records report current occupancy; continuous session durations require delta aggregation.",
+    "Occasional geomagnetic drift during extreme weather or urban construction.",
+    "City-scale data reflects broad metropolitan roads, mapped proportionally to campus research facility."
+  ]
+}

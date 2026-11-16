@@ -1,0 +1,4061 @@
+{
+  "metadata": {
+    "num_seeds": 10,
+    "seeds": [
+      100,
+      147,
+      194,
+      241,
+      288,
+      335,
+      382,
+      429,
+      476,
+      523
+    ],
+    "timestamp": "2026-11-16T10:33:29Z",
+    "neural_latency": {
+      "mean_latency_ms": 0.1585236719547538,
+      "median_latency_ms": 0.15635450108675286,
+      "std_latency_ms": 0.005765640981767121,
+      "p95_latency_ms": 0.1725410606013611,
+      "p99_latency_ms": 0.18110316406819035,
+      "num_iterations": 1000,
+      "hardware": "Apple Silicon CPU (PyTorch 2.15.0)"
+    }
+  },
+  "scenarios": {
+    "Scenario 1 (Low Demand)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 100,
+            "occupancy_rate": 10.117988494826127,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 844.2737036929237,
+            "mean_cruising_time_min": 3.1145259261415275,
+            "mean_step_latency_ms": 0.17052765314959026
+          },
+          {
+            "seed": 147,
+            "service_volume": 100,
+            "occupancy_rate": 11.018017862387063,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 840.3642234648054,
+            "mean_cruising_time_min": 3.1927155307038944,
+            "mean_step_latency_ms": 0.16749802790255783
+          },
+          {
+            "seed": 194,
+            "service_volume": 100,
+            "occupancy_rate": 11.217224618333676,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 838.4057632014118,
+            "mean_cruising_time_min": 3.231884735971766,
+            "mean_step_latency_ms": 0.1708715372606767
+          },
+          {
+            "seed": 241,
+            "service_volume": 100,
+            "occupancy_rate": 10.846376909901814,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 834.7526284227695,
+            "mean_cruising_time_min": 3.304947431544606,
+            "mean_step_latency_ms": 0.16986465051133665
+          },
+          {
+            "seed": 288,
+            "service_volume": 100,
+            "occupancy_rate": 10.332547609761061,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 838.1072289771171,
+            "mean_cruising_time_min": 3.2378554204576506,
+            "mean_step_latency_ms": 0.17041394472604943
+          },
+          {
+            "seed": 335,
+            "service_volume": 100,
+            "occupancy_rate": 10.090047312994963,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 839.2317409885974,
+            "mean_cruising_time_min": 3.2153651802280554,
+            "mean_step_latency_ms": 0.17003666042401497
+          },
+          {
+            "seed": 382,
+            "service_volume": 100,
+            "occupancy_rate": 11.542411172725405,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 833.0678434090753,
+            "mean_cruising_time_min": 3.3386431318184964,
+            "mean_step_latency_ms": 0.16608219367400226
+          },
+          {
+            "seed": 429,
+            "service_volume": 100,
+            "occupancy_rate": 10.773457240244873,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 827.0205558870464,
+            "mean_cruising_time_min": 3.459588882259076,
+            "mean_step_latency_ms": 0.1670431739270448
+          },
+          {
+            "seed": 476,
+            "service_volume": 100,
+            "occupancy_rate": 11.607793925621937,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 819.638285704912,
+            "mean_cruising_time_min": 3.6072342859017597,
+            "mean_step_latency_ms": 0.17411620201278102
+          },
+          {
+            "seed": 523,
+            "service_volume": 100,
+            "occupancy_rate": 10.430904373484374,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 849.8279958787685,
+            "mean_cruising_time_min": 3.0034400824246346,
+            "mean_step_latency_ms": 0.16676189888956522
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 100,
+            "occupancy_rate": 10.117988494826127,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 859.4673881797845,
+            "mean_cruising_time_min": 2.8106522364043105,
+            "mean_step_latency_ms": 0.0028722427478582364
+          },
+          {
+            "seed": 147,
+            "service_volume": 100,
+            "occupancy_rate": 11.018017862387063,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 857.5412221875229,
+            "mean_cruising_time_min": 2.849175556249537,
+            "mean_step_latency_ms": 0.002778831964019233
+          },
+          {
+            "seed": 194,
+            "service_volume": 100,
+            "occupancy_rate": 11.217224618333676,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 862.2923293061912,
+            "mean_cruising_time_min": 2.7541534138761765,
+            "mean_step_latency_ms": 0.002826454739853809
+          },
+          {
+            "seed": 241,
+            "service_volume": 100,
+            "occupancy_rate": 10.846376909901814,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 863.8636628206369,
+            "mean_cruising_time_min": 2.7227267435872613,
+            "mean_step_latency_ms": 0.0027286149390520304
+          },
+          {
+            "seed": 288,
+            "service_volume": 100,
+            "occupancy_rate": 10.332547609761061,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 864.1733988858908,
+            "mean_cruising_time_min": 2.716532022282186,
+            "mean_step_latency_ms": 0.0027824956079979144
+          },
+          {
+            "seed": 335,
+            "service_volume": 100,
+            "occupancy_rate": 10.090047312994963,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 861.5627740457211,
+            "mean_cruising_time_min": 2.7687445190855766,
+            "mean_step_latency_ms": 0.0027789915335116855
+          },
+          {
+            "seed": 382,
+            "service_volume": 100,
+            "occupancy_rate": 11.542411172725405,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 862.1862554381839,
+            "mean_cruising_time_min": 2.7562748912363197,
+            "mean_step_latency_ms": 0.0027734813220040115
+          },
+          {
+            "seed": 429,
+            "service_volume": 100,
+            "occupancy_rate": 10.773457240244873,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 861.2332634363662,
+            "mean_cruising_time_min": 2.775334731272675,
+            "mean_step_latency_ms": 0.002765624197584432
+          },
+          {
+            "seed": 476,
+            "service_volume": 100,
+            "occupancy_rate": 11.607793925621937,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 855.459362603215,
+            "mean_cruising_time_min": 2.8908127479356938,
+            "mean_step_latency_ms": 0.0027690643237459414
+          },
+          {
+            "seed": 523,
+            "service_volume": 100,
+            "occupancy_rate": 10.430904373484374,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 863.8399328928315,
+            "mean_cruising_time_min": 2.7232013421433665,
+            "mean_step_latency_ms": 0.0027786133172195576
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 100,
+            "occupancy_rate": 10.117988494826127,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 853.0783417935112,
+            "mean_cruising_time_min": 2.938433164129776,
+            "mean_step_latency_ms": 0.0022484296138581134
+          },
+          {
+            "seed": 147,
+            "service_volume": 100,
+            "occupancy_rate": 11.018017862387063,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 846.8832182847519,
+            "mean_cruising_time_min": 3.0623356343049526,
+            "mean_step_latency_ms": 0.0021129340111826346
+          },
+          {
+            "seed": 194,
+            "service_volume": 100,
+            "occupancy_rate": 11.217224618333676,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 850.5962537389181,
+            "mean_cruising_time_min": 2.98807492522163,
+            "mean_step_latency_ms": 0.0021184825056008304
+          },
+          {
+            "seed": 241,
+            "service_volume": 100,
+            "occupancy_rate": 10.846376909901814,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 854.4204139947584,
+            "mean_cruising_time_min": 2.911591720104834,
+            "mean_step_latency_ms": 0.0021062929390442617
+          },
+          {
+            "seed": 288,
+            "service_volume": 100,
+            "occupancy_rate": 10.332547609761061,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 855.0835051162113,
+            "mean_cruising_time_min": 2.898329897675767,
+            "mean_step_latency_ms": 0.0020971556713189417
+          },
+          {
+            "seed": 335,
+            "service_volume": 100,
+            "occupancy_rate": 10.090047312994963,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 854.8360373809697,
+            "mean_cruising_time_min": 2.9032792523806,
+            "mean_step_latency_ms": 0.002081385133318056
+          },
+          {
+            "seed": 382,
+            "service_volume": 100,
+            "occupancy_rate": 11.542411172725405,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 830.9881963180546,
+            "mean_cruising_time_min": 3.380236073638904,
+            "mean_step_latency_ms": 0.0021115367956183574
+          },
+          {
+            "seed": 429,
+            "service_volume": 100,
+            "occupancy_rate": 10.773457240244873,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 847.4833438265445,
+            "mean_cruising_time_min": 3.0503331234691022,
+            "mean_step_latency_ms": 0.002177019118664598
+          },
+          {
+            "seed": 476,
+            "service_volume": 100,
+            "occupancy_rate": 11.607793925621937,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 853.2518921323972,
+            "mean_cruising_time_min": 2.9349621573520506,
+            "mean_step_latency_ms": 0.002143778939680154
+          },
+          {
+            "seed": 523,
+            "service_volume": 100,
+            "occupancy_rate": 10.430904373484374,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 100,
+            "cumulative_reward": 840.2751855506714,
+            "mean_cruising_time_min": 3.1944962889865707,
+            "mean_step_latency_ms": 0.002114999790487965
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "occupancy_rate": {
+            "mean": 10.79767695202813,
+            "std": 0.5529748583896662,
+            "median": 10.809917075073344,
+            "iqr": 0.8102861286551324,
+            "ci_95_low": 10.402102568250932,
+            "ci_95_high": 11.193251335805328
+          },
+          "cruising_time_min": {
+            "mean": 3.2706200607451463,
+            "std": 0.17070785407947717,
+            "median": 3.2348700782147084,
+            "iqr": 0.13184126366508941,
+            "ci_95_low": 3.1485030184259597,
+            "ci_95_high": 3.392737103064333
+          },
+          "cumulative_reward": {
+            "mean": 836.4689969627427,
+            "std": 8.53539270397389,
+            "median": 838.2564960892644,
+            "iqr": 6.592063183254481,
+            "ci_95_low": 830.3631448467834,
+            "ci_95_high": 842.5748490787021
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "occupancy_rate": {
+            "mean": 10.79767695202813,
+            "std": 0.5529748583896662,
+            "median": 10.809917075073344,
+            "iqr": 0.8102861286551324,
+            "ci_95_low": 10.402102568250932,
+            "ci_95_high": 11.193251335805328
+          },
+          "cruising_time_min": {
+            "mean": 2.77676082040731,
+            "std": 0.05755503110818972,
+            "median": 2.762509705160948,
+            "iqr": 0.0708835000448329,
+            "ci_95_low": 2.73558843143071,
+            "ci_95_high": 2.81793320938391
+          },
+          "cumulative_reward": {
+            "mean": 861.1619589796344,
+            "std": 2.877751555409577,
+            "median": 861.8745147419525,
+            "iqr": 3.5441750022414453,
+            "ci_95_low": 859.1033395308043,
+            "ci_95_high": 863.2205784284645
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "occupancy_rate": {
+            "mean": 10.79767695202813,
+            "std": 0.5529748583896662,
+            "median": 10.809917075073344,
+            "iqr": 0.8102861286551324,
+            "ci_95_low": 10.402102568250932,
+            "ci_95_high": 11.193251335805328
+          },
+          "cruising_time_min": {
+            "mean": 3.026207223726419,
+            "std": 0.1555026213920905,
+            "median": 2.963254044675703,
+            "iqr": 0.14190067717935184,
+            "ci_95_low": 2.9149673496170454,
+            "ci_95_high": 3.1374470978357927
+          },
+          "cumulative_reward": {
+            "mean": 848.6896388136789,
+            "std": 7.775131069604522,
+            "median": 851.8372977662146,
+            "iqr": 7.095033858968009,
+            "ci_95_low": 843.1276451082102,
+            "ci_95_high": 854.2516325191476
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 10.248391121312567,
+          "p_value": 2.9161851819430065e-06,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 3.169619508947832,
+          "p_value": 0.01137293343311399,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 2 (Moderate Demand)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 250,
+            "occupancy_rate": 24.782512845732505,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1759.5290896240288,
+            "mean_cruising_time_min": 6.763767283007772,
+            "mean_step_latency_ms": 0.17243621143546606
+          },
+          {
+            "seed": 147,
+            "service_volume": 250,
+            "occupancy_rate": 26.866658752904065,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1857.0220818970272,
+            "mean_cruising_time_min": 5.497823344823787,
+            "mean_step_latency_ms": 0.18108447700196348
+          },
+          {
+            "seed": 194,
+            "service_volume": 250,
+            "occupancy_rate": 27.17699130051383,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1709.928537064049,
+            "mean_cruising_time_min": 6.614571703487598,
+            "mean_step_latency_ms": 0.16889679849087988
+          },
+          {
+            "seed": 241,
+            "service_volume": 250,
+            "occupancy_rate": 24.71128898234666,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1821.4814431019727,
+            "mean_cruising_time_min": 6.016148455184215,
+            "mean_step_latency_ms": 0.16731804532080102
+          },
+          {
+            "seed": 288,
+            "service_volume": 250,
+            "occupancy_rate": 25.47440180433787,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1782.7757107593466,
+            "mean_cruising_time_min": 6.679794313925238,
+            "mean_step_latency_ms": 0.16772588036757885
+          },
+          {
+            "seed": 335,
+            "service_volume": 250,
+            "occupancy_rate": 26.563109430378674,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1730.8452774192976,
+            "mean_cruising_time_min": 6.5561385742964084,
+            "mean_step_latency_ms": 0.16879933056370314
+          },
+          {
+            "seed": 382,
+            "service_volume": 250,
+            "occupancy_rate": 26.744026836448278,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1580.1865986571047,
+            "mean_cruising_time_min": 7.550507210743161,
+            "mean_step_latency_ms": 0.16864357315137535
+          },
+          {
+            "seed": 429,
+            "service_volume": 250,
+            "occupancy_rate": 26.08658786820194,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1761.0574300529863,
+            "mean_cruising_time_min": 5.941540559576111,
+            "mean_step_latency_ms": 0.1691028075516993
+          },
+          {
+            "seed": 476,
+            "service_volume": 250,
+            "occupancy_rate": 26.296867845817296,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1614.8514232608977,
+            "mean_cruising_time_min": 7.23365686788108,
+            "mean_step_latency_ms": 0.17013338460146937
+          },
+          {
+            "seed": 523,
+            "service_volume": 250,
+            "occupancy_rate": 25.106411843510994,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1857.8997603661226,
+            "mean_cruising_time_min": 5.94680191707102,
+            "mean_step_latency_ms": 0.1719556694130473
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 250,
+            "occupancy_rate": 24.782512845732505,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2075.3424046491255,
+            "mean_cruising_time_min": 3.397260762806991,
+            "mean_step_latency_ms": 0.002997357706932368
+          },
+          {
+            "seed": 147,
+            "service_volume": 250,
+            "occupancy_rate": 26.866658752904065,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2063.311283279757,
+            "mean_cruising_time_min": 3.4935097337619467,
+            "mean_step_latency_ms": 0.0029323313389520308
+          },
+          {
+            "seed": 194,
+            "service_volume": 250,
+            "occupancy_rate": 27.17699130051383,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2064.7269832138027,
+            "mean_cruising_time_min": 3.482184134289577,
+            "mean_step_latency_ms": 0.0028623677330911843
+          },
+          {
+            "seed": 241,
+            "service_volume": 250,
+            "occupancy_rate": 24.71128898234666,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2092.994930667895,
+            "mean_cruising_time_min": 3.2560405546568445,
+            "mean_step_latency_ms": 0.0028470739371937895
+          },
+          {
+            "seed": 288,
+            "service_volume": 250,
+            "occupancy_rate": 25.47440180433787,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2094.894841880774,
+            "mean_cruising_time_min": 3.2408412649538008,
+            "mean_step_latency_ms": 0.002858577826948956
+          },
+          {
+            "seed": 335,
+            "service_volume": 250,
+            "occupancy_rate": 26.563109430378674,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2067.8326153765934,
+            "mean_cruising_time_min": 3.457339076987252,
+            "mean_step_latency_ms": 0.002856275019740019
+          },
+          {
+            "seed": 382,
+            "service_volume": 250,
+            "occupancy_rate": 26.744026836448278,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2070.4349993214964,
+            "mean_cruising_time_min": 3.4365200054280294,
+            "mean_step_latency_ms": 0.0028487404590662293
+          },
+          {
+            "seed": 429,
+            "service_volume": 250,
+            "occupancy_rate": 26.08658786820194,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2075.5087012527183,
+            "mean_cruising_time_min": 3.3959303899782487,
+            "mean_step_latency_ms": 0.0029518155524199574
+          },
+          {
+            "seed": 476,
+            "service_volume": 250,
+            "occupancy_rate": 26.296867845817296,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2071.999036066768,
+            "mean_cruising_time_min": 3.424007711465858,
+            "mean_step_latency_ms": 0.0029047988483323415
+          },
+          {
+            "seed": 523,
+            "service_volume": 250,
+            "occupancy_rate": 25.106411843510994,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2093.7855333062494,
+            "mean_cruising_time_min": 3.2497157335500004,
+            "mean_step_latency_ms": 0.00287235835716641
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 250,
+            "occupancy_rate": 24.782512845732505,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1997.4535103860499,
+            "mean_cruising_time_min": 4.374371916911596,
+            "mean_step_latency_ms": 0.002226963694796923
+          },
+          {
+            "seed": 147,
+            "service_volume": 250,
+            "occupancy_rate": 26.866658752904065,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1960.8063805659942,
+            "mean_cruising_time_min": 4.31354895547204,
+            "mean_step_latency_ms": 0.002152880962399783
+          },
+          {
+            "seed": 194,
+            "service_volume": 250,
+            "occupancy_rate": 27.17699130051383,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1994.339861096743,
+            "mean_cruising_time_min": 4.045281111226065,
+            "mean_step_latency_ms": 0.0021605228539556265
+          },
+          {
+            "seed": 241,
+            "service_volume": 250,
+            "occupancy_rate": 24.71128898234666,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1995.328749551451,
+            "mean_cruising_time_min": 4.037370003588392,
+            "mean_step_latency_ms": 0.0021188804792206086
+          },
+          {
+            "seed": 288,
+            "service_volume": 250,
+            "occupancy_rate": 25.47440180433787,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1908.3501931192777,
+            "mean_cruising_time_min": 5.58519845504577,
+            "mean_step_latency_ms": 0.0021402477639206096
+          },
+          {
+            "seed": 335,
+            "service_volume": 250,
+            "occupancy_rate": 26.563109430378674,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1971.1047982104785,
+            "mean_cruising_time_min": 4.2311616143161705,
+            "mean_step_latency_ms": 0.002120404158197685
+          },
+          {
+            "seed": 382,
+            "service_volume": 250,
+            "occupancy_rate": 26.744026836448278,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1977.3823872807563,
+            "mean_cruising_time_min": 4.504940901753954,
+            "mean_step_latency_ms": 0.0020856935373524685
+          },
+          {
+            "seed": 429,
+            "service_volume": 250,
+            "occupancy_rate": 26.08658786820194,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1946.0478264974631,
+            "mean_cruising_time_min": 4.917617388020291,
+            "mean_step_latency_ms": 0.0020964316801603783
+          },
+          {
+            "seed": 476,
+            "service_volume": 250,
+            "occupancy_rate": 26.296867845817296,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 2016.821464864735,
+            "mean_cruising_time_min": 4.027428281082125,
+            "mean_step_latency_ms": 0.0022317153623823177
+          },
+          {
+            "seed": 523,
+            "service_volume": 250,
+            "occupancy_rate": 25.106411843510994,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 250,
+            "cumulative_reward": 1984.6522104744577,
+            "mean_cruising_time_min": 4.446782316204339,
+            "mean_step_latency_ms": 0.0020787704612102802
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 250.0,
+            "std": 0.0,
+            "median": 250.0,
+            "iqr": 0.0,
+            "ci_95_low": 250.0,
+            "ci_95_high": 250.0
+          },
+          "occupancy_rate": {
+            "mean": 25.980885751019212,
+            "std": 0.9016560581997154,
+            "median": 26.191727857009617,
+            "iqr": 1.5003881512131656,
+            "ci_95_low": 25.33587986297576,
+            "ci_95_high": 26.625891639062665
+          },
+          "cruising_time_min": {
+            "mean": 6.480075022999638,
+            "std": 0.6335438749476107,
+            "median": 6.5853551388920035,
+            "iqr": 0.7786354891378204,
+            "ci_95_low": 6.02686503682045,
+            "ci_95_high": 6.933285009178826
+          },
+          "cumulative_reward": {
+            "mean": 1747.5577352202831,
+            "std": 93.39742238263193,
+            "median": 1760.2932598385075,
+            "iqr": 96.64728786345518,
+            "ci_95_low": 1680.7452441190082,
+            "ci_95_high": 1814.370226321558
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 250.0,
+            "std": 0.0,
+            "median": 250.0,
+            "iqr": 0.0,
+            "ci_95_low": 250.0,
+            "ci_95_high": 250.0
+          },
+          "occupancy_rate": {
+            "mean": 25.980885751019212,
+            "std": 0.9016560581997154,
+            "median": 26.191727857009617,
+            "iqr": 1.5003881512131656,
+            "ci_95_low": 25.33587986297576,
+            "ci_95_high": 26.625891639062665
+          },
+          "cruising_time_min": {
+            "mean": 3.383334936787855,
+            "std": 0.09808395519944975,
+            "median": 3.410634237136424,
+            "iqr": 0.16112129561025057,
+            "ci_95_low": 3.313169902071011,
+            "ci_95_high": 3.453499971504699
+          },
+          "cumulative_reward": {
+            "mean": 2077.0831329015186,
+            "std": 12.260494399931078,
+            "median": 2073.6707203579467,
+            "iqr": 20.140161951281698,
+            "ci_95_low": 2068.312503561913,
+            "ci_95_high": 2085.853762241124
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 250.0,
+            "std": 0.0,
+            "median": 250.0,
+            "iqr": 0.0,
+            "ci_95_low": 250.0,
+            "ci_95_high": 250.0
+          },
+          "occupancy_rate": {
+            "mean": 25.980885751019212,
+            "std": 0.9016560581997154,
+            "median": 26.191727857009617,
+            "iqr": 1.5003881512131656,
+            "ci_95_low": 25.33587986297576,
+            "ci_95_high": 26.625891639062665
+          },
+          "cruising_time_min": {
+            "mean": 4.448370094362074,
+            "std": 0.48249356106460645,
+            "median": 4.343960436191818,
+            "iqr": 0.39865001836795777,
+            "ci_95_low": 4.1032149933681294,
+            "ci_95_high": 4.793525195356019
+          },
+          "cumulative_reward": {
+            "mean": 1975.2287382047405,
+            "std": 30.97643835700568,
+            "median": 1981.0172988776071,
+            "iqr": 31.700542460658653,
+            "ci_95_low": 1953.0695291036818,
+            "ci_95_high": 1997.3879473057991
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 15.693535364102942,
+          "p_value": 7.61380571287881e-08,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 7.997904122497316,
+          "p_value": 2.2181200341760146e-05,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 3 (Saturated High Demand)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 600,
+            "occupancy_rate": 47.66911428038461,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2630.2787965592506,
+            "mean_cruising_time_min": 19.73746518871785,
+            "mean_step_latency_ms": 0.1742973948514875
+          },
+          {
+            "seed": 147,
+            "service_volume": 600,
+            "occupancy_rate": 49.35644152012074,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2224.200767723221,
+            "mean_cruising_time_min": 22.890056634044296,
+            "mean_step_latency_ms": 0.16749163271449163
+          },
+          {
+            "seed": 194,
+            "service_volume": 600,
+            "occupancy_rate": 50.168732723973605,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2718.145317544966,
+            "mean_cruising_time_min": 19.727098280141124,
+            "mean_step_latency_ms": 0.16752519330261872
+          },
+          {
+            "seed": 241,
+            "service_volume": 600,
+            "occupancy_rate": 47.13663111126185,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2629.2851284829662,
+            "mean_cruising_time_min": 18.904547256908657,
+            "mean_step_latency_ms": 0.1676249992820101
+          },
+          {
+            "seed": 288,
+            "service_volume": 600,
+            "occupancy_rate": 47.81664942596958,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2456.858653656314,
+            "mean_cruising_time_min": 20.18273471268002,
+            "mean_step_latency_ms": 0.1765232388498347
+          },
+          {
+            "seed": 335,
+            "service_volume": 600,
+            "occupancy_rate": 49.37000797028948,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2636.1676573001523,
+            "mean_cruising_time_min": 21.59551753122173,
+            "mean_step_latency_ms": 0.177198468676529
+          },
+          {
+            "seed": 382,
+            "service_volume": 600,
+            "occupancy_rate": 49.965235971442624,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2747.5619304387424,
+            "mean_cruising_time_min": 18.68596750700314,
+            "mean_step_latency_ms": 0.17019070659811103
+          },
+          {
+            "seed": 429,
+            "service_volume": 600,
+            "occupancy_rate": 48.22873034984483,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2360.7375421398983,
+            "mean_cruising_time_min": 21.451984317205632,
+            "mean_step_latency_ms": 0.17011421158538123
+          },
+          {
+            "seed": 476,
+            "service_volume": 600,
+            "occupancy_rate": 47.79799555698757,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2471.237144394287,
+            "mean_cruising_time_min": 19.288660576886787,
+            "mean_step_latency_ms": 0.1677951366702573
+          },
+          {
+            "seed": 523,
+            "service_volume": 600,
+            "occupancy_rate": 47.06031982906273,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 2444.0353661357913,
+            "mean_cruising_time_min": 22.031937337748403,
+            "mean_step_latency_ms": 0.1670962937577807
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 600,
+            "occupancy_rate": 47.66911428038461,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4526.756164775273,
+            "mean_cruising_time_min": 4.92331278408243,
+            "mean_step_latency_ms": 0.0029304399904837714
+          },
+          {
+            "seed": 147,
+            "service_volume": 600,
+            "occupancy_rate": 49.35644152012074,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4448.2493820654745,
+            "mean_cruising_time_min": 5.243335393115093,
+            "mean_step_latency_ms": 0.002844432030308889
+          },
+          {
+            "seed": 194,
+            "service_volume": 600,
+            "occupancy_rate": 50.168732723973605,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4385.972603230644,
+            "mean_cruising_time_min": 5.464535767008965,
+            "mean_step_latency_ms": 0.002800843437039934
+          },
+          {
+            "seed": 241,
+            "service_volume": 600,
+            "occupancy_rate": 47.13663111126185,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4586.90895280808,
+            "mean_cruising_time_min": 4.710303490639745,
+            "mean_step_latency_ms": 0.0028126788167539265
+          },
+          {
+            "seed": 288,
+            "service_volume": 600,
+            "occupancy_rate": 47.81664942596958,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4502.764137480459,
+            "mean_cruising_time_min": 5.058286208398475,
+            "mean_step_latency_ms": 0.002799292656789542
+          },
+          {
+            "seed": 335,
+            "service_volume": 600,
+            "occupancy_rate": 49.37000797028948,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4424.819045759455,
+            "mean_cruising_time_min": 5.318103180801823,
+            "mean_step_latency_ms": 0.0028271653151156705
+          },
+          {
+            "seed": 382,
+            "service_volume": 600,
+            "occupancy_rate": 49.965235971442624,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4432.7236758847375,
+            "mean_cruising_time_min": 5.249254413717537,
+            "mean_step_latency_ms": 0.0028020552511181717
+          },
+          {
+            "seed": 429,
+            "service_volume": 600,
+            "occupancy_rate": 48.22873034984483,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4460.436199098239,
+            "mean_cruising_time_min": 5.199379336339219,
+            "mean_step_latency_ms": 0.0027847426106145075
+          },
+          {
+            "seed": 476,
+            "service_volume": 600,
+            "occupancy_rate": 47.79799555698757,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4479.10558629685,
+            "mean_cruising_time_min": 5.137148045677166,
+            "mean_step_latency_ms": 0.0028635041175170913
+          },
+          {
+            "seed": 523,
+            "service_volume": 600,
+            "occupancy_rate": 47.06031982906273,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4563.749991393633,
+            "mean_cruising_time_min": 4.78750002868789,
+            "mean_step_latency_ms": 0.0028080820135874757
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 600,
+            "occupancy_rate": 47.66911428038461,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3841.3027256367463,
+            "mean_cruising_time_min": 8.31065758121085,
+            "mean_step_latency_ms": 0.0022434587579716098
+          },
+          {
+            "seed": 147,
+            "service_volume": 600,
+            "occupancy_rate": 49.35644152012074,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3655.211210081806,
+            "mean_cruising_time_min": 9.553502454350474,
+            "mean_step_latency_ms": 0.0021375958442500015
+          },
+          {
+            "seed": 194,
+            "service_volume": 600,
+            "occupancy_rate": 50.168732723973605,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3442.1533686595258,
+            "mean_cruising_time_min": 9.893334087039062,
+            "mean_step_latency_ms": 0.0021648069912003813
+          },
+          {
+            "seed": 241,
+            "service_volume": 600,
+            "occupancy_rate": 47.13663111126185,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3673.766168059384,
+            "mean_cruising_time_min": 10.067781092289012,
+            "mean_step_latency_ms": 0.0021051930011583304
+          },
+          {
+            "seed": 288,
+            "service_volume": 600,
+            "occupancy_rate": 47.81664942596958,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3836.8987423224967,
+            "mean_cruising_time_min": 9.216853729295392,
+            "mean_step_latency_ms": 0.0021165787400421474
+          },
+          {
+            "seed": 335,
+            "service_volume": 600,
+            "occupancy_rate": 49.37000797028948,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3644.734058885384,
+            "mean_cruising_time_min": 9.934775359270956,
+            "mean_step_latency_ms": 0.002142137510343156
+          },
+          {
+            "seed": 382,
+            "service_volume": 600,
+            "occupancy_rate": 49.965235971442624,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3799.8131582024357,
+            "mean_cruising_time_min": 9.452011694880776,
+            "mean_step_latency_ms": 0.00210933909546413
+          },
+          {
+            "seed": 429,
+            "service_volume": 600,
+            "occupancy_rate": 48.22873034984483,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3795.622381101881,
+            "mean_cruising_time_min": 9.30486984077152,
+            "mean_step_latency_ms": 0.0021062560919928577
+          },
+          {
+            "seed": 476,
+            "service_volume": 600,
+            "occupancy_rate": 47.79799555698757,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 3712.8014909140666,
+            "mean_cruising_time_min": 9.093161696953112,
+            "mean_step_latency_ms": 0.0020975053177958508
+          },
+          {
+            "seed": 523,
+            "service_volume": 600,
+            "occupancy_rate": 47.06031982906273,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 600,
+            "cumulative_reward": 4240.317877243493,
+            "mean_cruising_time_min": 6.1900515202994715,
+            "mean_step_latency_ms": 0.0021326517976752116
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 600.0,
+            "std": 0.0,
+            "median": 600.0,
+            "iqr": 0.0,
+            "ci_95_low": 600.0,
+            "ci_95_high": 600.0
+          },
+          "occupancy_rate": {
+            "mean": 48.45698587393376,
+            "std": 1.157520310355688,
+            "median": 48.022689887907205,
+            "iqr": 1.6652817582119397,
+            "ci_95_low": 47.62894572611951,
+            "ci_95_high": 49.28502602174801
+          },
+          "cruising_time_min": {
+            "mean": 20.449596934255766,
+            "std": 1.442345737577535,
+            "median": 19.960099950698933,
+            "iqr": 2.1613642250173335,
+            "ci_95_low": 19.417804950082324,
+            "ci_95_high": 21.481388918429207
+          },
+          "cumulative_reward": {
+            "mean": 2531.8508304375587,
+            "std": 167.41105157741998,
+            "median": 2550.2611364386266,
+            "iqr": 187.45425409900463,
+            "ci_95_low": 2412.0921785558403,
+            "ci_95_high": 2651.609482319277
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 600.0,
+            "std": 0.0,
+            "median": 600.0,
+            "iqr": 0.0,
+            "ci_95_low": 600.0,
+            "ci_95_high": 600.0
+          },
+          "occupancy_rate": {
+            "mean": 48.45698587393376,
+            "std": 1.157520310355688,
+            "median": 48.022689887907205,
+            "iqr": 1.6652817582119397,
+            "ci_95_low": 47.62894572611951,
+            "ci_95_high": 49.28502602174801
+          },
+          "cruising_time_min": {
+            "mean": 5.109115864846833,
+            "std": 0.2394856738615356,
+            "median": 5.1682636910081925,
+            "iqr": 0.2907185184054848,
+            "ci_95_low": 4.937798134168945,
+            "ci_95_high": 5.2804335955247215
+          },
+          "cumulative_reward": {
+            "mean": 4481.148573879285,
+            "std": 63.81180822970735,
+            "median": 4469.770892697545,
+            "iqr": 84.15305552164773,
+            "ci_95_low": 4435.500356179688,
+            "ci_95_high": 4526.796791578882
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 600.0,
+            "std": 0.0,
+            "median": 600.0,
+            "iqr": 0.0,
+            "ci_95_low": 600.0,
+            "ci_95_high": 600.0
+          },
+          "occupancy_rate": {
+            "mean": 48.45698587393376,
+            "std": 1.157520310355688,
+            "median": 48.022689887907205,
+            "iqr": 1.6652817582119397,
+            "ci_95_low": 47.62894572611951,
+            "ci_95_high": 49.28502602174801
+          },
+          "cruising_time_min": {
+            "mean": 9.101699905636064,
+            "std": 1.142069843459043,
+            "median": 9.378440767826149,
+            "iqr": 0.6842914738282317,
+            "ci_95_low": 8.2847123560168,
+            "ci_95_high": 9.918687455255327
+          },
+          "cumulative_reward": {
+            "mean": 3764.262118110722,
+            "std": 205.71246918915884,
+            "median": 3754.2119360079737,
+            "iqr": 167.77739671628115,
+            "ci_95_low": 3617.1042826319795,
+            "ci_95_high": 3911.4199535894645
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 33.84382909435696,
+          "p_value": 8.465431849363417e-11,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 17.14343328739177,
+          "p_value": 3.5187560148977587e-08,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 4 (CBD Local Overload)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 350,
+            "occupancy_rate": 29.62743136224118,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1864.2155529169765,
+            "mean_cruising_time_min": 12.843385615984634,
+            "mean_step_latency_ms": 0.1751245880593469
+          },
+          {
+            "seed": 147,
+            "service_volume": 350,
+            "occupancy_rate": 32.19827366921603,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2163.7423594504357,
+            "mean_cruising_time_min": 7.835757945997526,
+            "mean_step_latency_ms": 0.1712266422237842
+          },
+          {
+            "seed": 194,
+            "service_volume": 350,
+            "occupancy_rate": 32.39329139039156,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1778.6955316296062,
+            "mean_cruising_time_min": 13.478763628783202,
+            "mean_step_latency_ms": 0.1696097622347842
+          },
+          {
+            "seed": 241,
+            "service_volume": 350,
+            "occupancy_rate": 29.900456171886923,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2145.6258231489314,
+            "mean_cruising_time_min": 10.75502930989726,
+            "mean_step_latency_ms": 0.17069072669282248
+          },
+          {
+            "seed": 288,
+            "service_volume": 350,
+            "occupancy_rate": 30.72800963217962,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1977.183556804164,
+            "mean_cruising_time_min": 11.012069017808393,
+            "mean_step_latency_ms": 0.17112918430939317
+          },
+          {
+            "seed": 335,
+            "service_volume": 350,
+            "occupancy_rate": 32.067696586341974,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2169.2030875660002,
+            "mean_cruising_time_min": 8.742745395314467,
+            "mean_step_latency_ms": 0.16759868741672007
+          },
+          {
+            "seed": 382,
+            "service_volume": 350,
+            "occupancy_rate": 31.85741660872662,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1869.0005368060306,
+            "mean_cruising_time_min": 12.368755435938331,
+            "mean_step_latency_ms": 0.16727832099529616
+          },
+          {
+            "seed": 429,
+            "service_volume": 350,
+            "occupancy_rate": 31.34867472739914,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2054.1173953407347,
+            "mean_cruising_time_min": 13.24356102889195,
+            "mean_step_latency_ms": 0.1680287062574964
+          },
+          {
+            "seed": 476,
+            "service_volume": 350,
+            "occupancy_rate": 31.384286659092066,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1815.669675094348,
+            "mean_cruising_time_min": 13.45436489515248,
+            "mean_step_latency_ms": 0.16945644966412096
+          },
+          {
+            "seed": 523,
+            "service_volume": 350,
+            "occupancy_rate": 29.81057843951907,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2077.7866850293817,
+            "mean_cruising_time_min": 11.031063046997643,
+            "mean_step_latency_ms": 0.17004014660899075
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 350,
+            "occupancy_rate": 29.62743136224118,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2869.928448311115,
+            "mean_cruising_time_min": 3.600408866793638,
+            "mean_step_latency_ms": 0.0029801383855914986
+          },
+          {
+            "seed": 147,
+            "service_volume": 350,
+            "occupancy_rate": 32.19827366921603,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2851.3599154900276,
+            "mean_cruising_time_min": 3.7065147686284114,
+            "mean_step_latency_ms": 0.0029052184508053945
+          },
+          {
+            "seed": 194,
+            "service_volume": 350,
+            "occupancy_rate": 32.39329139039156,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2852.289419494515,
+            "mean_cruising_time_min": 3.701203317174195,
+            "mean_step_latency_ms": 0.0028857067355527242
+          },
+          {
+            "seed": 241,
+            "service_volume": 350,
+            "occupancy_rate": 29.900456171886923,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2883.1350567228887,
+            "mean_cruising_time_min": 3.524942533012069,
+            "mean_step_latency_ms": 0.0028497518901072372
+          },
+          {
+            "seed": 288,
+            "service_volume": 350,
+            "occupancy_rate": 30.72800963217962,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2872.151729030034,
+            "mean_cruising_time_min": 3.587704405542663,
+            "mean_step_latency_ms": 0.002875752825025093
+          },
+          {
+            "seed": 335,
+            "service_volume": 350,
+            "occupancy_rate": 32.067696586341974,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2842.315635119243,
+            "mean_cruising_time_min": 3.7581963707471786,
+            "mean_step_latency_ms": 0.002893705883302615
+          },
+          {
+            "seed": 382,
+            "service_volume": 350,
+            "occupancy_rate": 31.85741660872662,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2857.8818946429956,
+            "mean_cruising_time_min": 3.6692463163257414,
+            "mean_step_latency_ms": 0.0028720005669571253
+          },
+          {
+            "seed": 429,
+            "service_volume": 350,
+            "occupancy_rate": 31.34867472739914,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2860.280006407945,
+            "mean_cruising_time_min": 3.655542820526028,
+            "mean_step_latency_ms": 0.0028734408060533054
+          },
+          {
+            "seed": 476,
+            "service_volume": 350,
+            "occupancy_rate": 31.384286659092066,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2847.8639084434417,
+            "mean_cruising_time_min": 3.726491951751771,
+            "mean_step_latency_ms": 0.002870000679891796
+          },
+          {
+            "seed": 523,
+            "service_volume": 350,
+            "occupancy_rate": 29.81057843951907,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2896.3408158874217,
+            "mean_cruising_time_min": 3.449481052071873,
+            "mean_step_latency_ms": 0.0028627530250852126
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 350,
+            "occupancy_rate": 29.62743136224118,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2645.212939639872,
+            "mean_cruising_time_min": 5.557354630629299,
+            "mean_step_latency_ms": 0.0022752481510589294
+          },
+          {
+            "seed": 147,
+            "service_volume": 350,
+            "occupancy_rate": 32.19827366921603,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2632.423254427055,
+            "mean_cruising_time_min": 5.441867117559685,
+            "mean_step_latency_ms": 0.0021693025984792806
+          },
+          {
+            "seed": 194,
+            "service_volume": 350,
+            "occupancy_rate": 32.39329139039156,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2602.888963523337,
+            "mean_cruising_time_min": 5.82063449415236,
+            "mean_step_latency_ms": 0.002110458791913858
+          },
+          {
+            "seed": 241,
+            "service_volume": 350,
+            "occupancy_rate": 29.900456171886923,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2653.83661152115,
+            "mean_cruising_time_min": 4.950933648450563,
+            "mean_step_latency_ms": 0.0021073772569844894
+          },
+          {
+            "seed": 288,
+            "service_volume": 350,
+            "occupancy_rate": 30.72800963217962,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2736.5052316088845,
+            "mean_cruising_time_min": 4.782827247949229,
+            "mean_step_latency_ms": 0.0020997706104343363
+          },
+          {
+            "seed": 335,
+            "service_volume": 350,
+            "occupancy_rate": 32.067696586341974,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2701.818789713192,
+            "mean_cruising_time_min": 4.929606915924616,
+            "mean_step_latency_ms": 0.0021242289088341756
+          },
+          {
+            "seed": 382,
+            "service_volume": 350,
+            "occupancy_rate": 31.85741660872662,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2708.811829104037,
+            "mean_cruising_time_min": 4.8682181194055065,
+            "mean_step_latency_ms": 0.002229661272770358
+          },
+          {
+            "seed": 429,
+            "service_volume": 350,
+            "occupancy_rate": 31.34867472739914,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2580.89725530834,
+            "mean_cruising_time_min": 5.926301398238052,
+            "mean_step_latency_ms": 0.0020932201125206202
+          },
+          {
+            "seed": 476,
+            "service_volume": 350,
+            "occupancy_rate": 31.384286659092066,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2601.9210823460344,
+            "mean_cruising_time_min": 5.5947366723083825,
+            "mean_step_latency_ms": 0.0020787892852474105
+          },
+          {
+            "seed": 523,
+            "service_volume": 350,
+            "occupancy_rate": 29.81057843951907,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2689.3570604293254,
+            "mean_cruising_time_min": 5.240816797546708,
+            "mean_step_latency_ms": 0.00210207408516232
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 350.0,
+            "std": 0.0,
+            "median": 350.0,
+            "iqr": 0.0,
+            "ci_95_low": 350.0,
+            "ci_95_high": 350.0
+          },
+          "occupancy_rate": {
+            "mean": 31.131611524699416,
+            "std": 1.0503934711363498,
+            "median": 31.366480693245602,
+            "iqr": 1.9077820549780355,
+            "ci_95_low": 30.38020530113553,
+            "ci_95_high": 31.883017748263303
+          },
+          "cruising_time_min": {
+            "mean": 11.47654953207659,
+            "std": 1.9824523814789639,
+            "median": 11.699909241467987,
+            "iqr": 2.3242279387900773,
+            "ci_95_low": 10.058388530227623,
+            "ci_95_high": 12.894710533925556
+          },
+          "cumulative_reward": {
+            "mean": 1991.5240203786611,
+            "std": 150.54765429973196,
+            "median": 2015.6504760724492,
+            "iqr": 263.2542397298041,
+            "ci_95_low": 1883.8287161976637,
+            "ci_95_high": 2099.2193245596586
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 350.0,
+            "std": 0.0,
+            "median": 350.0,
+            "iqr": 0.0,
+            "ci_95_low": 350.0,
+            "ci_95_high": 350.0
+          },
+          "occupancy_rate": {
+            "mean": 31.131611524699416,
+            "std": 1.0503934711363498,
+            "median": 31.366480693245602,
+            "iqr": 1.9077820549780355,
+            "ci_95_low": 30.38020530113553,
+            "ci_95_high": 31.883017748263303
+          },
+          "cruising_time_min": {
+            "mean": 3.637973240257357,
+            "std": 0.09690495128387197,
+            "median": 3.662394568425885,
+            "iqr": 0.11430638490945055,
+            "ci_95_low": 3.5686516141336884,
+            "ci_95_high": 3.7072948663810252
+          },
+          "cumulative_reward": {
+            "mean": 2863.3546829549623,
+            "std": 16.9583664746777,
+            "median": 2859.08095052547,
+            "iqr": 20.00361735915476,
+            "ci_95_low": 2851.2233983833203,
+            "ci_95_high": 2875.4859675266043
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 350.0,
+            "std": 0.0,
+            "median": 350.0,
+            "iqr": 0.0,
+            "ci_95_low": 350.0,
+            "ci_95_high": 350.0
+          },
+          "occupancy_rate": {
+            "mean": 31.131611524699416,
+            "std": 1.0503934711363498,
+            "median": 31.366480693245602,
+            "iqr": 1.9077820549780355,
+            "ci_95_low": 30.38020530113553,
+            "ci_95_high": 31.883017748263303
+          },
+          "cruising_time_min": {
+            "mean": 5.31132970421644,
+            "std": 0.4152244026166762,
+            "median": 5.341341957553197,
+            "iqr": 0.6504525628325091,
+            "ci_95_low": 5.014296060277056,
+            "ci_95_high": 5.608363348155823
+          },
+          "cumulative_reward": {
+            "mean": 2655.367301762122,
+            "std": 52.218420710601855,
+            "median": 2649.5247755805112,
+            "iqr": 88.43082114295885,
+            "ci_95_low": 2618.0124938879117,
+            "ci_95_high": 2692.722109636333
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 12.460565011922792,
+          "p_value": 5.583176397422198e-07,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 10.769208456338637,
+          "p_value": 1.9246945097146873e-06,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 5 (Stochastic Variance)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 300,
+            "occupancy_rate": 24.455222235411828,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2305.4181917398096,
+            "mean_cruising_time_min": 4.65554538840127,
+            "mean_step_latency_ms": 0.169047027924568
+          },
+          {
+            "seed": 147,
+            "service_volume": 300,
+            "occupancy_rate": 26.739473282572202,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 1973.430254306469,
+            "mean_cruising_time_min": 7.048461003036246,
+            "mean_step_latency_ms": 0.17141587172481104
+          },
+          {
+            "seed": 194,
+            "service_volume": 300,
+            "occupancy_rate": 26.452882022757716,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2177.0762558103906,
+            "mean_cruising_time_min": 5.4861582945974,
+            "mean_step_latency_ms": 0.1697148623077387
+          },
+          {
+            "seed": 241,
+            "service_volume": 300,
+            "occupancy_rate": 25.030100561311876,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2120.390718770609,
+            "mean_cruising_time_min": 5.864061874862603,
+            "mean_step_latency_ms": 0.1703061923329129
+          },
+          {
+            "seed": 288,
+            "service_volume": 300,
+            "occupancy_rate": 25.06740829927589,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2118.0909190988255,
+            "mean_cruising_time_min": 6.149393872674502,
+            "mean_step_latency_ms": 0.19197212038198572
+          },
+          {
+            "seed": 335,
+            "service_volume": 300,
+            "occupancy_rate": 26.617375231053604,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2213.3740442130534,
+            "mean_cruising_time_min": 5.244173038579646,
+            "mean_step_latency_ms": 0.19645991795504072
+          },
+          {
+            "seed": 382,
+            "service_volume": 300,
+            "occupancy_rate": 26.713219689190115,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 1821.6070093921812,
+            "mean_cruising_time_min": 10.480186074951591,
+            "mean_step_latency_ms": 0.19681015719133602
+          },
+          {
+            "seed": 429,
+            "service_volume": 300,
+            "occupancy_rate": 24.75707575166613,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2182.8325718956817,
+            "mean_cruising_time_min": 5.44778285402879,
+            "mean_step_latency_ms": 0.1966234774770933
+          },
+          {
+            "seed": 476,
+            "service_volume": 300,
+            "occupancy_rate": 26.05606335532229,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2078.0069898527877,
+            "mean_cruising_time_min": 7.116620067648082,
+            "mean_step_latency_ms": 0.19514867851677256
+          },
+          {
+            "seed": 523,
+            "service_volume": 300,
+            "occupancy_rate": 25.040275398938427,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2157.9115026665204,
+            "mean_cruising_time_min": 6.178923315556528,
+            "mean_step_latency_ms": 0.24457339468676972
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 300,
+            "occupancy_rate": 24.455222235411828,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2497.507336051374,
+            "mean_cruising_time_min": 3.3499510929908443,
+            "mean_step_latency_ms": 0.002990860877550045
+          },
+          {
+            "seed": 147,
+            "service_volume": 300,
+            "occupancy_rate": 26.739473282572202,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2501.0946805665553,
+            "mean_cruising_time_min": 3.3260354628896334,
+            "mean_step_latency_ms": 0.0028894760821082995
+          },
+          {
+            "seed": 194,
+            "service_volume": 300,
+            "occupancy_rate": 26.452882022757716,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2485.7958280845987,
+            "mean_cruising_time_min": 3.4280278127693418,
+            "mean_step_latency_ms": 0.002862806960624224
+          },
+          {
+            "seed": 241,
+            "service_volume": 300,
+            "occupancy_rate": 25.030100561311876,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2494.5701808716135,
+            "mean_cruising_time_min": 3.3695321275225765,
+            "mean_step_latency_ms": 0.0028757325324460592
+          },
+          {
+            "seed": 288,
+            "service_volume": 300,
+            "occupancy_rate": 25.06740829927589,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2509.249946650214,
+            "mean_cruising_time_min": 3.2716670223319095,
+            "mean_step_latency_ms": 0.002874678119359145
+          },
+          {
+            "seed": 335,
+            "service_volume": 300,
+            "occupancy_rate": 26.617375231053604,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2462.7373089538673,
+            "mean_cruising_time_min": 3.58175127364088,
+            "mean_step_latency_ms": 0.0028780731212330658
+          },
+          {
+            "seed": 382,
+            "service_volume": 300,
+            "occupancy_rate": 26.713219689190115,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2488.0232585973035,
+            "mean_cruising_time_min": 3.4131782760179736,
+            "mean_step_latency_ms": 0.002867315844115284
+          },
+          {
+            "seed": 429,
+            "service_volume": 300,
+            "occupancy_rate": 24.75707575166613,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2497.2440633470214,
+            "mean_cruising_time_min": 3.3517062443531898,
+            "mean_step_latency_ms": 0.0028589632524467935
+          },
+          {
+            "seed": 476,
+            "service_volume": 300,
+            "occupancy_rate": 26.05606335532229,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2481.8610995976596,
+            "mean_cruising_time_min": 3.45425933601561,
+            "mean_step_latency_ms": 0.0028665405281588707
+          },
+          {
+            "seed": 523,
+            "service_volume": 300,
+            "occupancy_rate": 25.040275398938427,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2508.3288184394837,
+            "mean_cruising_time_min": 3.2778078770701136,
+            "mean_step_latency_ms": 0.002853972346034892
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 300,
+            "occupancy_rate": 24.455222235411828,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2351.203882779586,
+            "mean_cruising_time_min": 4.326974114802756,
+            "mean_step_latency_ms": 0.002207633144213656
+          },
+          {
+            "seed": 147,
+            "service_volume": 300,
+            "occupancy_rate": 26.739473282572202,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2310.5285796242056,
+            "mean_cruising_time_min": 5.136476135838629,
+            "mean_step_latency_ms": 0.0021188445666958707
+          },
+          {
+            "seed": 194,
+            "service_volume": 300,
+            "occupancy_rate": 26.452882022757716,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2385.147190449298,
+            "mean_cruising_time_min": 4.234018730338026,
+            "mean_step_latency_ms": 0.0020818438524072736
+          },
+          {
+            "seed": 241,
+            "service_volume": 300,
+            "occupancy_rate": 25.030100561311876,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2419.8339209628316,
+            "mean_cruising_time_min": 3.867773860247788,
+            "mean_step_latency_ms": 0.0022159812709214083
+          },
+          {
+            "seed": 288,
+            "service_volume": 300,
+            "occupancy_rate": 25.06740829927589,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2280.154982303068,
+            "mean_cruising_time_min": 5.5489667846462085,
+            "mean_step_latency_ms": 0.0020932566925644055
+          },
+          {
+            "seed": 335,
+            "service_volume": 300,
+            "occupancy_rate": 26.617375231053604,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2349.1880162132056,
+            "mean_cruising_time_min": 4.338746558578634,
+            "mean_step_latency_ms": 0.0021238988874172538
+          },
+          {
+            "seed": 382,
+            "service_volume": 300,
+            "occupancy_rate": 26.713219689190115,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2300.885488046092,
+            "mean_cruising_time_min": 5.225763413026044,
+            "mean_step_latency_ms": 0.00206403638003394
+          },
+          {
+            "seed": 429,
+            "service_volume": 300,
+            "occupancy_rate": 24.75707575166613,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2366.562707293192,
+            "mean_cruising_time_min": 4.627915284712047,
+            "mean_step_latency_ms": 0.002177385853629115
+          },
+          {
+            "seed": 476,
+            "service_volume": 300,
+            "occupancy_rate": 26.05606335532229,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2395.3178279414797,
+            "mean_cruising_time_min": 4.166214480390131,
+            "mean_step_latency_ms": 0.0020649536179566602
+          },
+          {
+            "seed": 523,
+            "service_volume": 300,
+            "occupancy_rate": 25.040275398938427,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 300,
+            "cumulative_reward": 2456.0376192815884,
+            "mean_cruising_time_min": 3.626415871456092,
+            "mean_step_latency_ms": 0.0020757164280656554
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 300.0,
+            "std": 0.0,
+            "median": 300.0,
+            "iqr": 0.0,
+            "ci_95_low": 300.0,
+            "ci_95_high": 300.0
+          },
+          "occupancy_rate": {
+            "mean": 25.69290958275001,
+            "std": 0.9045906231646438,
+            "median": 25.56173582729909,
+            "iqr": 1.5436076582611165,
+            "ci_95_low": 25.045804433392874,
+            "ci_95_high": 26.340014732107143
+          },
+          "cruising_time_min": {
+            "mean": 6.367130578433667,
+            "std": 1.6360844323847272,
+            "median": 6.006727873768552,
+            "iqr": 1.3736998669953735,
+            "ci_95_low": 5.196746280976157,
+            "ci_95_high": 7.537514875891176
+          },
+          "cumulative_reward": {
+            "mean": 2114.8138457746327,
+            "std": 134.89125103656028,
+            "median": 2139.1511107185647,
+            "iqr": 93.36552071006145,
+            "ci_95_low": 2018.3184577906068,
+            "ci_95_high": 2211.3092337586586
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 300.0,
+            "std": 0.0,
+            "median": 300.0,
+            "iqr": 0.0,
+            "ci_95_low": 300.0,
+            "ci_95_high": 300.0
+          },
+          "occupancy_rate": {
+            "mean": 25.69290958275001,
+            "std": 0.9045906231646438,
+            "median": 25.56173582729909,
+            "iqr": 1.5436076582611165,
+            "ci_95_low": 25.045804433392874,
+            "ci_95_high": 26.340014732107143
+          },
+          "cruising_time_min": {
+            "mean": 3.3823916525602074,
+            "std": 0.09217904031501765,
+            "median": 3.360619185937883,
+            "iqr": 0.09230105816656353,
+            "ci_95_low": 3.316450739485111,
+            "ci_95_high": 3.4483325656353037
+          },
+          "cumulative_reward": {
+            "mean": 2492.6412521159696,
+            "std": 13.826856047252924,
+            "median": 2495.9071221093172,
+            "iqr": 13.84515872498514,
+            "ci_95_low": 2482.750115154705,
+            "ci_95_high": 2502.5323890772343
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 300.0,
+            "std": 0.0,
+            "median": 300.0,
+            "iqr": 0.0,
+            "ci_95_low": 300.0,
+            "ci_95_high": 300.0
+          },
+          "occupancy_rate": {
+            "mean": 25.69290958275001,
+            "std": 0.9045906231646438,
+            "median": 25.56173582729909,
+            "iqr": 1.5436076582611165,
+            "ci_95_low": 25.045804433392874,
+            "ci_95_high": 26.340014732107143
+          },
+          "cruising_time_min": {
+            "mean": 4.509926523403635,
+            "std": 0.6190046885053976,
+            "median": 4.332860336690695,
+            "iqr": 0.826170380179879,
+            "ci_95_low": 4.067117244653079,
+            "ci_95_high": 4.952735802154192
+          },
+          "cumulative_reward": {
+            "mean": 2361.486021489455,
+            "std": 54.99038661594064,
+            "median": 2358.883295036389,
+            "iqr": 72.58172979697883,
+            "ci_95_low": 2322.148268661745,
+            "ci_95_high": 2400.8237743171653
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 5.762732176496323,
+          "p_value": 0.000271903433630148,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 3.9892768222471777,
+          "p_value": 0.0031611821236744862,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 6 (Robustness Demand Surge +50%)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 900,
+            "occupancy_rate": 65.07995726568197,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3166.8628548043675,
+            "mean_cruising_time_min": 22.344645596025558,
+            "mean_step_latency_ms": 0.17708216509739055
+          },
+          {
+            "seed": 147,
+            "service_volume": 900,
+            "occupancy_rate": 66.01434652105344,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3032.858037700894,
+            "mean_cruising_time_min": 22.648315912692897,
+            "mean_step_latency_ms": 0.16934632023565743
+          },
+          {
+            "seed": 194,
+            "service_volume": 900,
+            "occupancy_rate": 66.12287812240329,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 2743.966618186655,
+            "mean_cruising_time_min": 25.191491730308286,
+            "mean_step_latency_ms": 0.17277410957714492
+          },
+          {
+            "seed": 241,
+            "service_volume": 900,
+            "occupancy_rate": 63.17047940443283,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3187.6481688253884,
+            "mean_cruising_time_min": 22.36055367245151,
+            "mean_step_latency_ms": 0.17683484381675685
+          },
+          {
+            "seed": 288,
+            "service_volume": 900,
+            "occupancy_rate": 63.30783971239126,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4000.793361867222,
+            "mean_cruising_time_min": 19.363752939144344,
+            "mean_step_latency_ms": 0.16758181654032184
+          },
+          {
+            "seed": 335,
+            "service_volume": 900,
+            "occupancy_rate": 66.11100747850566,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3324.129109345738,
+            "mean_cruising_time_min": 20.967175664261244,
+            "mean_step_latency_ms": 0.16843539370552832
+          },
+          {
+            "seed": 382,
+            "service_volume": 900,
+            "occupancy_rate": 67.11322898472079,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3377.957607336661,
+            "mean_cruising_time_min": 20.37234839463107,
+            "mean_step_latency_ms": 0.1727851380598347
+          },
+          {
+            "seed": 429,
+            "service_volume": 900,
+            "occupancy_rate": 63.921721582526416,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3329.3897809652003,
+            "mean_cruising_time_min": 22.573840610200786,
+            "mean_step_latency_ms": 0.16710021035903808
+          },
+          {
+            "seed": 476,
+            "service_volume": 900,
+            "occupancy_rate": 63.08229747833608,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3584.9199098523013,
+            "mean_cruising_time_min": 21.33878908921712,
+            "mean_step_latency_ms": 0.1719174491414595
+          },
+          {
+            "seed": 523,
+            "service_volume": 900,
+            "occupancy_rate": 63.329885193915445,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 3792.945445123493,
+            "mean_cruising_time_min": 19.71454363164794,
+            "mean_step_latency_ms": 0.16834333909081653
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 900,
+            "occupancy_rate": 65.07995726568197,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5729.765847148438,
+            "mean_cruising_time_min": 7.508483302633101,
+            "mean_step_latency_ms": 0.002902944346915486
+          },
+          {
+            "seed": 147,
+            "service_volume": 900,
+            "occupancy_rate": 66.01434652105344,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5629.3245129976585,
+            "mean_cruising_time_min": 7.917427008153356,
+            "mean_step_latency_ms": 0.0028829812552831177
+          },
+          {
+            "seed": 194,
+            "service_volume": 900,
+            "occupancy_rate": 66.12287812240329,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5552.194658070246,
+            "mean_cruising_time_min": 7.942223563039256,
+            "mean_step_latency_ms": 0.0028352025114512496
+          },
+          {
+            "seed": 241,
+            "service_volume": 900,
+            "occupancy_rate": 63.17047940443283,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5919.20797690259,
+            "mean_cruising_time_min": 6.992130421697955,
+            "mean_step_latency_ms": 0.0028696694569405887
+          },
+          {
+            "seed": 288,
+            "service_volume": 900,
+            "occupancy_rate": 63.30783971239126,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5796.6850473284385,
+            "mean_cruising_time_min": 7.35399800666302,
+            "mean_step_latency_ms": 0.0027897707645892413
+          },
+          {
+            "seed": 335,
+            "service_volume": 900,
+            "occupancy_rate": 66.11100747850566,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5606.989534122337,
+            "mean_cruising_time_min": 7.845210258232136,
+            "mean_step_latency_ms": 0.002852054029797127
+          },
+          {
+            "seed": 382,
+            "service_volume": 900,
+            "occupancy_rate": 67.11322898472079,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5542.626585937221,
+            "mean_cruising_time_min": 7.905919859863535,
+            "mean_step_latency_ms": 0.0028172111375804206
+          },
+          {
+            "seed": 429,
+            "service_volume": 900,
+            "occupancy_rate": 63.921721582526416,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5738.765883716229,
+            "mean_cruising_time_min": 7.598359764581238,
+            "mean_step_latency_ms": 0.00280508258350091
+          },
+          {
+            "seed": 476,
+            "service_volume": 900,
+            "occupancy_rate": 63.08229747833608,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5849.449633624732,
+            "mean_cruising_time_min": 7.3027045178709695,
+            "mean_step_latency_ms": 0.0027874399215803234
+          },
+          {
+            "seed": 523,
+            "service_volume": 900,
+            "occupancy_rate": 63.329885193915445,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5897.558201852721,
+            "mean_cruising_time_min": 7.136166958845801,
+            "mean_step_latency_ms": 0.0028574680097811266
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 900,
+            "occupancy_rate": 65.07995726568197,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4438.048080251423,
+            "mean_cruising_time_min": 14.503348935327615,
+            "mean_step_latency_ms": 0.002259183637669669
+          },
+          {
+            "seed": 147,
+            "service_volume": 900,
+            "occupancy_rate": 66.01434652105344,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4567.777038694675,
+            "mean_cruising_time_min": 14.245944809715265,
+            "mean_step_latency_ms": 0.002165146891899202
+          },
+          {
+            "seed": 194,
+            "service_volume": 900,
+            "occupancy_rate": 66.12287812240329,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4708.7935261168905,
+            "mean_cruising_time_min": 11.984122852015371,
+            "mean_step_latency_ms": 0.002112082198236582
+          },
+          {
+            "seed": 241,
+            "service_volume": 900,
+            "occupancy_rate": 63.17047940443283,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4403.942094204678,
+            "mean_cruising_time_min": 14.70406908527232,
+            "mean_step_latency_ms": 0.002136799093515296
+          },
+          {
+            "seed": 288,
+            "service_volume": 900,
+            "occupancy_rate": 63.30783971239126,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4795.611476789009,
+            "mean_cruising_time_min": 13.330275581649051,
+            "mean_step_latency_ms": 0.0021254033418457714
+          },
+          {
+            "seed": 335,
+            "service_volume": 900,
+            "occupancy_rate": 66.11100747850566,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4760.686888668158,
+            "mean_cruising_time_min": 12.829440291495802,
+            "mean_step_latency_ms": 0.002115834589808359
+          },
+          {
+            "seed": 382,
+            "service_volume": 900,
+            "occupancy_rate": 67.11322898472079,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4569.946354689635,
+            "mean_cruising_time_min": 12.246510397775328,
+            "mean_step_latency_ms": 0.0020998535162999954
+          },
+          {
+            "seed": 429,
+            "service_volume": 900,
+            "occupancy_rate": 63.921721582526416,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4839.602246569546,
+            "mean_cruising_time_min": 11.916996729122497,
+            "mean_step_latency_ms": 0.0025504681232616034
+          },
+          {
+            "seed": 476,
+            "service_volume": 900,
+            "occupancy_rate": 63.08229747833608,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 4901.226042964316,
+            "mean_cruising_time_min": 12.175028987416155,
+            "mean_step_latency_ms": 0.002546971658492512
+          },
+          {
+            "seed": 523,
+            "service_volume": 900,
+            "occupancy_rate": 63.329885193915445,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 900,
+            "cumulative_reward": 5103.836694397139,
+            "mean_cruising_time_min": 10.592225966741985,
+            "mean_step_latency_ms": 0.0023895774758634493
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 900.0,
+            "std": 0.0,
+            "median": 900.0,
+            "iqr": 0.0,
+            "ci_95_low": 900.0,
+            "ci_95_high": 900.0
+          },
+          "occupancy_rate": {
+            "mean": 64.72536417439672,
+            "std": 1.5305074002596142,
+            "median": 64.50083942410419,
+            "iqr": 2.773491156370298,
+            "ci_95_low": 63.63050513598179,
+            "ci_95_high": 65.82022321281164
+          },
+          "cruising_time_min": {
+            "mean": 21.687545724058076,
+            "std": 1.71703924527175,
+            "median": 21.841717342621337,
+            "iqr": 1.9994636637248533,
+            "ci_95_low": 20.459249842130273,
+            "ci_95_high": 22.91584160598588
+          },
+          "cumulative_reward": {
+            "mean": 3354.147089400792,
+            "std": 365.8136402938315,
+            "median": 3326.759445155469,
+            "iqr": 361.1201509137686,
+            "ci_95_low": 3092.4597755183313,
+            "ci_95_high": 3615.834403283253
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 900.0,
+            "std": 0.0,
+            "median": 900.0,
+            "iqr": 0.0,
+            "ci_95_low": 900.0,
+            "ci_95_high": 900.0
+          },
+          "occupancy_rate": {
+            "mean": 64.72536417439672,
+            "std": 1.5305074002596142,
+            "median": 64.50083942410419,
+            "iqr": 2.773491156370298,
+            "ci_95_low": 63.63050513598179,
+            "ci_95_high": 65.82022321281164
+          },
+          "cruising_time_min": {
+            "mean": 7.550262366158037,
+            "std": 0.34781535279903114,
+            "median": 7.553421533607169,
+            "iqr": 0.575214569386703,
+            "ci_95_low": 7.301450251530627,
+            "ci_95_high": 7.799074480785447
+          },
+          "cumulative_reward": {
+            "mean": 5726.256788170062,
+            "std": 139.2511574074024,
+            "median": 5734.265865432333,
+            "iqr": 223.68520820949107,
+            "ci_95_low": 5626.642511054268,
+            "ci_95_high": 5825.871065285855
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 900.0,
+            "std": 0.0,
+            "median": 900.0,
+            "iqr": 0.0,
+            "ci_95_low": 900.0,
+            "ci_95_high": 900.0
+          },
+          "occupancy_rate": {
+            "mean": 64.72536417439672,
+            "std": 1.5305074002596142,
+            "median": 64.50083942410419,
+            "iqr": 2.773491156370298,
+            "ci_95_low": 63.63050513598179,
+            "ci_95_high": 65.82022321281164
+          },
+          "cruising_time_min": {
+            "mean": 12.852796363653141,
+            "std": 1.328674085030044,
+            "median": 12.537975344635566,
+            "iqr": 1.9851781168331453,
+            "ci_95_low": 11.902320181142645,
+            "ci_95_high": 13.803272546163637
+          },
+          "cumulative_reward": {
+            "mean": 4708.947044334547,
+            "std": 217.5193530043836,
+            "median": 4734.740207392524,
+            "iqr": 260.2851864309969,
+            "ci_95_low": 4553.3430729805905,
+            "ci_95_high": 4864.551015688504
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 27.647056605814637,
+          "p_value": 5.143181244690532e-10,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 14.36792835706451,
+          "p_value": 1.6386455426875055e-07,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 7 (Robustness Dwell +30%)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 400,
+            "occupancy_rate": 35.60514846783903,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2195.977563558448,
+            "mean_cruising_time_min": 12.305253551255383,
+            "mean_step_latency_ms": 0.22675568897943568
+          },
+          {
+            "seed": 147,
+            "service_volume": 400,
+            "occupancy_rate": 38.57450524852041,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1851.3667638699183,
+            "mean_cruising_time_min": 18.867965287793275,
+            "mean_step_latency_ms": 0.177608513211353
+          },
+          {
+            "seed": 194,
+            "service_volume": 400,
+            "occupancy_rate": 38.118333361596775,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1609.5844153743446,
+            "mean_cruising_time_min": 21.991740621540977,
+            "mean_step_latency_ms": 0.177304339733983
+          },
+          {
+            "seed": 241,
+            "service_volume": 400,
+            "occupancy_rate": 36.28516678254676,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1859.3104926356427,
+            "mean_cruising_time_min": 21.498693072536092,
+            "mean_step_latency_ms": 0.17377257842673074
+          },
+          {
+            "seed": 288,
+            "service_volume": 400,
+            "occupancy_rate": 36.82612898302498,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1668.2557642552042,
+            "mean_cruising_time_min": 19.186221178723983,
+            "mean_step_latency_ms": 0.1811009087843325
+          },
+          {
+            "seed": 335,
+            "service_volume": 400,
+            "occupancy_rate": 37.787651138733914,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2052.3849405448636,
+            "mean_cruising_time_min": 15.664146725847115,
+            "mean_step_latency_ms": 0.17470341144287702
+          },
+          {
+            "seed": 382,
+            "service_volume": 400,
+            "occupancy_rate": 38.24382302565755,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1822.7267840894137,
+            "mean_cruising_time_min": 17.83879167479103,
+            "mean_step_latency_ms": 0.17211966015240435
+          },
+          {
+            "seed": 429,
+            "service_volume": 400,
+            "occupancy_rate": 37.4857976224796,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2095.9073472181276,
+            "mean_cruising_time_min": 15.097891339306198,
+            "mean_step_latency_ms": 0.1739556894481712
+          },
+          {
+            "seed": 476,
+            "service_volume": 400,
+            "occupancy_rate": 37.635028574335664,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1578.3433113760666,
+            "mean_cruising_time_min": 20.068137113754585,
+            "mean_step_latency_ms": 0.17508635844249243
+          },
+          {
+            "seed": 523,
+            "service_volume": 400,
+            "occupancy_rate": 35.48135461004935,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 1922.4144328031437,
+            "mean_cruising_time_min": 19.46835442328588,
+            "mean_step_latency_ms": 0.17426556954587544
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 400,
+            "occupancy_rate": 35.60514846783903,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3213.8788359999753,
+            "mean_cruising_time_min": 3.930605820000112,
+            "mean_step_latency_ms": 0.0029824759037908885
+          },
+          {
+            "seed": 147,
+            "service_volume": 400,
+            "occupancy_rate": 38.57450524852041,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3180.752143338129,
+            "mean_cruising_time_min": 4.096239283309343,
+            "mean_step_latency_ms": 0.002878449601975671
+          },
+          {
+            "seed": 194,
+            "service_volume": 400,
+            "occupancy_rate": 38.118333361596775,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3198.8645463663106,
+            "mean_cruising_time_min": 4.00567726816844,
+            "mean_step_latency_ms": 0.002858926805906818
+          },
+          {
+            "seed": 241,
+            "service_volume": 400,
+            "occupancy_rate": 36.28516678254676,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3240.929905616326,
+            "mean_cruising_time_min": 3.7953504719183595,
+            "mean_step_latency_ms": 0.002868871504671598
+          },
+          {
+            "seed": 288,
+            "service_volume": 400,
+            "occupancy_rate": 36.82612898302498,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3221.634107233825,
+            "mean_cruising_time_min": 3.8918294638308724,
+            "mean_step_latency_ms": 0.0028601280731841102
+          },
+          {
+            "seed": 335,
+            "service_volume": 400,
+            "occupancy_rate": 37.787651138733914,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3182.327777805725,
+            "mean_cruising_time_min": 4.088361110971372,
+            "mean_step_latency_ms": 0.0028478896454694346
+          },
+          {
+            "seed": 382,
+            "service_volume": 400,
+            "occupancy_rate": 38.24382302565755,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3198.167995239816,
+            "mean_cruising_time_min": 4.0091600238009155,
+            "mean_step_latency_ms": 0.0028485773235918323
+          },
+          {
+            "seed": 429,
+            "service_volume": 400,
+            "occupancy_rate": 37.4857976224796,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3201.3687636066484,
+            "mean_cruising_time_min": 3.9931561819667514,
+            "mean_step_latency_ms": 0.0028161648682258817
+          },
+          {
+            "seed": 476,
+            "service_volume": 400,
+            "occupancy_rate": 37.635028574335664,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3197.7895976600926,
+            "mean_cruising_time_min": 4.0110520116995305,
+            "mean_step_latency_ms": 0.002804726261833529
+          },
+          {
+            "seed": 523,
+            "service_volume": 400,
+            "occupancy_rate": 35.48135461004935,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3250.322046424424,
+            "mean_cruising_time_min": 3.748389767877873,
+            "mean_step_latency_ms": 0.002817266007646098
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 400,
+            "occupancy_rate": 35.60514846783903,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 3006.280403688093,
+            "mean_cruising_time_min": 5.020264648226189,
+            "mean_step_latency_ms": 0.002239668584821763
+          },
+          {
+            "seed": 147,
+            "service_volume": 400,
+            "occupancy_rate": 38.57450524852041,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2853.6176168867028,
+            "mean_cruising_time_min": 6.440661915566477,
+            "mean_step_latency_ms": 0.0021513309831722475
+          },
+          {
+            "seed": 194,
+            "service_volume": 400,
+            "occupancy_rate": 38.118333361596775,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2848.7097555527444,
+            "mean_cruising_time_min": 6.625201222236278,
+            "mean_step_latency_ms": 0.002132706667740889
+          },
+          {
+            "seed": 241,
+            "service_volume": 400,
+            "occupancy_rate": 36.28516678254676,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2801.918733296399,
+            "mean_cruising_time_min": 6.529989666851341,
+            "mean_step_latency_ms": 0.002172055313526012
+          },
+          {
+            "seed": 288,
+            "service_volume": 400,
+            "occupancy_rate": 36.82612898302498,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2964.9157039949678,
+            "mean_cruising_time_min": 5.866671480025157,
+            "mean_step_latency_ms": 0.002138760931994937
+          },
+          {
+            "seed": 335,
+            "service_volume": 400,
+            "occupancy_rate": 37.787651138733914,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2877.0241957545336,
+            "mean_cruising_time_min": 6.469879021227335,
+            "mean_step_latency_ms": 0.0021969260051931945
+          },
+          {
+            "seed": 382,
+            "service_volume": 400,
+            "occupancy_rate": 38.24382302565755,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2851.2401668122598,
+            "mean_cruising_time_min": 6.495049165938701,
+            "mean_step_latency_ms": 0.0022152487355190406
+          },
+          {
+            "seed": 429,
+            "service_volume": 400,
+            "occupancy_rate": 37.4857976224796,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2825.9964616439393,
+            "mean_cruising_time_min": 7.591267691780305,
+            "mean_step_latency_ms": 0.002138347737704737
+          },
+          {
+            "seed": 476,
+            "service_volume": 400,
+            "occupancy_rate": 37.635028574335664,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2826.2614469388523,
+            "mean_cruising_time_min": 6.582859431972399,
+            "mean_step_latency_ms": 0.0021429823224492577
+          },
+          {
+            "seed": 523,
+            "service_volume": 400,
+            "occupancy_rate": 35.48135461004935,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 400,
+            "cumulative_reward": 2770.2557521498725,
+            "mean_cruising_time_min": 7.260387905917298,
+            "mean_step_latency_ms": 0.002222017779168801
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 400.0,
+            "std": 0.0,
+            "median": 400.0,
+            "iqr": 0.0,
+            "ci_95_low": 400.0,
+            "ci_95_high": 400.0
+          },
+          "occupancy_rate": {
+            "mean": 37.204293781478405,
+            "std": 1.101122645606857,
+            "median": 37.560413098407636,
+            "iqr": 1.615255473214745,
+            "ci_95_low": 36.41659809262285,
+            "ci_95_high": 37.99198947033396
+          },
+          "cruising_time_min": {
+            "mean": 18.198719498883452,
+            "std": 3.031469440330108,
+            "median": 19.02709323325863,
+            "iqr": 3.710383478054318,
+            "ci_95_low": 16.030136899504285,
+            "ci_95_high": 20.36730209826262
+          },
+          "cumulative_reward": {
+            "mean": 1865.6271815725172,
+            "std": 208.0044558161669,
+            "median": 1855.3386282527804,
+            "iqr": 313.0187943956771,
+            "ci_95_low": 1716.8297576317523,
+            "ci_95_high": 2014.4246055132821
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 400.0,
+            "std": 0.0,
+            "median": 400.0,
+            "iqr": 0.0,
+            "ci_95_low": 400.0,
+            "ci_95_high": 400.0
+          },
+          "occupancy_rate": {
+            "mean": 37.204293781478405,
+            "std": 1.101122645606857,
+            "median": 37.560413098407636,
+            "iqr": 1.615255473214745,
+            "ci_95_low": 36.41659809262285,
+            "ci_95_high": 37.99198947033396
+          },
+          "cruising_time_min": {
+            "mean": 3.956982140354357,
+            "std": 0.1157367706298311,
+            "median": 3.9994167250675954,
+            "iqr": 0.10905546185169479,
+            "ci_95_low": 3.8741890422095646,
+            "ci_95_high": 4.03977523849915
+          },
+          "cumulative_reward": {
+            "mean": 3208.603571929127,
+            "std": 23.14735412596619,
+            "median": 3200.1166549864793,
+            "iqr": 21.81109237033934,
+            "ci_95_low": 3192.0449523001685,
+            "ci_95_high": 3225.162191558086
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 400.0,
+            "std": 0.0,
+            "median": 400.0,
+            "iqr": 0.0,
+            "ci_95_low": 400.0,
+            "ci_95_high": 400.0
+          },
+          "occupancy_rate": {
+            "mean": 37.204293781478405,
+            "std": 1.101122645606857,
+            "median": 37.560413098407636,
+            "iqr": 1.615255473214745,
+            "ci_95_low": 36.41659809262285,
+            "ci_95_high": 37.99198947033396
+          },
+          "cruising_time_min": {
+            "mean": 6.488223214974148,
+            "std": 0.6981151564872146,
+            "median": 6.512519416395021,
+            "iqr": 0.16664958268861607,
+            "ci_95_low": 5.9888217166182285,
+            "ci_95_high": 6.987624713330068
+          },
+          "cumulative_reward": {
+            "mean": 2862.6220236718364,
+            "std": 71.9515792942848,
+            "median": 2849.974961182502,
+            "iqr": 45.10984306990849,
+            "ci_95_low": 2811.150964528174,
+            "ci_95_high": 2914.0930828154987
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 14.705496029331519,
+          "p_value": 1.3399508812810206e-07,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 12.896625100108837,
+          "p_value": 4.158382686050928e-07,
+          "statistically_significant": true
+        }
+      }
+    },
+    "Scenario 8 (Robustness Capacity -25%)": {
+      "raw_runs": {
+        "MARL-GCN": [
+          {
+            "seed": 100,
+            "service_volume": 350,
+            "occupancy_rate": 26.24260204514236,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1540.1410575567625,
+            "mean_cruising_time_min": 17.625214364981773,
+            "mean_step_latency_ms": 0.5794327434818816
+          },
+          {
+            "seed": 147,
+            "service_volume": 350,
+            "occupancy_rate": 28.07407281792128,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1639.6347107726012,
+            "mean_cruising_time_min": 17.24945131259195,
+            "mean_step_latency_ms": 0.24771369625750178
+          },
+          {
+            "seed": 194,
+            "service_volume": 350,
+            "occupancy_rate": 28.48954535433872,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1682.3348574686995,
+            "mean_cruising_time_min": 15.987491290655052,
+            "mean_step_latency_ms": 0.19066328414579117
+          },
+          {
+            "seed": 241,
+            "service_volume": 350,
+            "occupancy_rate": 26.83783004629551,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1699.0140485935192,
+            "mean_cruising_time_min": 16.257266661098253,
+            "mean_step_latency_ms": 0.20878674334807987
+          },
+          {
+            "seed": 288,
+            "service_volume": 350,
+            "occupancy_rate": 27.77264325323475,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1433.1026172494437,
+            "mean_cruising_time_min": 22.48900545245217,
+            "mean_step_latency_ms": 0.18171226838603616
+          },
+          {
+            "seed": 335,
+            "service_volume": 350,
+            "occupancy_rate": 27.663687700317112,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1666.1795542693446,
+            "mean_cruising_time_min": 17.111542002814623,
+            "mean_step_latency_ms": 0.17846145743499894
+          },
+          {
+            "seed": 382,
+            "service_volume": 350,
+            "occupancy_rate": 28.655734368905694,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1582.6186381267648,
+            "mean_cruising_time_min": 16.467519346758618,
+            "mean_step_latency_ms": 0.17133523796048494
+          },
+          {
+            "seed": 429,
+            "service_volume": 350,
+            "occupancy_rate": 28.00624056707762,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1600.0494078560916,
+            "mean_cruising_time_min": 18.033442159189676,
+            "mean_step_latency_ms": 0.17123283546550389
+          },
+          {
+            "seed": 476,
+            "service_volume": 350,
+            "occupancy_rate": 28.218216350964063,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1756.2029728844143,
+            "mean_cruising_time_min": 16.56222450868771,
+            "mean_step_latency_ms": 0.1730271091753053
+          },
+          {
+            "seed": 523,
+            "service_volume": 350,
+            "occupancy_rate": 26.83783004629551,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 1765.8446800343684,
+            "mean_cruising_time_min": 15.341958971232188,
+            "mean_step_latency_ms": 0.1674949727127961
+          }
+        ],
+        "FIFO": [
+          {
+            "seed": 100,
+            "service_volume": 350,
+            "occupancy_rate": 26.24260204514236,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2808.6328370037595,
+            "mean_cruising_time_min": 3.950669502835661,
+            "mean_step_latency_ms": 0.0029369536413460834
+          },
+          {
+            "seed": 147,
+            "service_volume": 350,
+            "occupancy_rate": 28.07407281792128,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2780.6498194190576,
+            "mean_cruising_time_min": 4.110572460462523,
+            "mean_step_latency_ms": 0.0027996778152797612
+          },
+          {
+            "seed": 194,
+            "service_volume": 350,
+            "occupancy_rate": 28.48954535433872,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2800.89324311044,
+            "mean_cruising_time_min": 3.9948957536546286,
+            "mean_step_latency_ms": 0.0027870554306091517
+          },
+          {
+            "seed": 241,
+            "service_volume": 350,
+            "occupancy_rate": 26.83783004629551,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2839.547392952071,
+            "mean_cruising_time_min": 3.774014897416738,
+            "mean_step_latency_ms": 0.0027863030031391785
+          },
+          {
+            "seed": 288,
+            "service_volume": 350,
+            "occupancy_rate": 27.77264325323475,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2813.432627488587,
+            "mean_cruising_time_min": 3.974670700065226,
+            "mean_step_latency_ms": 0.0028101754583918525
+          },
+          {
+            "seed": 335,
+            "service_volume": 350,
+            "occupancy_rate": 27.663687700317112,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2798.6270879304025,
+            "mean_cruising_time_min": 4.0078452118262655,
+            "mean_step_latency_ms": 0.002830312533919281
+          },
+          {
+            "seed": 382,
+            "service_volume": 350,
+            "occupancy_rate": 28.655734368905694,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2802.328309743945,
+            "mean_cruising_time_min": 3.9866953728917554,
+            "mean_step_latency_ms": 0.0028111012022378383
+          },
+          {
+            "seed": 429,
+            "service_volume": 350,
+            "occupancy_rate": 28.00624056707762,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2801.2841799198536,
+            "mean_cruising_time_min": 3.9926618290294034,
+            "mean_step_latency_ms": 0.002796962614803481
+          },
+          {
+            "seed": 476,
+            "service_volume": 350,
+            "occupancy_rate": 28.218216350964063,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2786.553082242032,
+            "mean_cruising_time_min": 4.076839530045537,
+            "mean_step_latency_ms": 0.0028436697235570177
+          },
+          {
+            "seed": 523,
+            "service_volume": 350,
+            "occupancy_rate": 26.83783004629551,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2821.7929326465432,
+            "mean_cruising_time_min": 3.875468956305469,
+            "mean_step_latency_ms": 0.0027908723045208857
+          }
+        ],
+        "SIRO": [
+          {
+            "seed": 100,
+            "service_volume": 350,
+            "occupancy_rate": 26.24260204514236,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2640.873549743803,
+            "mean_cruising_time_min": 5.063579715749696,
+            "mean_step_latency_ms": 0.002203706663674376
+          },
+          {
+            "seed": 147,
+            "service_volume": 350,
+            "occupancy_rate": 28.07407281792128,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2507.258222412009,
+            "mean_cruising_time_min": 6.472810157645659,
+            "mean_step_latency_ms": 0.0021368990878685625
+          },
+          {
+            "seed": 194,
+            "service_volume": 350,
+            "occupancy_rate": 28.48954535433872,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2550.3878323013328,
+            "mean_cruising_time_min": 5.809212386849528,
+            "mean_step_latency_ms": 0.0020948164175700295
+          },
+          {
+            "seed": 241,
+            "service_volume": 350,
+            "occupancy_rate": 26.83783004629551,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2502.078300743412,
+            "mean_cruising_time_min": 6.113838281466216,
+            "mean_step_latency_ms": 0.00211312860109493
+          },
+          {
+            "seed": 288,
+            "service_volume": 350,
+            "occupancy_rate": 27.77264325323475,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2543.75223628572,
+            "mean_cruising_time_min": 6.1414157926530155,
+            "mean_step_latency_ms": 0.0022098793124314398
+          },
+          {
+            "seed": 335,
+            "service_volume": 350,
+            "occupancy_rate": 27.663687700317112,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2578.7454061903095,
+            "mean_cruising_time_min": 5.842883393198229,
+            "mean_step_latency_ms": 0.0036364403091917893
+          },
+          {
+            "seed": 382,
+            "service_volume": 350,
+            "occupancy_rate": 28.655734368905694,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2537.61610017584,
+            "mean_cruising_time_min": 6.132193713280915,
+            "mean_step_latency_ms": 0.002459476999895767
+          },
+          {
+            "seed": 429,
+            "service_volume": 350,
+            "occupancy_rate": 28.00624056707762,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2419.994009817382,
+            "mean_cruising_time_min": 6.951462801043525,
+            "mean_step_latency_ms": 0.007638357443000198
+          },
+          {
+            "seed": 476,
+            "service_volume": 350,
+            "occupancy_rate": 28.218216350964063,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2424.7601926532416,
+            "mean_cruising_time_min": 6.872798899124338,
+            "mean_step_latency_ms": 0.0029296702075185714
+          },
+          {
+            "seed": 523,
+            "service_volume": 350,
+            "occupancy_rate": 26.83783004629551,
+            "allocation_rate": 100.0,
+            "rejected_requests": 0,
+            "total_requests": 350,
+            "cumulative_reward": 2610.047019330831,
+            "mean_cruising_time_min": 5.304017032395257,
+            "mean_step_latency_ms": 0.002766477820941956
+          }
+        ]
+      },
+      "summary": {
+        "MARL-GCN": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 350.0,
+            "std": 0.0,
+            "median": 350.0,
+            "iqr": 0.0,
+            "ci_95_low": 350.0,
+            "ci_95_high": 350.0
+          },
+          "occupancy_rate": {
+            "mean": 27.67984025504926,
+            "std": 0.7924845826788018,
+            "median": 27.889441910156187,
+            "iqr": 1.1378860079024555,
+            "ci_95_low": 27.1129309359547,
+            "ci_95_high": 28.24674957414382
+          },
+          "cruising_time_min": {
+            "mean": 17.3125116070462,
+            "std": 1.9857049927794352,
+            "median": 16.836883255751168,
+            "iqr": 1.2214437693709712,
+            "ci_95_low": 15.892023827241003,
+            "ci_95_high": 18.732999386851397
+          },
+          "cumulative_reward": {
+            "mean": 1636.512254481201,
+            "std": 101.56868348086876,
+            "median": 1652.907132520973,
+            "iqr": 107.86792025321779,
+            "ci_95_low": 1563.854395322813,
+            "ci_95_high": 1709.1701136395889
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "FIFO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 350.0,
+            "std": 0.0,
+            "median": 350.0,
+            "iqr": 0.0,
+            "ci_95_low": 350.0,
+            "ci_95_high": 350.0
+          },
+          "occupancy_rate": {
+            "mean": 27.67984025504926,
+            "std": 0.7924845826788018,
+            "median": 27.889441910156187,
+            "iqr": 1.1378860079024555,
+            "ci_95_low": 27.1129309359547,
+            "ci_95_high": 28.24674957414382
+          },
+          "cruising_time_min": {
+            "mean": 3.9744334214533206,
+            "std": 0.09519854361540027,
+            "median": 3.9896786009605796,
+            "iqr": 0.0479380451403042,
+            "ci_95_low": 3.9063324858396946,
+            "ci_95_high": 4.0425343570669465
+          },
+          "cumulative_reward": {
+            "mean": 2805.374151245669,
+            "std": 16.898640784755322,
+            "median": 2801.806244831899,
+            "iqr": 13.039053141968452,
+            "ci_95_low": 2793.285591858777,
+            "ci_95_high": 2817.462710632561
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        },
+        "SIRO": {
+          "allocation_rate": {
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "iqr": 0.0,
+            "ci_95_low": 100.0,
+            "ci_95_high": 100.0
+          },
+          "service_volume": {
+            "mean": 350.0,
+            "std": 0.0,
+            "median": 350.0,
+            "iqr": 0.0,
+            "ci_95_low": 350.0,
+            "ci_95_high": 350.0
+          },
+          "occupancy_rate": {
+            "mean": 27.67984025504926,
+            "std": 0.7924845826788018,
+            "median": 27.889441910156187,
+            "iqr": 1.1378860079024555,
+            "ci_95_low": 27.1129309359547,
+            "ci_95_high": 28.24674957414382
+          },
+          "cruising_time_min": {
+            "mean": 6.070421217340638,
+            "std": 0.6067958549923915,
+            "median": 6.123015997373566,
+            "iqr": 0.572331427960795,
+            "ci_95_low": 5.6363456119574575,
+            "ci_95_high": 6.504496822723819
+          },
+          "cumulative_reward": {
+            "mean": 2531.551286965388,
+            "std": 71.63864289542376,
+            "median": 2540.68416823078,
+            "iqr": 68.28273155750412,
+            "ci_95_low": 2480.30408903578,
+            "ci_95_high": 2582.798484894996
+          },
+          "rejected_requests": {
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "iqr": 0.0,
+            "ci_95_low": 0.0,
+            "ci_95_high": 0.0
+          }
+        }
+      },
+      "hypothesis_tests": {
+        "MARL_vs_FIFO_cruising": {
+          "t_statistic": 21.38816836408539,
+          "p_value": 5.019829320812269e-09,
+          "statistically_significant": true
+        },
+        "MARL_vs_SIRO_cruising": {
+          "t_statistic": 18.008930863393037,
+          "p_value": 2.284752106070664e-08,
+          "statistically_significant": true
+        }
+      }
+    }
+  }
+}

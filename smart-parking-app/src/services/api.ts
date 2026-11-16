@@ -3,21 +3,70 @@
  * Connects to the Python Flask server running on localhost:5000.
  */
 
-import { UserInfo } from '../types/parking';
+import { Platform } from 'react-native';
+import Constants from 'expo-constants';
+import { UserInfo, AIAllocationResponse } from '../types/parking';
 
-// For Expo Go development on iOS simulator or Android emulator, you can use your computer's IP.
-// For standalone production deployments (APK/IPA), you MUST replace this with your hosted Python server URL (e.g. Render, Heroku).
-// Example: const API_BASE = 'https://smart-parking-backend.onrender.com';
-const API_BASE = process.env.EXPO_PUBLIC_API_URL || 'https://smart-parking-btp.onrender.com';
+/**
+ * Resolves the backend API base URL with full cross-platform environment awareness:
+ * 1. Explicit EXPO_PUBLIC_API_URL environment variable (trailing slashes stripped)
+ * 2. In Development (__DEV__):
+ *    - Web: http://127.0.0.1:5000
+ *    - Android Physical Device / Expo Go: http://<EXPO_HOST_IP>:5000 (extracted from hostUri)
+ *    - Android Emulator: http://10.0.2.2:5000
+ *    - iOS Simulator: http://127.0.0.1:5000
+ * 3. Standalone production deployment fallback: https://smart-parking-btp.onrender.com
+ */
+export function resolveApiBaseUrl(): string {
+  const envUrl = process.env.EXPO_PUBLIC_API_URL?.trim();
+  if (envUrl && envUrl.length > 0) {
+    return envUrl.replace(/\/+$/, '');
+  }
+
+  // Development mode resolution
+  if (typeof __DEV__ !== 'undefined' && __DEV__) {
+    // 1. Web browser always connects to localhost
+    if (Platform.OS === 'web') {
+      return 'http://127.0.0.1:5000';
+    }
+
+    // 2. Extract host IP from Expo bundler connection (Expo Go on physical device)
+    const hostUri = Constants.expoConfig?.hostUri
+      || (Constants as any).manifest?.debuggerHost
+      || (Constants as any).manifest2?.extra?.expoGo?.debuggerHost;
+
+    if (hostUri && typeof hostUri === 'string') {
+      const host = hostUri.split(':')[0];
+      // Verify host is a local IP and not an exp.direct tunnel
+      if (host && !host.includes('exp.direct') && !host.includes('ngrok')) {
+        return `http://${host}:5000`;
+      }
+    }
+
+    // 3. Android emulator loopback host
+    if (Platform.OS === 'android') {
+      return 'http://10.0.2.2:5000';
+    }
+
+    // 4. iOS Simulator loopback
+    return 'http://127.0.0.1:5000';
+  }
+
+  // Standalone production deployment fallback
+  return 'https://smart-parking-btp.onrender.com';
+}
+
+export const API_BASE = resolveApiBaseUrl();
 
 async function request<T>(
   endpoint: string,
   options?: RequestInit
 ): Promise<T> {
-  const url = `${API_BASE}${endpoint}`;
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${API_BASE}${cleanEndpoint}`;
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000); // 5s timeout
+    const timeout = setTimeout(() => controller.abort(), 60000); // 60s timeout for Render cold starts
     const res = await fetch(url, {
       ...options,
       signal: controller.signal,
@@ -30,9 +79,18 @@ async function request<T>(
     const data = await res.json();
     return data as T;
   } catch (err: any) {
-    // Return a graceful fallback instead of crashing
-    console.warn(`[API] ${endpoint} failed:`, err.message);
-    return { success: true, message: 'Offline mode — server unreachable' } as T;
+    // Log as informative log instead of triggering noisy LogBox warning banner on mobile screen
+    console.log(`[API] ${endpoint} unreachable (${err.message}) — using fallback mode`);
+    const isTimeout = err.name === 'AbortError' || err.message?.includes('aborted');
+    return {
+      success: false,
+      status: 'network_error',
+      message: isTimeout
+        ? 'Request timed out — server unreachable'
+        : (err.message || 'Network request failed'),
+      is_fallback: true,
+      fallback_reason: isTimeout ? 'Network timeout' : 'Network failure',
+    } as T;
   }
 }
 
@@ -84,6 +142,7 @@ interface BookingResponse {
 
 export async function bookSlot(
   slotId: string,
+  slotLabel: string,
   userEmail: string,
   durationHours: number = 2
 ): Promise<BookingResponse> {
@@ -91,9 +150,25 @@ export async function bookSlot(
     method: 'POST',
     body: JSON.stringify({
       slot_id: slotId,
+      slot_label: slotLabel,
       user_email: userEmail,
       duration_hours: durationHours,
       booking_time: new Date().toISOString(),
+    }),
+  });
+}
+
+// ============ Stage 8 MARL-GCN AI Allocation ============
+
+export async function allocateAISlot(
+  userId?: string,
+  preferredSlot?: string
+): Promise<AIAllocationResponse> {
+  return request<AIAllocationResponse>('/api/ai/allocate-slot', {
+    method: 'POST',
+    body: JSON.stringify({
+      user_id: userId,
+      preferred_slot: preferredSlot,
     }),
   });
 }

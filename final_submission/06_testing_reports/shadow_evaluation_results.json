@@ -1,0 +1,842 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-16T13:28:11Z",
+    "test_suite": "Stage 8.14 Comprehensive Shadow Evaluation",
+    "total_scenarios_evaluated": 20,
+    "reproducible_seed": 42,
+    "production_writes": 0,
+    "production_flag_enabled": false
+  },
+  "safety_and_validity": {
+    "neural_valid_allocation_rate_pct": 100.0,
+    "occupied_stall_allocations": 0,
+    "heuristic_valid_allocation_rate_pct": 100.0,
+    "agreement_rate_pct": 20.0,
+    "fallback_count": 2,
+    "fallback_rate_pct": 10.0
+  },
+  "performance_metrics": {
+    "neural_inference_latency_ms": {
+      "mean": 0.924,
+      "std": 0.736,
+      "min": 0.006,
+      "max": 2.176,
+      "budget_ms": 50.0,
+      "budget_compliance": true
+    },
+    "heuristic_latency_ms": {
+      "mean": 0.39,
+      "std": 0.396,
+      "min": 0.059,
+      "max": 1.114
+    }
+  },
+  "evaluations": [
+    {
+      "scenario_id": "SCEN-01",
+      "scenario_name": "Low Demand (All Vacant)",
+      "input_states": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot1"
+        ],
+        "latency_ms": 0.08,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.0931,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot2"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.276,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-02",
+      "scenario_name": "Moderate Demand (Stalls A2, B2 Occupied)",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot1",
+          "slot3"
+        ],
+        "latency_ms": 0.082,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.003,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.254,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 30.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-03",
+      "scenario_name": "High Demand (4 Occupied, 1 Vacant)",
+      "input_states": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot5",
+          "slot2"
+        ],
+        "latency_ms": 0.066,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot4",
+        "model_confidence": 0.0,
+        "top3": [
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.256,
+        "distance_m": 55.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": true,
+        "distance_difference_m": 0.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-04",
+      "scenario_name": "Localized Congestion (Aisle A Saturation)",
+      "input_states": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot2"
+        ],
+        "latency_ms": 0.069,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot4",
+        "model_confidence": 0.0013,
+        "top3": [
+          "slot4",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.234,
+        "distance_m": 55.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 20.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-05",
+      "scenario_name": "Demand Surge (Heavy Cruising Pressure)",
+      "input_states": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [
+        "slot1"
+      ],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot3",
+          "slot4"
+        ],
+        "latency_ms": 0.068,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot3",
+        "model_confidence": 0.0003,
+        "top3": [
+          "slot3",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.208,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-06",
+      "scenario_name": "Total Saturation (All Occupied)",
+      "input_states": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": null,
+        "top3": [],
+        "latency_ms": 0.089,
+        "distance_m": null
+      },
+      "neural": {
+        "allocated_stall": null,
+        "model_confidence": 0.0,
+        "top3": [],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.2,
+        "distance_m": null
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": true,
+        "distance_difference_m": 0.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-07",
+      "scenario_name": "Missing/Offline Sensor Telemetry",
+      "input_states": null,
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot2"
+        ],
+        "latency_ms": 0.062,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.0931,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot2"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.199,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-08",
+      "scenario_name": "Model Unavailable Resilience",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot1"
+        ],
+        "latency_ms": 0.062,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot5",
+        "model_confidence": 0.0,
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot1"
+        ],
+        "is_fallback": true,
+        "fallback_reason": "Simulated neural module error",
+        "latency_ms": 0.0,
+        "distance_m": 35.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": true,
+        "distance_difference_m": 0.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-09",
+      "scenario_name": "Invalid Topology Rejection (6 Stalls)",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot2"
+        ],
+        "latency_ms": 0.059,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot5",
+        "model_confidence": 0.0,
+        "top3": [
+          "slot5",
+          "slot4",
+          "slot2"
+        ],
+        "is_fallback": true,
+        "fallback_reason": "\u26a0\ufe0f [TOPOLOGY REJECTED] Received 6 stall states, exceeding authoritative campus layout of 5 stalls (['slot1', 'slot2', 'slot3', 'slot4', 'slot5']). Silently truncating excess stalls is prohibited; failing closed.",
+        "latency_ms": 0.006,
+        "distance_m": 35.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": true,
+        "distance_difference_m": 0.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-10",
+      "scenario_name": "Rapid Repeat Query",
+      "input_states": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "input_booked": [
+        "slot4"
+      ],
+      "heuristic": {
+        "allocated_stall": "slot2",
+        "top3": [
+          "slot2",
+          "slot1",
+          "slot5"
+        ],
+        "latency_ms": 0.059,
+        "distance_m": 70.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.0931,
+        "top3": [
+          "slot1",
+          "slot2"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 0.196,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 15.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T0",
+      "scenario_name": "Concurrent Load Thread 0",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot1",
+          "slot3"
+        ],
+        "latency_ms": 0.109,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.003,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.521,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 30.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T1",
+      "scenario_name": "Concurrent Load Thread 1",
+      "input_states": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot2",
+          "slot3"
+        ],
+        "latency_ms": 0.351,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot3",
+        "model_confidence": 0.019,
+        "top3": [
+          "slot3",
+          "slot2",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.528,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T2",
+      "scenario_name": "Concurrent Load Thread 2",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot1",
+          "slot3"
+        ],
+        "latency_ms": 0.499,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.003,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.52,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 30.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T4",
+      "scenario_name": "Concurrent Load Thread 4",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot3",
+          "slot1"
+        ],
+        "latency_ms": 0.772,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.003,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.216,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 30.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T3",
+      "scenario_name": "Concurrent Load Thread 3",
+      "input_states": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot2",
+          "slot3"
+        ],
+        "latency_ms": 1.114,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot3",
+        "model_confidence": 0.019,
+        "top3": [
+          "slot3",
+          "slot2",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.273,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T5",
+      "scenario_name": "Concurrent Load Thread 5",
+      "input_states": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot2",
+          "slot3"
+        ],
+        "latency_ms": 1.083,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot3",
+        "model_confidence": 0.019,
+        "top3": [
+          "slot3",
+          "slot2",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.308,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T8",
+      "scenario_name": "Concurrent Load Thread 8",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot3",
+          "slot1"
+        ],
+        "latency_ms": 0.694,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.003,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.53,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 30.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T6",
+      "scenario_name": "Concurrent Load Thread 6",
+      "input_states": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot4",
+        "top3": [
+          "slot4",
+          "slot3",
+          "slot1"
+        ],
+        "latency_ms": 0.949,
+        "distance_m": 55.0
+      },
+      "neural": {
+        "allocated_stall": "slot1",
+        "model_confidence": 0.003,
+        "top3": [
+          "slot1",
+          "slot3",
+          "slot4"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.717,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 30.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T7",
+      "scenario_name": "Concurrent Load Thread 7",
+      "input_states": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot2",
+          "slot3"
+        ],
+        "latency_ms": 0.869,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot3",
+        "model_confidence": 0.019,
+        "top3": [
+          "slot3",
+          "slot2",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 1.939,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    },
+    {
+      "scenario_id": "SCEN-11-T9",
+      "scenario_name": "Concurrent Load Thread 9",
+      "input_states": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "input_booked": [],
+      "heuristic": {
+        "allocated_stall": "slot5",
+        "top3": [
+          "slot5",
+          "slot3",
+          "slot2"
+        ],
+        "latency_ms": 0.657,
+        "distance_m": 35.0
+      },
+      "neural": {
+        "allocated_stall": "slot3",
+        "model_confidence": 0.019,
+        "top3": [
+          "slot3",
+          "slot2",
+          "slot5"
+        ],
+        "is_fallback": false,
+        "fallback_reason": null,
+        "latency_ms": 2.176,
+        "distance_m": 85.0
+      },
+      "comparison": {
+        "neural_valid": true,
+        "heuristic_valid": true,
+        "agreement": false,
+        "distance_difference_m": 50.0
+      }
+    }
+  ]
+}

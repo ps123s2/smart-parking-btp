@@ -58,7 +58,7 @@ def create_presentation():
     p = tf.add_paragraph()
     p.text = "3. AI Backend (Render): Python Flask server runs MARL, GNN, and GRU models continuously."
     p = tf.add_paragraph()
-    p.text = "4. User Interface: Expo React Native app with CartoDB interactive map."
+    p.text = "4. User Interface: Expo React Native app with OpenFreeMap vector map."
 
     # Slide 5: The AI Core - MARL & GNN
     slide = prs.slides.add_slide(bullet_slide_layout)
@@ -118,7 +118,7 @@ def create_presentation():
     p = tf.add_paragraph()
     p.text = "Scalability: Firebase and Render setup allows for rapid expansion to hundreds of slots."
     p = tf.add_paragraph()
-    p.text = "UI/UX: High-performance React Native Map using free CartoDB tiles."
+    p.text = "UI/UX: High-performance React Native Map using 60 FPS OpenFreeMap vector tiles."
 
     # Slide 9: Future Scope
     slide = prs.slides.add_slide(bullet_slide_layout)
