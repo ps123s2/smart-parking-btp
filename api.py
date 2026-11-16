@@ -76,6 +76,24 @@ CORS(app)  # Enable CORS for Flutter web
 
 # ============ Authentication Endpoints ============
 
+@app.route("/", methods=["GET"])
+def index():
+    """Root endpoint welcoming visitors and listing available endpoints."""
+    return jsonify({
+        "service": "Smart Parking AI Backend",
+        "status": "online",
+        "version": "1.0.0",
+        "research_reference": "Zhao & Yan (Sensors 2025) MARL-GCN",
+        "endpoints": {
+            "health": "/api/health",
+            "slots": "/api/parking/slots",
+            "recommendations": "/api/parking/recommendations",
+            "ai_allocation": "/api/ai/allocate-slot",
+            "book": "/api/parking/book"
+        }
+    }), 200
+
+
 @app.route("/api/auth/register", methods=["POST"])
 def register():
     """Register a new user"""
